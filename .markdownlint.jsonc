@@ -1,0 +1,18 @@
+{
+  "default": true,
+  "MD013": false,
+  "MD033": false,
+  "MD041": false,
+  "MD024": false,
+  "MD026": false,
+  "MD036": false,
+  "MD007": { "indent": 2 },
+  "MD010": { "code_blocks": false },
+  "MD004": { "style": "dash" },
+  "MD049": { "style": "underscore" },
+  "MD050": { "style": "asterisk" },
+  "MD040": true,
+  "MD031": true,
+  "MD022": true,
+  "MD032": true
+}

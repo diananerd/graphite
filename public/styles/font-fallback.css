@@ -1,0 +1,19 @@
+/* ════════════════════════════════════════════════════════════
+   FONT FALLBACK — calibrated metrics. Auto-generated.
+   Do not edit. Regenerate with: npm run gen:font-fallback
+   ════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: "Monaspace Neon Fallback";
+  src: local('Courier New'), local('CourierNewPSMT');
+  ascent-override: 91.4665%;
+  descent-override: 19.358%;
+  line-gap-override: 9.679%;
+  size-adjust: 103.3165%;
+}
+
+:root {
+  --font-stack: 'Monaspace Neon',
+                'Monaspace Neon Fallback: Courier New',
+                ui-monospace, 'Courier New', monospace;
+}

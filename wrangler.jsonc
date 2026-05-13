@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "graphite",
+  "compatibility_date": "2025-04-01",
+  "main": "./worker/index.ts",
+
+  // Astro builds static HTML/CSS/fonts to ./dist.
+  // The Worker runs FIRST only for /images/* — all other paths are served
+  // directly from the assets store by the runtime.
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/images/*", "/internal/*"]
+  },
+
+  // R2 bucket: stores PNG originals AND pre-generated AVIF variants.
+  "r2_buckets": [
+    {
+      "binding": "R2",
+      "bucket_name": "graphite-images",
+      "preview_bucket_name": "graphite-images-preview"
+    }
+  ],
+
+  // Cloudflare Images binding (requires Images plan).
+  "images": {
+    "binding": "IMAGES"
+  },
+
+  // Secrets — added via `wrangler secret put INTERNAL_KEY`.
+  "vars": {},
+
+  "observability": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,3 @@
+# Image originals are served from R2 via the Worker — exclude them from the
+# Workers static-assets bundle.
+images/

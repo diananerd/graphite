@@ -1,0 +1,69 @@
+{
+  "name": "graphite",
+  "version": "1.0.0",
+  "description": "Graphite — a fast, typography-driven blog system on Cloudflare Workers + R2",
+  "type": "module",
+  "license": "MIT",
+  "author": "Diana Nerd <diananerdoficial@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diananerd/graphite.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/generate-og.mjs && astro build && node scripts/assert-build.mjs",
+    "build:fast": "astro build",
+    "check": "astro check",
+    "preview": "astro preview",
+    "deploy": "npm run build && wrangler deploy",
+    "gen:font-fallback": "node scripts/generate-font-fallback.mjs",
+    "fetch:font": "node scripts/fetch-font.mjs",
+    "subset:font": "node scripts/subset-font.mjs",
+    "lint:md": "markdownlint-cli2 \"content/**/*.md\"",
+    "validate:frontmatter": "node scripts/validate-frontmatter.mjs content/posts/*.md",
+    "validate:content": "node scripts/validate-content.mjs content/posts/*.md",
+    "validate:anim": "node scripts/validate-anim.mjs content/posts/*.md",
+    "validate": "npm run validate:frontmatter && npm run validate:content && npm run validate:anim",
+    "prepare": "husky || true"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@capsizecss/core": "^4.0.0",
+    "@capsizecss/metrics": "^3.0.0",
+    "@capsizecss/unpack": "^2.0.0",
+    "@cloudflare/workers-types": "^4.20260511.1",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@resvg/resvg-js": "^2.6.0",
+    "gray-matter": "^4.0.3",
+    "husky": "^9.0.0",
+    "image-size": "^1.1.1",
+    "lint-staged": "^15.0.0",
+    "markdownlint-cli2": "^0.13.0",
+    "rehype-mermaid": "^3.0.0",
+    "satori": "^0.12.0",
+    "svgo": "^3.0.0",
+    "typescript": "^5.0.0",
+    "unist-util-visit": "^5.0.0",
+    "wrangler": "^4.0.0"
+  },
+  "lint-staged": {
+    "content/posts/**/*.md": [
+      "node scripts/validate-frontmatter.mjs",
+      "node scripts/validate-content.mjs",
+      "node scripts/validate-anim.mjs",
+      "markdownlint-cli2"
+    ],
+    "public/images/**/*.png": [
+      "node scripts/optimize-png.mjs"
+    ]
+  }
+}

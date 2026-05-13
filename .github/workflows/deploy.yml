@@ -1,0 +1,87 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install oxipng
+        run: sudo apt-get update && sudo apt-get install -y oxipng
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Install Chromium for Mermaid (optional)
+        run: npx playwright install chromium --with-deps || true
+
+      - name: Fetch font + generate font fallback CSS
+        run: |
+          npm run fetch:font
+          npm run gen:font-fallback
+
+      - name: Validate content
+        run: |
+          if compgen -G "content/posts/*.md" > /dev/null; then
+            npm run validate
+            npm run lint:md
+          else
+            echo "No posts yet - skipping validation"
+          fi
+
+      - name: Build
+        run: npm run build
+
+      - name: Sync PNG originals to R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          shopt -s nullglob
+          for file in public/images/*.png; do
+            [ -f "$file" ] || continue
+            oxipng --opt max --strip all --quiet --in-place "$file"
+            npx wrangler r2 object put \
+              "graphite-images/images/$(basename "$file")" \
+              --file "$file" \
+              --content-type "image/png" \
+              --remote
+          done
+
+      - name: Deploy Worker
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: npx wrangler deploy
+
+      - name: Pre-generate AVIF variants
+        env:
+          INTERNAL_KEY: ${{ secrets.INTERNAL_KEY }}
+        run: |
+          shopt -s nullglob
+          for file in public/images/*.png; do
+            [ -f "$file" ] || continue
+            filename=$(basename "$file")
+            echo "Generating variants for $filename"
+            curl -sf -X POST https://diananerd.com/internal/generate-variants \
+              -H "Authorization: Bearer $INTERNAL_KEY" \
+              -H "Content-Type: application/json" \
+              -d "{\"file\": \"$filename\"}" \
+              || echo "Warning: variant generation failed for $filename (non-blocking)"
+          done
