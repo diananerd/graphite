@@ -11,7 +11,7 @@ const OUT = './public/fonts/MonaspaceNeonVarVF-subset.woff2';
 
 if (!existsSync(FONT)) {
   console.error(`✗ Font missing: ${FONT}`);
-  console.error('  Run: npm run fetch:font');
+  console.error('  Run: pnpm fetch:font');
   process.exit(1);
 }
 

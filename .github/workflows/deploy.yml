@@ -17,36 +17,40 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: pnpm
 
       - name: Install oxipng
         run: sudo apt-get update && sudo apt-get install -y oxipng
 
-      - name: Install npm dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Install Chromium for Mermaid (optional)
-        run: npx playwright install chromium --with-deps || true
+        run: pnpm dlx playwright install chromium --with-deps || true
 
       - name: Fetch font + generate font fallback CSS
         run: |
-          npm run fetch:font
-          npm run gen:font-fallback
+          pnpm fetch:font
+          pnpm gen:font-fallback
 
       - name: Validate content
         run: |
           if compgen -G "content/posts/*.md" > /dev/null; then
-            npm run validate
-            npm run lint:md
+            pnpm validate
+            pnpm lint:md
           else
             echo "No posts yet - skipping validation"
           fi
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
       - name: Sync PNG originals to R2
         env:
@@ -57,7 +61,7 @@ jobs:
           for file in public/images/*.png; do
             [ -f "$file" ] || continue
             oxipng --opt max --strip all --quiet --in-place "$file"
-            npx wrangler r2 object put \
+            pnpm exec wrangler r2 object put \
               "graphite-images/images/$(basename "$file")" \
               --file "$file" \
               --content-type "image/png" \
@@ -68,7 +72,7 @@ jobs:
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: npx wrangler deploy
+        run: pnpm exec wrangler deploy
 
       - name: Pre-generate AVIF variants
         env:

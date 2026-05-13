@@ -21,17 +21,17 @@ This repository currently powers [diananerd.com](https://diananerd.com).
 ```bash
 git clone https://github.com/diananerd/graphite.git
 cd graphite
-npm install
-npm run fetch:font           # Monaspace Neon VF → public/fonts/
-npm run gen:font-fallback    # calibrated CSS fallback
-npm run dev                  # http://localhost:4321
+pnpm install
+pnpm fetch:font              # Monaspace Neon VF → public/fonts/
+pnpm gen:font-fallback       # calibrated CSS fallback
+pnpm dev                     # http://localhost:4321
 ```
 
 Optional setup:
 
 ```bash
 brew install oxipng          # lossless PNG optimization (or `sudo apt install oxipng`)
-npx playwright install chromium --with-deps   # Mermaid diagram rendering
+pnpm dlx playwright install chromium --with-deps   # Mermaid diagram rendering
 ```
 
 ---
@@ -67,7 +67,7 @@ match what you put in `blog.config.ts`. All site source code reads from the conf
 
 ## Writing a post
 
-```bash
+```sh
 cat > content/posts/hello-world.md <<'EOF'
 ---
 title: "Hello world"
@@ -139,15 +139,15 @@ generation source.
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | Astro dev server, hot reload |
-| `npm run build` | `generate-og` → `astro build` → `assert-build` (gate) |
-| `npm run check` | TypeScript check via `astro check` |
-| `npm run deploy` | `build` then `wrangler deploy` |
-| `npm run validate` | All three validators against `content/posts/*.md` |
-| `npm run lint:md` | `markdownlint-cli2` |
-| `npm run fetch:font` | Download Monaspace Neon VF from GitHub |
-| `npm run gen:font-fallback` | Generate calibrated `font-fallback.css` |
-| `npm run subset:font` | Optional — subset font to ~95KB (requires `pyftsubset`) |
+| `pnpm dev` | Astro dev server, hot reload |
+| `pnpm build` | `generate-og` → `astro build` → `assert-build` (gate) |
+| `pnpm check` | TypeScript check via `astro check` |
+| `pnpm deploy` | `build` then `wrangler deploy` |
+| `pnpm validate` | All three validators against `content/posts/*.md` |
+| `pnpm lint:md` | `markdownlint-cli2` |
+| `pnpm fetch:font` | Download Monaspace Neon VF from GitHub |
+| `pnpm gen:font-fallback` | Generate calibrated `font-fallback.css` |
+| `pnpm subset:font` | Optional — subset font to ~95KB (requires `pyftsubset`) |
 
 ---
 
@@ -155,8 +155,8 @@ generation source.
 
 ### One-time setup
 
-1. Create the R2 bucket: `npx wrangler r2 bucket create graphite-images`
-2. Add the internal key: `openssl rand -hex 32 | npx wrangler secret put INTERNAL_KEY`
+1. Create the R2 bucket: `pnpm exec wrangler r2 bucket create graphite-images`
+2. Add the internal key: `openssl rand -hex 32 | pnpm exec wrangler secret put INTERNAL_KEY`
 3. Add GitHub secrets:
    - `CF_ACCOUNT_ID` — Cloudflare Dashboard → Overview
    - `CF_API_TOKEN` — Workers:Edit, R2:Edit

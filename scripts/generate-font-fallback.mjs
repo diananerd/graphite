@@ -10,11 +10,11 @@ const OUT_PATH = './public/styles/font-fallback.css';
 
 if (!existsSync(FONT_PATH)) {
   console.warn(`⚠ Font missing: ${FONT_PATH}`);
-  console.warn('  Run: npm run fetch:font');
+  console.warn('  Run: pnpm fetch:font');
   // Write a minimal stack so the build still succeeds.
   writeFileSync(
     OUT_PATH,
-    `/* Placeholder — run \`npm run fetch:font\` + \`npm run gen:font-fallback\` */\n:root { --font-stack: 'Monaspace Neon', ui-monospace, 'Courier New', monospace; }\n`,
+    `/* Placeholder — run \`pnpm fetch:font\` + \`pnpm gen:font-fallback\` */\n:root { --font-stack: 'Monaspace Neon', ui-monospace, 'Courier New', monospace; }\n`,
   );
   process.exit(0);
 }
@@ -46,7 +46,7 @@ const { fontFaces } = createFontStack([monaspaceMetrics, courierMetrics]);
 
 const css = `/* ════════════════════════════════════════════════════════════
    FONT FALLBACK — calibrated metrics. Auto-generated.
-   Do not edit. Regenerate with: npm run gen:font-fallback
+   Do not edit. Regenerate with: pnpm gen:font-fallback
    ════════════════════════════════════════════════════════════ */
 
 ${fontFaces}

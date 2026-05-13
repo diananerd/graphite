@@ -10,15 +10,17 @@
     "url": "https://github.com/diananerd/graphite.git"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20",
+    "pnpm": ">=10"
   },
+  "packageManager": "pnpm@10.30.2",
   "scripts": {
     "dev": "astro dev",
     "build": "node scripts/generate-og.mjs && astro build && node scripts/assert-build.mjs",
     "build:fast": "astro build",
     "check": "astro check",
     "preview": "astro preview",
-    "deploy": "npm run build && wrangler deploy",
+    "deploy": "pnpm run build && wrangler deploy",
     "gen:font-fallback": "node scripts/generate-font-fallback.mjs",
     "fetch:font": "node scripts/fetch-font.mjs",
     "subset:font": "node scripts/subset-font.mjs",
@@ -26,7 +28,7 @@
     "validate:frontmatter": "node scripts/validate-frontmatter.mjs content/posts/*.md",
     "validate:content": "node scripts/validate-content.mjs content/posts/*.md",
     "validate:anim": "node scripts/validate-anim.mjs content/posts/*.md",
-    "validate": "npm run validate:frontmatter && npm run validate:content && npm run validate:anim",
+    "validate": "pnpm run validate:frontmatter && pnpm run validate:content && pnpm run validate:anim",
     "prepare": "husky || true"
   },
   "dependencies": {
@@ -54,6 +56,9 @@
     "typescript": "^5.0.0",
     "unist-util-visit": "^5.0.0",
     "wrangler": "^4.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd", "@resvg/resvg-js"]
   },
   "lint-staged": {
     "content/posts/**/*.md": [
