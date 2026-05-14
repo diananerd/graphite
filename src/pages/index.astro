@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import blogConfig from '../../blog.config.ts';
 
 const posts = (await getCollection('posts', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf() || a.id.localeCompare(b.id));
 ---
 
 <Base>
@@ -44,7 +44,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft))
 
 <style>
   .empty {
-    color: var(--fg-dim, #6e6e6b);
+    color: var(--fg-dim, var(--fg-dim));
     font-size: 0.875rem;
   }
   .site-footer {
@@ -55,7 +55,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft))
   }
   .site-footer a {
     font-size: 0.875rem;
-    color: var(--fg-dim, #6e6e6b);
+    color: var(--fg-dim, var(--fg-dim));
     text-decoration: none;
   }
   .site-footer a:hover {

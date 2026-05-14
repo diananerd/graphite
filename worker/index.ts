@@ -84,11 +84,6 @@ export default {
       return env.ASSETS.fetch(request);
     }
 
-    // Reject direct PNG access — only variants are served.
-    if (url.pathname.endsWith('.png')) {
-      return new Response('Not Found', { status: 404 });
-    }
-
     const cacheKey = new Request(url.toString(), request);
     const cache = (caches as unknown as { default: Cache }).default;
     const cached = await cache.match(cacheKey as RequestInfo);

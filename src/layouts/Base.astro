@@ -62,6 +62,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     crossorigin
   />
 
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles/font-fallback.css" />
 
   <style is:inline>
@@ -76,7 +77,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* Critical CSS — above-the-fold, available before global.css parses */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #181818; --fg: #e0ddd6; --accent: #8faacc;
+      --bg: #181818; --fg: #e0ddd6; --accent: #bf7fff;
       --font: var(--font-stack, 'Monaspace Neon', ui-monospace, monospace);
       --gap: 2rem; --col: 65ch;
     }

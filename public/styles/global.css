@@ -19,12 +19,12 @@
 
   /* Foreground: warm off-white */
   --fg:         #e0ddd6;
-  --fg-dim:     #6e6e6b;
-  --fg-muted:   #4a4a48;
+  --fg-dim:     #a0a09b;
+  --fg-muted:   #898986;
 
-  /* Accent: steel blue */
-  --accent:     #8faacc;
-  --accent-dim: #1c2d3f;
+  /* Accent: neon purple */
+  --accent:     #bf7fff;
+  --accent-dim: #2a1250;
 
   --border:     #2c2c2a;
 

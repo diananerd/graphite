@@ -10,7 +10,7 @@ export async function GET(context: APIContext) {
     description: blogConfig.site.description,
     site: context.site!,
     items: posts
-      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf() || a.id.localeCompare(b.id))
       .map((post) => ({
         title: post.data.title,
         pubDate: post.data.date,
