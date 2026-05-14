@@ -187,7 +187,7 @@
           font-family="var(--font)" font-size="14" fill="var(--fg, #e0e0e0)"><tspan x="0">Node.js event loop — 6 phases</tspan></text>
   </g>
   <g class="step-counter-anchor screen-stable-fixed" data-anchor="bl" transform="translate(0 815) scale(1)">
-    <text class="step-counter" x="54" y="-14" text-anchor="start"
+    <text class="step-counter" x="14" y="-14" text-anchor="start"
         role="status" aria-live="polite" aria-atomic="true"
         aria-label="Step 1 of 7"
         font-family="var(--font)" font-size="12" fill="var(--fg-dim, #999)">1 / 7</text>

@@ -850,12 +850,12 @@ function emitCaptionBar(proj, stepPlan, meta) {
  */
 function emitStepCounter(proj, stepPlan) {
   // Pixel-space; wrapping group counter-scales for constant size.
+  // Anchor at bottom-left, counter flush against the left edge — no left
+  // button shares this corner so it can hug the border.
   const fs = 12;
   const total = stepPlan.length;
-  // Anchor at bottom-left (canvas corner). Counter offset above and right
-  // of the corner by ~ctrlPad so it sits within the diagram frame.
-  const x = 14 + 32 + 8;   // ctrlPad + (where a left button would be) + visual gap
-  const y = -14;            // above the bottom edge by ctrlPad
+  const x = 14;
+  const y = -14;
   return `<g class="step-counter-anchor screen-stable-fixed" data-anchor="bl" transform="translate(0 ${proj.canvasH}) scale(1)">
     <text class="step-counter" x="${x}" y="${y}" text-anchor="start"
         role="status" aria-live="polite" aria-atomic="true"
