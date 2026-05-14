@@ -1,0 +1,14 @@
+{
+  "name": "p2-06-mixed-shapes",
+  "title": "All P1-supported shapes side by side, measured automatically",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "rect",     "label": "rect",     "role": "primary",   "x":   0, "y": 0 },
+    { "id": "b", "shape": "round",    "label": "round",    "role": "secondary", "x": 160, "y": 0 },
+    { "id": "c", "shape": "pill",     "label": "pill",     "role": "success",   "x": 320, "y": 0 },
+    { "id": "d", "shape": "circle",   "label": "circ",     "role": "warning",   "x": 460, "y": 0 },
+    { "id": "e", "shape": "ellipse",  "label": "ellipse",  "role": "data",      "x": 620, "y": 0 },
+    { "id": "f", "shape": "cylinder", "label": "cyl",      "role": "external",  "x": 780, "y": 0 }
+  ]
+}

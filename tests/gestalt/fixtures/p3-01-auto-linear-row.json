@@ -1,0 +1,19 @@
+{
+  "name": "p3-01-auto-linear-row",
+  "title": "Linear chain auto-detected → row layout",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "round", "label": "Source",  "role": "primary"   },
+    { "id": "b", "shape": "round", "label": "Lint",    "role": "secondary" },
+    { "id": "c", "shape": "round", "label": "Test",    "role": "warning"   },
+    { "id": "d", "shape": "round", "label": "Build",   "role": "data"      },
+    { "id": "e", "shape": "round", "label": "Deploy",  "role": "success"   }
+  ],
+  "edges": [
+    { "from": "a", "to": "b" },
+    { "from": "b", "to": "c" },
+    { "from": "c", "to": "d" },
+    { "from": "d", "to": "e" }
+  ]
+}

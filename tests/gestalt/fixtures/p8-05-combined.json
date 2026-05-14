@@ -1,0 +1,23 @@
+{
+  "name": "p8-05-combined",
+  "title": "Combined variants — realistic system diagram",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "user", "shape": "actor",    "label": "User",       "role": "external" },
+    { "id": "edge", "shape": "round",    "label": "Edge",       "role": "info",      "style": { "fill": "tinted",   "corners": "round-lg" } },
+    { "id": "app",  "shape": "rect",     "label": "App",        "role": "primary",   "style": { "fill": "filled",   "emphasis": "accent",   "shadow": "subtle" } },
+    { "id": "auth", "shape": "hexagon",  "label": "Auth",       "role": "data",      "style": { "fill": "tinted",   "border": "double" } },
+    { "id": "fail", "shape": "diamond",  "label": "valid?",     "role": "warning",   "style": { "fill": "glass",    "border": "dashed" } },
+    { "id": "err",  "shape": "round",    "label": "error",      "role": "danger",    "style": { "emphasis": "critical", "shadow": "lifted" } },
+    { "id": "ok",   "shape": "cylinder", "label": "DB",         "role": "success",   "style": { "fill": "filled" } }
+  ],
+  "edges": [
+    { "from": "user", "to": "edge" },
+    { "from": "edge", "to": "app" },
+    { "from": "app",  "to": "auth", "role": "data" },
+    { "from": "auth", "to": "fail", "role": "warning" },
+    { "from": "fail", "to": "ok",   "role": "success", "label": "yes" },
+    { "from": "fail", "to": "err",  "role": "danger",  "label": "no" }
+  ]
+}

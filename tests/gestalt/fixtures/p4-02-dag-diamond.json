@@ -1,0 +1,20 @@
+{
+  "name": "p4-02-dag-diamond",
+  "title": "Diamond-shaped DAG, 4 layers",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "round", "label": "Source",  "role": "primary"   },
+    { "id": "b", "shape": "round", "label": "Branch1", "role": "secondary" },
+    { "id": "c", "shape": "round", "label": "Branch2", "role": "warning"   },
+    { "id": "d", "shape": "round", "label": "Merge",   "role": "success"   },
+    { "id": "e", "shape": "round", "label": "Sink",    "role": "data"      }
+  ],
+  "edges": [
+    { "from": "a", "to": "b" },
+    { "from": "a", "to": "c" },
+    { "from": "b", "to": "d" },
+    { "from": "c", "to": "d" },
+    { "from": "d", "to": "e" }
+  ]
+}

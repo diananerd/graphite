@@ -1,0 +1,20 @@
+{
+  "name": "p7-02-radial-fsm",
+  "title": "FSM with cycle — radial layout (clock face)",
+  "ratio": "1:1",
+  "margin": 64,
+  "nodes": [
+    { "id": "idle",    "shape": "circle", "label": "idle",    "role": "muted"     },
+    { "id": "request", "shape": "circle", "label": "request", "role": "primary"   },
+    { "id": "fetch",   "shape": "circle", "label": "fetch",   "role": "secondary" },
+    { "id": "render",  "shape": "circle", "label": "render",  "role": "success"   },
+    { "id": "settle",  "shape": "circle", "label": "settle",  "role": "info"      }
+  ],
+  "edges": [
+    { "from": "idle",    "to": "request" },
+    { "from": "request", "to": "fetch" },
+    { "from": "fetch",   "to": "render" },
+    { "from": "render",  "to": "settle" },
+    { "from": "settle",  "to": "idle" }
+  ]
+}

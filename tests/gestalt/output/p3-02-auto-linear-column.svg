@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 306 544"
+     role="img"
+     class="gestalt-root"
+     data-margin="48"
+     data-layout="linear-column"
+     data-content-bbox="-48,0,96,448"
+     aria-label="Portrait ratio + linear chain → column layout"
+     tabindex="-1">
+  <title>Portrait ratio + linear chain → column layout</title>
+  <desc>Portrait ratio + linear chain → column layout — gestalt diagram</desc>
+  <defs>
+    <style>:root { 
+  --bg: #181818; --bg-surface: #202020;
+  --cyan: #00d8ff; --green: #4afa7a; --purple: #bd93f9; --pink: #ff79c6;
+  --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
+  --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
+  --font: 'Monaspace Neon', ui-monospace, monospace;
+ } .gestalt-root { background: var(--bg); cursor: default; } 
+    @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+  </style>
+    
+  <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.35"/>
+  </filter>
+  <filter id="shadow-lifted" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.5"/>
+  </filter>
+
+    <marker id="mk-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+      </marker>
+  </defs>
+  <rect width="306" height="544" fill="var(--bg)"/>
+  <g class="zoom-root">
+    
+    
+    <g class="g-edge" data-id="user-app">
+    <path d="M 153 192 L 153 224" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="app-api">
+    <path d="M 153 280 L 153 312" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="api-db">
+    <path d="M 153 368 L 153 400" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g>
+    
+    <g class="g-node" data-id="user" role="img" aria-label="User">
+      <title>User</title>
+      
+        <circle cx="153" cy="65.68" r="15.680000000000001" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <path d="M 139.672 82.36000000000001
+                 C 139.672 103.156
+                   129.48 127.418
+                   129.48 151.68
+                 L 176.52 151.68
+                 C 176.52 127.418
+                   166.328 103.156
+                   166.328 82.36000000000001
+                 Z" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(153,184) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--pink)">User</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="app" role="img" aria-label="App">
+      <title>App</title>
+      <rect x="105" y="224" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(153,256) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">App</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="api" role="img" aria-label="API">
+      <title>API</title>
+      <rect x="105" y="312" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(153,344) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">API</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="db" role="img" aria-label="DB">
+      <title>DB</title>
+      
+        <path d="M 113 412 A 40 12 0 0 0 193 412 L 193 484 A 40 12 0 0 1 113 484 Z" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <ellipse cx="153" cy="412" rx="40" ry="12" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(153,452) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">DB</text>
+      </g>
+      
+    </g>
+  </g>
+  
+  
+</svg>

@@ -1,0 +1,13 @@
+{
+  "name": "p2-04-size-hints",
+  "title": "Size hint multipliers — xs, sm, md, lg, xl",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "xs", "shape": "round", "label": "xs", "size": "xs", "role": "muted",     "x":   0, "y": 0 },
+    { "id": "sm", "shape": "round", "label": "sm", "size": "sm", "role": "info",      "x": 140, "y": 0 },
+    { "id": "md", "shape": "round", "label": "md", "size": "md", "role": "primary",   "x": 280, "y": 0 },
+    { "id": "lg", "shape": "round", "label": "lg", "size": "lg", "role": "secondary", "x": 440, "y": 0 },
+    { "id": "xl", "shape": "round", "label": "xl", "size": "xl", "role": "success",   "x": 620, "y": 0 }
+  ]
+}

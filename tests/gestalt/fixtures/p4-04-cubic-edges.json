@@ -1,0 +1,20 @@
+{
+  "name": "p4-04-cubic-edges",
+  "title": "Service mesh — cubic Bezier edges",
+  "ratio": "16:9",
+  "margin": 48,
+  "layout": "sugiyama-lr",
+  "nodes": [
+    { "id": "ui",   "shape": "round",    "label": "UI",       "role": "primary"   },
+    { "id": "api",  "shape": "rect",     "label": "API",      "role": "secondary" },
+    { "id": "auth", "shape": "hexagon",  "label": "Auth",     "role": "data"      },
+    { "id": "biz",  "shape": "hexagon",  "label": "Business", "role": "success"   },
+    { "id": "db",   "shape": "cylinder", "label": "DB",       "role": "data"      }
+  ],
+  "edges": [
+    { "from": "ui",   "to": "api",  "style": "cubic", "label": "REST" },
+    { "from": "api",  "to": "auth", "style": "cubic", "role": "data" },
+    { "from": "api",  "to": "biz",  "style": "cubic", "role": "success" },
+    { "from": "biz",  "to": "db",   "style": "cubic", "role": "data", "label": "write" }
+  ]
+}

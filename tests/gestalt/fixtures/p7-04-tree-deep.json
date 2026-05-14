@@ -1,0 +1,27 @@
+{
+  "name": "p7-04-tree-deep",
+  "title": "Deep tree — 4 levels, unbalanced",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "round", "label": "App",       "role": "primary"   },
+    { "id": "b", "shape": "rect",  "label": "Frontend",  "role": "secondary" },
+    { "id": "c", "shape": "rect",  "label": "Backend",   "role": "secondary" },
+    { "id": "d", "shape": "round", "label": "UI",        "role": "info"      },
+    { "id": "e", "shape": "round", "label": "Router",    "role": "info"      },
+    { "id": "f", "shape": "round", "label": "API",       "role": "data"      },
+    { "id": "g", "shape": "round", "label": "Workers",   "role": "data"      },
+    { "id": "h", "shape": "round", "label": "Auth",      "role": "warning"   },
+    { "id": "i", "shape": "round", "label": "Billing",   "role": "warning"   }
+  ],
+  "edges": [
+    { "from": "a", "to": "b" },
+    { "from": "a", "to": "c" },
+    { "from": "b", "to": "d" },
+    { "from": "b", "to": "e" },
+    { "from": "c", "to": "f" },
+    { "from": "c", "to": "g" },
+    { "from": "f", "to": "h" },
+    { "from": "f", "to": "i" }
+  ]
+}

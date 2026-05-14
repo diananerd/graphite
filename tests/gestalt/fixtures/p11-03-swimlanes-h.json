@@ -1,0 +1,26 @@
+{
+  "name": "p11-03-swimlanes-h",
+  "title": "Horizontal swimlanes — process across 3 actors",
+  "ratio": "16:9",
+  "margin": 32,
+  "lanes": [
+    { "id": "ln1", "label": "User",     "contains": ["client", "submit"] },
+    { "id": "ln2", "label": "Frontend", "contains": ["ui", "validate"] },
+    { "id": "ln3", "label": "Backend",  "contains": ["api", "db"] }
+  ],
+  "nodes": [
+    { "id": "client",   "shape": "actor", "label": "Client",  "role": "external" },
+    { "id": "submit",   "shape": "parallelogram", "label": "submit", "role": "primary" },
+    { "id": "ui",       "shape": "rect",  "label": "UI form", "role": "primary" },
+    { "id": "validate", "shape": "diamond","label": "valid?", "role": "warning" },
+    { "id": "api",      "shape": "rect",  "label": "API",     "role": "secondary" },
+    { "id": "db",       "shape": "cylinder","label":"DB",     "role": "data" }
+  ],
+  "edges": [
+    { "from": "client",   "to": "submit",   "style": { "head": "arrow" } },
+    { "from": "submit",   "to": "ui",       "style": { "head": "arrow" } },
+    { "from": "ui",       "to": "validate", "style": { "head": "arrow" } },
+    { "from": "validate", "to": "api",      "style": { "head": "arrow" }, "label": "ok", "role": "success" },
+    { "from": "api",      "to": "db",       "style": { "head": "arrow", "line": "double" }, "role": "data" }
+  ]
+}

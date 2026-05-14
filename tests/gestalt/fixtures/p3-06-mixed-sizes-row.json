@@ -1,0 +1,17 @@
+{
+  "name": "p3-06-mixed-sizes-row",
+  "title": "Mixed label widths in a row — gap stays uniform via measure()",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "round", "label": "X",                 "role": "primary"   },
+    { "id": "b", "shape": "round", "label": "auth-service",      "role": "secondary" },
+    { "id": "c", "shape": "round", "label": "DB",                "role": "data"      },
+    { "id": "d", "shape": "round", "label": "events.consumer",   "role": "success"   }
+  ],
+  "edges": [
+    { "from": "a", "to": "b" },
+    { "from": "b", "to": "c" },
+    { "from": "c", "to": "d" }
+  ]
+}

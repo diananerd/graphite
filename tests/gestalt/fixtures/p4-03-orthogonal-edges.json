@@ -1,0 +1,19 @@
+{
+  "name": "p4-03-orthogonal-edges",
+  "title": "Block diagram — orthogonal manhattan edges",
+  "ratio": "16:9",
+  "margin": 48,
+  "layout": "sugiyama-lr",
+  "nodes": [
+    { "id": "gw",    "shape": "rect",     "label": "Gateway",  "role": "primary"   },
+    { "id": "auth",  "shape": "hexagon",  "label": "Auth",     "role": "secondary" },
+    { "id": "users", "shape": "hexagon",  "label": "Users",    "role": "secondary" },
+    { "id": "store", "shape": "cylinder", "label": "Store",    "role": "data"      }
+  ],
+  "edges": [
+    { "from": "gw",    "to": "auth",  "style": "orthogonal" },
+    { "from": "gw",    "to": "users", "style": "orthogonal" },
+    { "from": "auth",  "to": "store", "style": "orthogonal", "role": "data" },
+    { "from": "users", "to": "store", "style": "orthogonal", "role": "data" }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "p4-01-dag-fanout",
+  "title": "1→3 fan-out DAG, auto-Sugiyama LR",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "src", "shape": "round", "label": "Publisher", "role": "primary"   },
+    { "id": "a",   "shape": "round", "label": "Sub A",     "role": "secondary" },
+    { "id": "b",   "shape": "round", "label": "Sub B",     "role": "success"   },
+    { "id": "c",   "shape": "round", "label": "Sub C",     "role": "warning"   }
+  ],
+  "edges": [
+    { "from": "src", "to": "a" },
+    { "from": "src", "to": "b" },
+    { "from": "src", "to": "c" }
+  ]
+}

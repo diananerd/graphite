@@ -1,0 +1,19 @@
+{
+  "name": "p4-05-dag-tb-portrait",
+  "title": "DAG in portrait → Sugiyama TB",
+  "ratio": "9:16",
+  "margin": 48,
+  "nodes": [
+    { "id": "in",    "shape": "actor",   "label": "User",      "role": "external"  },
+    { "id": "edge",  "shape": "cloud",   "label": "Edge CDN",  "role": "info"      },
+    { "id": "app",   "shape": "rect",    "label": "App",       "role": "primary"   },
+    { "id": "cache", "shape": "round",   "label": "Cache",     "role": "warning"   },
+    { "id": "db",    "shape": "cylinder","label": "DB",        "role": "data"      }
+  ],
+  "edges": [
+    { "from": "in",    "to": "edge" },
+    { "from": "edge",  "to": "app" },
+    { "from": "app",   "to": "cache" },
+    { "from": "app",   "to": "db",    "role": "data" }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "p7-01-tree-tb",
+  "title": "Tidy tree TB — file system / org chart",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "root", "shape": "round",    "label": "root",      "role": "primary"   },
+    { "id": "src",  "shape": "rect",     "label": "src",       "role": "secondary" },
+    { "id": "tst",  "shape": "rect",     "label": "tests",     "role": "secondary" },
+    { "id": "doc",  "shape": "rect",     "label": "docs",      "role": "secondary" },
+    { "id": "ind",  "shape": "round",    "label": "index.ts",  "role": "data"      },
+    { "id": "util", "shape": "round",    "label": "utils.ts",  "role": "data"      },
+    { "id": "spec", "shape": "round",    "label": "spec.ts",   "role": "data"      },
+    { "id": "rdme", "shape": "round",    "label": "README.md", "role": "data"      }
+  ],
+  "edges": [
+    { "from": "root", "to": "src" },
+    { "from": "root", "to": "tst" },
+    { "from": "root", "to": "doc" },
+    { "from": "src",  "to": "ind" },
+    { "from": "src",  "to": "util" },
+    { "from": "tst",  "to": "spec" },
+    { "from": "doc",  "to": "rdme" }
+  ]
+}

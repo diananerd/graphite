@@ -1,0 +1,36 @@
+{
+  "name": "p5-02-dense-with-zoom",
+  "title": "Dense DAG that benefits from zoom",
+  "ratio": "16:9",
+  "margin": 48,
+  "controls": ["zoom", "pan", "auto-fit"],
+  "nodes": [
+    { "id": "in",   "shape": "actor",   "label": "Client",    "role": "external"  },
+    { "id": "lb",   "shape": "rect",    "label": "LB",        "role": "info"      },
+    { "id": "gw",   "shape": "rect",    "label": "Gateway",   "role": "primary"   },
+    { "id": "auth", "shape": "hexagon", "label": "Auth",      "role": "data"      },
+    { "id": "api1", "shape": "rect",    "label": "API-1",     "role": "secondary" },
+    { "id": "api2", "shape": "rect",    "label": "API-2",     "role": "secondary" },
+    { "id": "api3", "shape": "rect",    "label": "API-3",     "role": "secondary" },
+    { "id": "cache","shape": "round",   "label": "Cache",     "role": "warning"   },
+    { "id": "queue","shape": "rect",    "label": "Queue",     "role": "info"      },
+    { "id": "w1",   "shape": "round",   "label": "Worker-1",  "role": "success"   },
+    { "id": "w2",   "shape": "round",   "label": "Worker-2",  "role": "success"   },
+    { "id": "db",   "shape": "cylinder","label": "DB",        "role": "data"      }
+  ],
+  "edges": [
+    { "from": "in",   "to": "lb",   "style": "orthogonal" },
+    { "from": "lb",   "to": "gw",   "style": "orthogonal" },
+    { "from": "gw",   "to": "auth", "style": "orthogonal", "role": "data" },
+    { "from": "gw",   "to": "api1", "style": "orthogonal" },
+    { "from": "gw",   "to": "api2", "style": "orthogonal" },
+    { "from": "gw",   "to": "api3", "style": "orthogonal" },
+    { "from": "api1", "to": "cache","style": "orthogonal", "role": "warning" },
+    { "from": "api2", "to": "queue","style": "orthogonal", "role": "info" },
+    { "from": "api3", "to": "queue","style": "orthogonal", "role": "info" },
+    { "from": "queue","to": "w1",   "style": "orthogonal" },
+    { "from": "queue","to": "w2",   "style": "orthogonal" },
+    { "from": "w1",   "to": "db",   "style": "orthogonal", "role": "data" },
+    { "from": "w2",   "to": "db",   "style": "orthogonal", "role": "data" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "p2-05-cascade-tighten",
+  "title": "Margin much larger than needed — cascade keeps it (no violation)",
+  "ratio": "16:9",
+  "margin": 200,
+  "nodes": [
+    { "id": "a", "shape": "rect", "label": "alpha", "role": "primary",   "x": 0,   "y": 0 },
+    { "id": "b", "shape": "rect", "label": "beta",  "role": "secondary", "x": 200, "y": 0 }
+  ]
+}

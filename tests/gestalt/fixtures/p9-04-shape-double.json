@@ -1,0 +1,19 @@
+{
+  "name": "p9-04-shape-double",
+  "title": "border:double on every shape",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 5,
+  "nodes": [
+    { "id": "a", "shape": "rect",     "label": "rect",     "role": "primary",   "style": { "border": "double" } },
+    { "id": "b", "shape": "round",    "label": "round",    "role": "secondary", "style": { "border": "double" } },
+    { "id": "c", "shape": "pill",     "label": "pill",     "role": "success",   "style": { "border": "double" } },
+    { "id": "d", "shape": "circle",   "label": "circle",   "role": "warning",   "style": { "border": "double" } },
+    { "id": "e", "shape": "ellipse",  "label": "ellipse",  "role": "data",      "style": { "border": "double" } },
+    { "id": "f", "shape": "diamond",  "label": "diamond",  "role": "external",  "style": { "border": "double" } },
+    { "id": "g", "shape": "hexagon",  "label": "hexagon",  "role": "primary",   "style": { "border": "double" } },
+    { "id": "h", "shape": "cloud",    "label": "cloud",    "role": "info",      "style": { "border": "double" } },
+    { "id": "i", "shape": "cylinder", "label": "cylinder", "role": "data",      "style": { "border": "double" } },
+    { "id": "j", "shape": "actor",    "label": "actor",    "role": "external",  "style": { "border": "double" } }
+  ]
+}

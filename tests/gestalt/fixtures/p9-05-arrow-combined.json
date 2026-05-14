@@ -1,0 +1,24 @@
+{
+  "name": "p9-05-arrow-combined",
+  "title": "Realistic arrows: composed variants per edge semantic",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "client", "shape": "actor",    "label": "Client",  "role": "external" },
+    { "id": "edge",   "shape": "rect",     "label": "Edge",    "role": "info" },
+    { "id": "api",    "shape": "rect",     "label": "API",     "role": "primary" },
+    { "id": "queue",  "shape": "pill",     "label": "Queue",   "role": "warning" },
+    { "id": "worker", "shape": "rect",     "label": "Worker",  "role": "secondary" },
+    { "id": "db",     "shape": "cylinder", "label": "DB",      "role": "data" },
+    { "id": "audit",  "shape": "round",    "label": "Audit",   "role": "info" }
+  ],
+  "edges": [
+    { "from": "client", "to": "edge",   "style": { "line": "solid",  "head": "arrow" },        "label": "HTTPS" },
+    { "from": "edge",   "to": "api",    "style": { "line": "solid",  "head": "arrow" } },
+    { "from": "api",    "to": "queue",  "style": { "line": "dashed", "head": "arrow-open" },   "label": "publish", "role": "warning" },
+    { "from": "queue",  "to": "worker", "style": { "line": "solid",  "head": "arrow" },        "role": "secondary" },
+    { "from": "worker", "to": "db",     "style": { "line": "double", "head": "arrow" },        "label": "tx",      "role": "data" },
+    { "from": "worker", "to": "audit",  "style": { "line": "dotted", "head": "diamond" },      "label": "trace",   "role": "info" },
+    { "from": "api",    "to": "audit",  "style": { "line": "dotted", "head": "diamond" },      "role": "info" }
+  ]
+}

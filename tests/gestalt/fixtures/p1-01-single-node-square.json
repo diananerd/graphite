@@ -1,0 +1,9 @@
+{
+  "name": "p1-01-single-node-square",
+  "title": "Single node, 1:1 ratio",
+  "ratio": "1:1",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "rect", "label": "Hello", "role": "primary", "x": 0, "y": 0, "w": 96, "h": 56 }
+  ]
+}

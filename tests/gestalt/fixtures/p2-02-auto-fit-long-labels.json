@@ -1,0 +1,11 @@
+{
+  "name": "p2-02-auto-fit-long-labels",
+  "title": "Long labels — shapes must grow horizontally",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "rect",  "label": "user-authentication-service", "role": "primary",   "x": 0,   "y": 0 },
+    { "id": "b", "shape": "round", "label": "billing.subscription.renew",  "role": "secondary", "x": 0, "y": 120 },
+    { "id": "c", "shape": "pill",  "label": "feature-flag:experimental",   "role": "warning",   "x": 0, "y": 240 }
+  ]
+}

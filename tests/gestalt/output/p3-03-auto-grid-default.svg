@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 448 448"
+     role="img"
+     class="gestalt-root"
+     data-margin="48"
+     data-layout="grid"
+     data-content-bbox="0,0,352,232"
+     aria-label="9 nodes, no edges → grid 3×3 by default"
+     tabindex="-1">
+  <title>9 nodes, no edges → grid 3×3 by default</title>
+  <desc>9 nodes, no edges → grid 3×3 by default — gestalt diagram</desc>
+  <defs>
+    <style>:root { 
+  --bg: #181818; --bg-surface: #202020;
+  --cyan: #00d8ff; --green: #4afa7a; --purple: #bd93f9; --pink: #ff79c6;
+  --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
+  --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
+  --font: 'Monaspace Neon', ui-monospace, monospace;
+ } .gestalt-root { background: var(--bg); cursor: default; } 
+    @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+  </style>
+    
+  <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.35"/>
+  </filter>
+  <filter id="shadow-lifted" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.5"/>
+  </filter>
+
+    
+  </defs>
+  <rect width="448" height="448" fill="var(--bg)"/>
+  <g class="zoom-root">
+    
+    
+    
+    
+    <g class="g-node" data-id="n1" role="img" aria-label="alpha">
+      <title>alpha</title>
+      <rect x="48" y="108" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(96,140) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">alpha</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n2" role="img" aria-label="bravo">
+      <title>bravo</title>
+      <rect x="176" y="108" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(224,140) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">bravo</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n3" role="img" aria-label="charlie">
+      <title>charlie</title>
+      <rect x="304" y="108" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(352,140) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">charlie</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n4" role="img" aria-label="delta">
+      <title>delta</title>
+      <rect x="48" y="196" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(96,228) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">delta</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n5" role="img" aria-label="echo">
+      <title>echo</title>
+      <rect x="176" y="196" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(224,228) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">echo</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n6" role="img" aria-label="foxtrot">
+      <title>foxtrot</title>
+      <rect x="304" y="196" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(352,228) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">foxtrot</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n7" role="img" aria-label="golf">
+      <title>golf</title>
+      <rect x="48" y="284" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(96,316) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">golf</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n8" role="img" aria-label="hotel">
+      <title>hotel</title>
+      <rect x="176" y="284" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(224,316) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">hotel</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n9" role="img" aria-label="india">
+      <title>india</title>
+      <rect x="304" y="284" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(352,316) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">india</text>
+      </g>
+      
+    </g>
+  </g>
+  
+  
+</svg>

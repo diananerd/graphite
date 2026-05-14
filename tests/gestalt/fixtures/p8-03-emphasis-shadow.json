@@ -1,0 +1,12 @@
+{
+  "name": "p8-03-emphasis-shadow",
+  "title": "Emphasis + shadow",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "n", "shape": "round", "label": "none",     "role": "muted",   "style": { "emphasis": "none",     "shadow": "none"   } },
+    { "id": "s", "shape": "round", "label": "subtle",   "role": "primary", "style": { "emphasis": "none",     "shadow": "subtle" } },
+    { "id": "a", "shape": "round", "label": "accent",   "role": "success", "style": { "emphasis": "accent",   "shadow": "subtle" } },
+    { "id": "c", "shape": "round", "label": "critical", "role": "danger",  "style": { "emphasis": "critical", "shadow": "lifted" } }
+  ]
+}

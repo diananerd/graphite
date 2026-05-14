@@ -1,0 +1,22 @@
+{
+  "name": "p11-04-sequence",
+  "title": "Sequence diagram — login flow",
+  "ratio": "4:3",
+  "margin": 32,
+  "layout": "sequence",
+  "nodes": [
+    { "id": "user",   "shape": "actor",  "label": "User",      "role": "external" },
+    { "id": "app",    "shape": "rect",   "label": "App",       "role": "primary" },
+    { "id": "auth",   "shape": "rect",   "label": "Auth",      "role": "data" },
+    { "id": "api",    "shape": "rect",   "label": "API",       "role": "secondary" }
+  ],
+  "edges": [
+    { "from": "user", "to": "app",  "label": "click login",      "style": { "head": "arrow" } },
+    { "from": "app",  "to": "auth", "label": "POST /login",      "style": { "head": "arrow" }, "role": "data" },
+    { "from": "auth", "to": "auth", "label": "verify hash",      "style": { "head": "arrow" } },
+    { "from": "auth", "to": "app",  "label": "JWT",              "style": { "head": "arrow", "line": "dashed" } },
+    { "from": "app",  "to": "api",  "label": "GET /me",          "style": { "head": "arrow" }, "role": "secondary" },
+    { "from": "api",  "to": "app",  "label": "profile",          "style": { "head": "arrow", "line": "dashed" } },
+    { "from": "app",  "to": "user", "label": "render dashboard", "style": { "head": "arrow", "line": "dashed" } }
+  ]
+}

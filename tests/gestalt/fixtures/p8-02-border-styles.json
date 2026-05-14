@@ -1,0 +1,13 @@
+{
+  "name": "p8-02-border-styles",
+  "title": "Border styles — solid · double · dashed · dotted · thick",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "s", "shape": "rect", "label": "solid",  "role": "primary",   "style": { "border": "solid"  } },
+    { "id": "d", "shape": "rect", "label": "double", "role": "secondary", "style": { "border": "double" } },
+    { "id": "a", "shape": "rect", "label": "dashed", "role": "warning",   "style": { "border": "dashed" } },
+    { "id": "o", "shape": "rect", "label": "dotted", "role": "info",      "style": { "border": "dotted" } },
+    { "id": "t", "shape": "rect", "label": "thick",  "role": "danger",    "style": { "border": "thick"  } }
+  ]
+}

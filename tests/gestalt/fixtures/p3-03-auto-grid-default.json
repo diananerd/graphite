@@ -1,0 +1,17 @@
+{
+  "name": "p3-03-auto-grid-default",
+  "title": "9 nodes, no edges → grid 3×3 by default",
+  "ratio": "1:1",
+  "margin": 48,
+  "nodes": [
+    { "id": "n1", "shape": "rect", "label": "alpha",   "role": "primary"   },
+    { "id": "n2", "shape": "rect", "label": "bravo",   "role": "primary"   },
+    { "id": "n3", "shape": "rect", "label": "charlie", "role": "primary"   },
+    { "id": "n4", "shape": "rect", "label": "delta",   "role": "secondary" },
+    { "id": "n5", "shape": "rect", "label": "echo",    "role": "secondary" },
+    { "id": "n6", "shape": "rect", "label": "foxtrot", "role": "secondary" },
+    { "id": "n7", "shape": "rect", "label": "golf",    "role": "data"      },
+    { "id": "n8", "shape": "rect", "label": "hotel",   "role": "data"      },
+    { "id": "n9", "shape": "rect", "label": "india",   "role": "data"      }
+  ]
+}

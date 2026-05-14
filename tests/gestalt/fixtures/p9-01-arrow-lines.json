@@ -1,0 +1,26 @@
+{
+  "name": "p9-01-arrow-lines",
+  "title": "Arrow line styles — solid · dashed · dotted · double · thick",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 2,
+  "nodes": [
+    { "id": "s1", "shape": "round", "label": "solid",  "role": "primary" },
+    { "id": "e1", "shape": "round", "label": "solid",  "role": "secondary" },
+    { "id": "s2", "shape": "round", "label": "dashed", "role": "primary" },
+    { "id": "e2", "shape": "round", "label": "dashed", "role": "secondary" },
+    { "id": "s3", "shape": "round", "label": "dotted", "role": "primary" },
+    { "id": "e3", "shape": "round", "label": "dotted", "role": "secondary" },
+    { "id": "s4", "shape": "round", "label": "double", "role": "primary" },
+    { "id": "e4", "shape": "round", "label": "double", "role": "secondary" },
+    { "id": "s5", "shape": "round", "label": "thick",  "role": "primary" },
+    { "id": "e5", "shape": "round", "label": "thick",  "role": "secondary" }
+  ],
+  "edges": [
+    { "from": "s1", "to": "e1", "style": { "line": "solid" } },
+    { "from": "s2", "to": "e2", "style": { "line": "dashed" } },
+    { "from": "s3", "to": "e3", "style": { "line": "dotted" } },
+    { "from": "s4", "to": "e4", "style": { "line": "double" } },
+    { "from": "s5", "to": "e5", "style": { "line": "thick" } }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "p11-01-new-shapes",
+  "title": "Flowchart shapes — parallelogram, trapezoid, note, triangle, document, chevron, subroutine",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 4,
+  "nodes": [
+    { "id": "a", "shape": "parallelogram", "label": "input",      "role": "primary"   },
+    { "id": "b", "shape": "trapezoid",     "label": "manual op",  "role": "secondary" },
+    { "id": "c", "shape": "note",          "label": "annotation", "role": "info"      },
+    { "id": "d", "shape": "triangle",      "label": "warn",       "role": "warning"   },
+    { "id": "e", "shape": "document",      "label": "report",     "role": "data"      },
+    { "id": "f", "shape": "chevron",       "label": "next step",  "role": "success"   },
+    { "id": "g", "shape": "subroutine",    "label": "sub()",      "role": "external"  }
+  ]
+}

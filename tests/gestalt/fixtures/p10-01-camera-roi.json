@@ -1,0 +1,31 @@
+{
+  "name": "p10-01-camera-roi",
+  "title": "Camera/ROI — initial view frames only 3 of 9 nodes (worker pool)",
+  "ratio": "16:9",
+  "margin": 48,
+  "view": ["w1", "w2", "w3"],
+  "viewPadding": 64,
+  "nodes": [
+    { "id": "client", "shape": "actor",    "label": "Client",  "role": "external" },
+    { "id": "lb",     "shape": "rect",     "label": "LB",      "role": "info" },
+    { "id": "gw",     "shape": "rect",     "label": "Gateway", "role": "primary" },
+    { "id": "q",      "shape": "pill",     "label": "Queue",   "role": "warning" },
+    { "id": "w1",     "shape": "round",    "label": "Worker-1","role": "success" },
+    { "id": "w2",     "shape": "round",    "label": "Worker-2","role": "success" },
+    { "id": "w3",     "shape": "round",    "label": "Worker-3","role": "success" },
+    { "id": "db",     "shape": "cylinder", "label": "DB",      "role": "data" },
+    { "id": "audit",  "shape": "rect",     "label": "Audit",   "role": "info" }
+  ],
+  "edges": [
+    { "from": "client", "to": "lb",   "style": { "head": "arrow" } },
+    { "from": "lb",     "to": "gw",   "style": { "head": "arrow" } },
+    { "from": "gw",     "to": "q",    "style": { "head": "arrow", "line": "dashed" }, "role": "warning" },
+    { "from": "q",      "to": "w1",   "style": { "head": "arrow" } },
+    { "from": "q",      "to": "w2",   "style": { "head": "arrow" } },
+    { "from": "q",      "to": "w3",   "style": { "head": "arrow" } },
+    { "from": "w1",     "to": "db",   "style": { "head": "arrow", "line": "double" }, "role": "data" },
+    { "from": "w2",     "to": "db",   "style": { "head": "arrow", "line": "double" }, "role": "data" },
+    { "from": "w3",     "to": "db",   "style": { "head": "arrow", "line": "double" }, "role": "data" },
+    { "from": "gw",     "to": "audit","style": { "head": "diamond", "line": "dotted" }, "role": "info" }
+  ]
+}

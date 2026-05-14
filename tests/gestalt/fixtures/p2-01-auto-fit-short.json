@@ -1,0 +1,11 @@
+{
+  "name": "p2-01-auto-fit-short",
+  "title": "Short labels — shapes stay at minimum",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "rect",  "label": "hi", "role": "primary",   "x": 0,   "y": 0 },
+    { "id": "b", "shape": "round", "label": "ok", "role": "secondary", "x": 200, "y": 0 },
+    { "id": "c", "shape": "pill",  "label": "X",  "role": "success",   "x": 400, "y": 0 }
+  ]
+}

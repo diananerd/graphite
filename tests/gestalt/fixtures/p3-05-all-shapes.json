@@ -1,0 +1,19 @@
+{
+  "name": "p3-05-all-shapes",
+  "title": "Every P3 shape — auto-grid",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 5,
+  "nodes": [
+    { "id": "a", "shape": "rect",     "label": "rect",     "role": "primary"   },
+    { "id": "b", "shape": "round",    "label": "round",    "role": "secondary" },
+    { "id": "c", "shape": "pill",     "label": "pill",     "role": "success"   },
+    { "id": "d", "shape": "circle",   "label": "circle",   "role": "warning"   },
+    { "id": "e", "shape": "ellipse",  "label": "ellipse",  "role": "data"      },
+    { "id": "f", "shape": "diamond",  "label": "diamond",  "role": "external"  },
+    { "id": "g", "shape": "hexagon",  "label": "hexagon",  "role": "primary"   },
+    { "id": "h", "shape": "cloud",    "label": "cloud",    "role": "info"      },
+    { "id": "i", "shape": "cylinder", "label": "cylinder", "role": "data"      },
+    { "id": "j", "shape": "actor",    "label": "actor",    "role": "external"  }
+  ]
+}

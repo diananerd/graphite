@@ -1,0 +1,17 @@
+{
+  "name": "p1-03-tall-portrait",
+  "title": "Vertical chain, 9:16",
+  "ratio": "9:16",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "round",    "label": "User",    "role": "external",  "x": 0, "y":   0, "w": 80, "h": 56 },
+    { "id": "b", "shape": "rect",     "label": "App",     "role": "primary",   "x": 0, "y": 120, "w": 96, "h": 56 },
+    { "id": "c", "shape": "rect",     "label": "API",     "role": "secondary", "x": 0, "y": 240, "w": 96, "h": 56 },
+    { "id": "d", "shape": "cylinder", "label": "DB",      "role": "data",      "x": 0, "y": 380, "w": 80, "h": 88 }
+  ],
+  "edges": [
+    { "from": "a", "to": "b" },
+    { "from": "b", "to": "c", "role": "secondary" },
+    { "from": "c", "to": "d", "role": "data" }
+  ]
+}

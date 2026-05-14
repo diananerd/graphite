@@ -1,0 +1,22 @@
+{
+  "name": "p7-03-radial-event-loop",
+  "title": "Event loop — 6 phases around the clock",
+  "ratio": "1:1",
+  "margin": 64,
+  "nodes": [
+    { "id": "timers", "shape": "round", "label": "timers",         "role": "primary"   },
+    { "id": "pcb",    "shape": "round", "label": "pending cb",     "role": "secondary" },
+    { "id": "idle",   "shape": "round", "label": "idle/prepare",   "role": "info"      },
+    { "id": "poll",   "shape": "round", "label": "poll",           "role": "warning"   },
+    { "id": "check",  "shape": "round", "label": "check",          "role": "data"      },
+    { "id": "close",  "shape": "round", "label": "close callbacks","role": "external"  }
+  ],
+  "edges": [
+    { "from": "timers", "to": "pcb" },
+    { "from": "pcb",    "to": "idle" },
+    { "from": "idle",   "to": "poll" },
+    { "from": "poll",   "to": "check" },
+    { "from": "check",  "to": "close" },
+    { "from": "close",  "to": "timers" }
+  ]
+}

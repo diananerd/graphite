@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 560 315"
+     role="img"
+     class="gestalt-root"
+     data-margin="36"
+     data-layout="pass-through"
+     data-content-bbox="-48,-28,488,56"
+     aria-label="Short labels — shapes stay at minimum"
+     tabindex="-1">
+  <title>Short labels — shapes stay at minimum</title>
+  <desc>Short labels — shapes stay at minimum — gestalt diagram</desc>
+  <defs>
+    <style>:root { 
+  --bg: #181818; --bg-surface: #202020;
+  --cyan: #00d8ff; --green: #4afa7a; --purple: #bd93f9; --pink: #ff79c6;
+  --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
+  --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
+  --font: 'Monaspace Neon', ui-monospace, monospace;
+ } .gestalt-root { background: var(--bg); cursor: default; } 
+    @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+  </style>
+    
+  <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.35"/>
+  </filter>
+  <filter id="shadow-lifted" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.5"/>
+  </filter>
+
+    
+  </defs>
+  <rect width="560" height="315" fill="var(--bg)"/>
+  <g class="zoom-root">
+    
+    
+    
+    
+    <g class="g-node" data-id="a" role="img" aria-label="hi">
+      <title>hi</title>
+      <rect x="36" y="129.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(84,161.5) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">hi</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="b" role="img" aria-label="ok">
+      <title>ok</title>
+      <rect x="236" y="129.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(284,161.5) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">ok</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="c" role="img" aria-label="X">
+      <title>X</title>
+      <rect x="444" y="141.5" width="80" height="32" rx="16" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(484,161.5) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">X</text>
+      </g>
+      
+    </g>
+  </g>
+  
+  
+</svg>

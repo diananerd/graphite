@@ -1,0 +1,19 @@
+{
+  "name": "p3-04-explicit-grid-cols",
+  "title": "Grid with explicit cols=4 — uneven last row",
+  "ratio": "4:3",
+  "margin": 48,
+  "gridCols": 4,
+  "nodes": [
+    { "id": "n01", "shape": "round", "label": "01", "role": "primary"   },
+    { "id": "n02", "shape": "round", "label": "02", "role": "primary"   },
+    { "id": "n03", "shape": "round", "label": "03", "role": "primary"   },
+    { "id": "n04", "shape": "round", "label": "04", "role": "primary"   },
+    { "id": "n05", "shape": "round", "label": "05", "role": "secondary" },
+    { "id": "n06", "shape": "round", "label": "06", "role": "secondary" },
+    { "id": "n07", "shape": "round", "label": "07", "role": "secondary" },
+    { "id": "n08", "shape": "round", "label": "08", "role": "secondary" },
+    { "id": "n09", "shape": "round", "label": "09", "role": "data"      },
+    { "id": "n10", "shape": "round", "label": "10", "role": "data"      }
+  ]
+}

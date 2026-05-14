@@ -1,0 +1,16 @@
+{
+  "name": "p11-05-hyperedge",
+  "title": "Hyperedge — n-ary join via central junction",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 4,
+  "nodes": [
+    { "id": "src1", "shape": "rect",     "label": "source A",   "role": "primary"   },
+    { "id": "src2", "shape": "rect",     "label": "source B",   "role": "primary"   },
+    { "id": "src3", "shape": "rect",     "label": "source C",   "role": "primary"   },
+    { "id": "sink", "shape": "cylinder", "label": "warehouse",  "role": "data"      }
+  ],
+  "edges": [
+    { "label": "merge", "role": "warning", "participants": ["src1", "src2", "src3", "sink"], "style": { "line": "solid" } }
+  ]
+}

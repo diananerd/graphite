@@ -1,0 +1,20 @@
+{
+  "name": "p5-01-controls-enabled",
+  "title": "DAG with viewport controls (zoom + pan + auto-fit)",
+  "ratio": "16:9",
+  "margin": 48,
+  "controls": ["zoom", "pan", "auto-fit"],
+  "zoomRange": [0.5, 4],
+  "nodes": [
+    { "id": "src", "shape": "round", "label": "Source",  "role": "primary"   },
+    { "id": "a",   "shape": "rect",  "label": "Worker A", "role": "secondary" },
+    { "id": "b",   "shape": "rect",  "label": "Worker B", "role": "secondary" },
+    { "id": "db",  "shape": "cylinder", "label": "Store", "role": "data"      }
+  ],
+  "edges": [
+    { "from": "src", "to": "a", "style": "orthogonal" },
+    { "from": "src", "to": "b", "style": "orthogonal" },
+    { "from": "a",   "to": "db", "role": "data", "style": "orthogonal" },
+    { "from": "b",   "to": "db", "role": "data", "style": "orthogonal" }
+  ]
+}

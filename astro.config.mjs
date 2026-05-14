@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { remarkResponsiveImages } from './src/plugins/responsive-images.mjs';
 import { remarkAnim } from './src/plugins/remark-anim.mjs';
 import { remarkMermaid } from './src/plugins/remark-mermaid.mjs';
+import { remarkGestalt } from './src/plugins/remark-gestalt.mjs';
 import blogConfig from './blog.config.ts';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -38,6 +39,7 @@ export default defineConfig({
     },
     remarkPlugins: [
       [remarkAnim, { dev: isDev }],
+      [remarkGestalt, { dev: isDev }],
       ...(enableMermaid ? [remarkMermaid] : []),
       [remarkResponsiveImages, { dev: isDev }],
     ],

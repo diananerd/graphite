@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1692.5 952"
+     role="application"
+     class="gestalt-root"
+     data-margin="36"
+     data-layout="tree-tb"
+     data-content-bbox="0,0,208,880" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
+     aria-label="Combined variants — realistic system diagram"
+     tabindex="0">
+  <title>Combined variants — realistic system diagram</title>
+  <desc>Combined variants — realistic system diagram — gestalt diagram with zoom and pan controls (keys: + - 0 f, drag to pan, wheel to zoom)</desc>
+  <defs>
+    <style>:root { 
+  --bg: #181818; --bg-surface: #202020;
+  --cyan: #00d8ff; --green: #4afa7a; --purple: #bd93f9; --pink: #ff79c6;
+  --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
+  --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
+  --font: 'Monaspace Neon', ui-monospace, monospace;
+ } .gestalt-root { background: var(--bg); cursor: grab; } 
+    @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+  </style>
+    
+  <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.35"/>
+  </filter>
+  <filter id="shadow-lifted" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.5"/>
+  </filter>
+
+    <marker id="mk-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+      </marker><marker id="mk-arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--purple)"/>
+      </marker><marker id="mk-arrow-yellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--yellow)"/>
+      </marker><marker id="mk-arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--green)"/>
+      </marker><marker id="mk-arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--red)"/>
+      </marker>
+  </defs>
+  <rect width="1692.5" height="952" fill="var(--bg)"/>
+  <g class="zoom-root">
+    
+    
+    <g class="g-edge" data-id="user-edge">
+    <path d="M 846 180 L 846 244" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="edge-app">
+    <path d="M 846 300 L 846 364" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="app-auth">
+    <path d="M 846 420 L 846 484" stroke="var(--purple)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-purple)"/>
+    
+  </g><g class="g-edge" data-id="auth-fail">
+    <path d="M 846 564 L 846 628" stroke="var(--yellow)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-yellow)"/>
+    
+  </g><g class="g-edge" data-id="fail-ok">
+    <path d="M 846 756 L 782 820" stroke="var(--green)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-green)"/>
+    <g class="screen-stable edge-label" transform="translate(814.0,788.0) scale(1)">
+    <rect x="-14.3" y="-8.0" width="28.6" height="16.0" rx="2" fill="var(--bg)"/>
+    <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--green)">yes</text>
+  </g>
+  </g><g class="g-edge" data-id="fail-err">
+    <path d="M 846 756 L 902 840" stroke="var(--red)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-red)"/>
+    <g class="screen-stable edge-label" transform="translate(874.0,798.0) scale(1)">
+    <rect x="-11.2" y="-8.0" width="22.4" height="16.0" rx="2" fill="var(--bg)"/>
+    <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--red)">no</text>
+  </g>
+  </g>
+    
+    <g class="g-node" data-id="user" role="img" aria-label="User">
+      <title>User</title>
+      
+        <circle cx="846" cy="53.68" r="15.680000000000001" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <path d="M 832.672 70.36
+                 C 832.672 91.156
+                   822.48 115.418
+                   822.48 139.68
+                 L 869.52 139.68
+                 C 869.52 115.418
+                   859.328 91.156
+                   859.328 70.36
+                 Z" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(846,172) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--pink)">User</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="edge" role="img" aria-label="Edge">
+      <title>Edge</title>
+      <rect x="798" y="244" width="96" height="56" rx="16" fill="var(--accent-dim, color-mix(in srgb, var(--accent) 12%, transparent))" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(846,276) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">Edge</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="app" role="img" aria-label="App">
+      <title>App</title>
+      <rect x="798" y="364" width="96" height="56" rx="0" fill="var(--accent)" stroke="var(--accent)" stroke-width="1.5" vector-effect="non-scaling-stroke" filter="url(#shadow-subtle)"/>
+      <g class="screen-stable" transform="translate(846,396) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--bg)">App</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="auth" role="img" aria-label="Auth">
+      <title>Auth</title>
+      <polygon points="822,484 870,484 894,524 870,564 822,564 798,524" fill="var(--purple-dim, color-mix(in srgb, var(--purple) 12%, transparent))" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/><polygon points="824,488 868,488 890,524 868,560 824,560 802,524" fill="none" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(846,528) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">Auth</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="fail" role="img" aria-label="valid?">
+      <title>valid?</title>
+      <polygon points="846,628 910,692 846,756 782,692" fill="color-mix(in srgb, var(--yellow) 8%, transparent)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-dasharray="6 4"/>
+      <g class="screen-stable" transform="translate(846,696) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">valid?</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="err" role="img" aria-label="error">
+      <title>error</title>
+      <rect x="854" y="840" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--red)" stroke-width="2" vector-effect="non-scaling-stroke" filter="url(#shadow-lifted)"/>
+      <g class="screen-stable" transform="translate(902,872) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--red)">error</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="ok" role="img" aria-label="DB">
+      <title>DB</title>
+      
+        <path d="M 742 832 A 40 12 0 0 0 822 832 L 822 904 A 40 12 0 0 1 742 904 Z" fill="var(--green)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <ellipse cx="782" cy="832" rx="40" ry="12" fill="var(--green)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(782,872) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--bg)">DB</text>
+      </g>
+      
+    </g>
+  </g>
+  <g class="controls-bar" role="group" aria-label="Diagram controls">
+    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(1646.5 798)">
+      <title>Zoom out</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(1646.5 834)">
+      <title>Reset view</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(1646.5 870)">
+      <title>Zoom in</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(1646.5 906)">
+      <title>Fullscreen</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g>
+  </g>
+  <script><![CDATA[(function(){
+function I(s){
+var hz=parseFloat(s.getAttribute("data-camera-z"))||1;
+var hx=parseFloat(s.getAttribute("data-camera-tx"))||0;
+var hy=parseFloat(s.getAttribute("data-camera-ty"))||0;
+var z=hz,tx=hx,ty=hy,zr=s.querySelector(".zoom-root"),ss=s.querySelectorAll(".screen-stable"),bs=[],i;
+for(i=0;i<ss.length;i++)bs.push(ss[i].getAttribute("transform")||"");
+var rng=(s.getAttribute("data-zoom-range")||"0.5 4").split(" ").map(parseFloat);
+function A(){
+zr.setAttribute("transform","translate("+tx+" "+ty+") scale("+z+")");
+var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal,inv=1/(z*(r.width/vb.width));
+for(var i=0;i<ss.length;i++){var m=bs[i].match(/translate\(([^)]+)\)/);ss[i].setAttribute("transform","translate("+(m?m[1]:"0 0")+") scale("+inv+")")}
+s.setAttribute("data-zoom",z.toFixed(2));
+}
+function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
+  s.addEventListener("wheel",function(e){
+    e.preventDefault();
+    var d=e.deltaY>0?0.9:1.1, nz=clamp(z*d);
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    var px=(e.clientX-r.left)/r.width*vb.width, py=(e.clientY-r.top)/r.height*vb.height;
+    tx=px-(px-tx)*(nz/z); ty=py-(py-ty)*(nz/z); z=nz; A();
+  },{passive:false});
+  var dg=0,sx=0,sy=0;
+  s.addEventListener("pointerdown",function(e){
+    if(e.target.closest(".ctrl-btn"))return;
+    dg=1; sx=e.clientX-tx; sy=e.clientY-ty; s.setPointerCapture(e.pointerId); s.style.cursor="grabbing";
+  });
+  s.addEventListener("pointermove",function(e){
+    if(!dg)return;
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    tx=(e.clientX-sx)/r.width*vb.width; ty=(e.clientY-sy)/r.height*vb.height; A();
+  });
+  function up(e){dg=0;s.releasePointerCapture(e.pointerId);s.style.cursor=""}
+  s.addEventListener("pointerup",up); s.addEventListener("pointercancel",up);
+  s.addEventListener("dblclick",function(e){e.preventDefault();z=1;tx=0;ty=0;A()});
+  s.tabIndex=0; s.setAttribute("role","application");
+  function act(k){
+    if(k==="zoom-in")z=clamp(z*1.2);
+    else if(k==="zoom-out")z=clamp(z*0.83);
+    else if(k==="auto-fit"){z=hz;tx=hx;ty=hy}
+    else if(k==="fullscreen"){if(document.fullscreenElement)document.exitFullscreen();else s.requestFullscreen()}
+    A();
+  }
+  var KMAP={"+":"zoom-in","=":"zoom-in","-":"zoom-out","_":"zoom-out","0":"auto-fit","f":"fullscreen","F":"fullscreen"};
+  function btnAt(e){return e.target&&e.target.closest&&e.target.closest(".ctrl-btn")}
+  s.addEventListener("keydown",function(e){
+    var b=btnAt(e);if(b&&(e.key===" "||e.key==="Enter")){e.preventDefault();act(b.getAttribute("data-action"));return}
+    var a=KMAP[e.key];if(a){e.preventDefault();act(a)}
+  });
+  s.addEventListener("click",function(e){var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"))}});
+  new ResizeObserver(A).observe(s);A();
+}
+var svgs=document.querySelectorAll("svg[data-controls]");
+for(var i=0;i<svgs.length;i++)I(svgs[i]);
+})();]]></script>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "name": "p1-06-extreme-ratio-mismatch",
+  "title": "Wide content forced into 9:16 — canvas must grow",
+  "ratio": "9:16",
+  "margin": 32,
+  "nodes": [
+    { "id": "a", "shape": "rect", "label": "wide.one",   "x":    0, "y": 0, "w": 120, "h": 48, "role": "primary"   },
+    { "id": "b", "shape": "rect", "label": "wide.two",   "x":  240, "y": 0, "w": 120, "h": 48, "role": "secondary" },
+    { "id": "c", "shape": "rect", "label": "wide.three", "x":  480, "y": 0, "w": 120, "h": 48, "role": "success"   },
+    { "id": "d", "shape": "rect", "label": "wide.four",  "x":  720, "y": 0, "w": 120, "h": 48, "role": "warning"   },
+    { "id": "e", "shape": "rect", "label": "wide.five",  "x":  960, "y": 0, "w": 120, "h": 48, "role": "data"      }
+  ],
+  "edges": [
+    { "from": "a", "to": "b" },
+    { "from": "b", "to": "c" },
+    { "from": "c", "to": "d" },
+    { "from": "d", "to": "e" }
+  ]
+}

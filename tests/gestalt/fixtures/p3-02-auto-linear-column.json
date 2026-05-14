@@ -1,0 +1,17 @@
+{
+  "name": "p3-02-auto-linear-column",
+  "title": "Portrait ratio + linear chain → column layout",
+  "ratio": "9:16",
+  "margin": 48,
+  "nodes": [
+    { "id": "user", "shape": "actor",    "label": "User",   "role": "external"  },
+    { "id": "app",  "shape": "round",    "label": "App",    "role": "primary"   },
+    { "id": "api",  "shape": "rect",     "label": "API",    "role": "secondary" },
+    { "id": "db",   "shape": "cylinder", "label": "DB",     "role": "data"      }
+  ],
+  "edges": [
+    { "from": "user", "to": "app" },
+    { "from": "app",  "to": "api" },
+    { "from": "api",  "to": "db"  }
+  ]
+}

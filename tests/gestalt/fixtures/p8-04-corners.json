@@ -1,0 +1,12 @@
+{
+  "name": "p8-04-corners",
+  "title": "Corner radius progression",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "q",   "shape": "rect", "label": "square",   "role": "primary",   "style": { "corners": "square"   } },
+    { "id": "rs",  "shape": "rect", "label": "round-sm", "role": "secondary", "style": { "corners": "round-sm" } },
+    { "id": "r",   "shape": "rect", "label": "round",    "role": "success",   "style": { "corners": "round"    } },
+    { "id": "rl",  "shape": "rect", "label": "round-lg", "role": "data",      "style": { "corners": "round-lg" } }
+  ]
+}

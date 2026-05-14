@@ -1,0 +1,15 @@
+{
+  "name": "p2-03-sublabels",
+  "title": "Sublabels expand vertical extent",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "round", "label": "API",     "sublabel": "v3.2.0",  "role": "primary",   "x": 0,   "y": 0 },
+    { "id": "b", "shape": "round", "label": "Worker",  "sublabel": "us-east-1","role": "secondary","x": 200, "y": 0 },
+    { "id": "c", "shape": "round", "label": "Store",   "sublabel": "primary",  "role": "data",     "x": 400, "y": 0 }
+  ],
+  "edges": [
+    { "from": "a", "to": "b", "role": "secondary" },
+    { "from": "b", "to": "c", "role": "data" }
+  ]
+}

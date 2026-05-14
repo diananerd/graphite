@@ -1,0 +1,25 @@
+{
+  "name": "p4-06-dag-complex",
+  "title": "Complex DAG — 7 nodes, 4 layers, crossing-reduction stress",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "src",  "shape": "round", "label": "Source",   "role": "primary"   },
+    { "id": "lint", "shape": "rect",  "label": "Lint",     "role": "secondary" },
+    { "id": "test", "shape": "rect",  "label": "Test",     "role": "warning"   },
+    { "id": "buil", "shape": "rect",  "label": "Build",    "role": "data"      },
+    { "id": "scan", "shape": "rect",  "label": "Security", "role": "danger"    },
+    { "id": "pack", "shape": "rect",  "label": "Package",  "role": "info"      },
+    { "id": "depl", "shape": "round", "label": "Deploy",   "role": "success"   }
+  ],
+  "edges": [
+    { "from": "src",  "to": "lint", "style": "orthogonal" },
+    { "from": "src",  "to": "test", "style": "orthogonal" },
+    { "from": "src",  "to": "scan", "style": "orthogonal", "role": "danger" },
+    { "from": "lint", "to": "buil", "style": "orthogonal" },
+    { "from": "test", "to": "buil", "style": "orthogonal" },
+    { "from": "scan", "to": "buil", "style": "orthogonal", "role": "danger" },
+    { "from": "buil", "to": "pack", "style": "orthogonal" },
+    { "from": "pack", "to": "depl", "style": "orthogonal", "role": "success" }
+  ]
+}

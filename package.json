@@ -29,6 +29,7 @@
     "validate:content": "node scripts/validate-content.mjs content/posts/*.md",
     "validate:anim": "node scripts/validate-anim.mjs content/posts/*.md",
     "validate": "pnpm run validate:frontmatter && pnpm run validate:content && pnpm run validate:anim",
+    "gestalt:validate": "node scripts/gestalt-validate.mjs",
     "prepare": "husky || true"
   },
   "dependencies": {

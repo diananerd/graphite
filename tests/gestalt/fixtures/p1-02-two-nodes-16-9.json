@@ -1,0 +1,13 @@
+{
+  "name": "p1-02-two-nodes-16-9",
+  "title": "Two nodes, 16:9 — must centre",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "round", "label": "client", "role": "primary",   "x": 0,   "y": 0, "w": 96, "h": 56 },
+    { "id": "b", "shape": "round", "label": "server", "role": "secondary", "x": 200, "y": 0, "w": 96, "h": 56 }
+  ],
+  "edges": [
+    { "from": "a", "to": "b", "role": "secondary" }
+  ]
+}

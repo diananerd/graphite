@@ -1,0 +1,15 @@
+{
+  "name": "p1-04-asymmetric-offcenter",
+  "title": "Off-centre virtual coords — engine must re-centre",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "a", "shape": "rect",     "label": "alpha",    "role": "primary",   "x": 1000, "y": 1000, "w": 96, "h": 56 },
+    { "id": "b", "shape": "ellipse",  "label": "beta",     "role": "secondary", "x": 1200, "y": 1100, "w": 96, "h": 56 },
+    { "id": "c", "shape": "cylinder", "label": "gamma",    "role": "data",      "x": 1400, "y":  950, "w": 80, "h": 88 }
+  ],
+  "edges": [
+    { "from": "a", "to": "b" },
+    { "from": "b", "to": "c", "role": "data" }
+  ]
+}

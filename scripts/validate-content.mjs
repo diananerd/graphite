@@ -22,7 +22,7 @@ const SUPPORTED_LANGS = new Set([
   'toml', 'rust', 'rs', 'c', 'cpp', 'python', 'py',
   'bash', 'sh', 'shell', 'yaml', 'yml', 'mermaid', 'anim',
   'json', 'text', 'txt', 'css', 'html', 'markdown', 'md',
-  'diff', 'gherkin',
+  'diff', 'gherkin', 'gestalt',
 ]);
 
 for (const file of files) {

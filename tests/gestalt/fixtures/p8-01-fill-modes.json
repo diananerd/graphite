@@ -1,0 +1,12 @@
+{
+  "name": "p8-01-fill-modes",
+  "title": "Fill modes — outlined · filled · tinted · glass",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "out",   "shape": "round", "label": "outlined", "role": "primary",   "style": { "fill": "outlined" } },
+    { "id": "fil",   "shape": "round", "label": "filled",   "role": "secondary", "style": { "fill": "filled"   } },
+    { "id": "tin",   "shape": "round", "label": "tinted",   "role": "success",   "style": { "fill": "tinted"   } },
+    { "id": "gla",   "shape": "round", "label": "glass",    "role": "warning",   "style": { "fill": "glass"    } }
+  ]
+}

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 552 310.5"
+     role="img"
+     class="gestalt-root"
+     data-margin="36"
+     data-layout="linear-row"
+     data-content-bbox="0,-28,480,56"
+     aria-label="Emphasis + shadow"
+     tabindex="-1">
+  <title>Emphasis + shadow</title>
+  <desc>Emphasis + shadow — gestalt diagram</desc>
+  <defs>
+    <style>:root { 
+  --bg: #181818; --bg-surface: #202020;
+  --cyan: #00d8ff; --green: #4afa7a; --purple: #bd93f9; --pink: #ff79c6;
+  --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
+  --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
+  --font: 'Monaspace Neon', ui-monospace, monospace;
+ } .gestalt-root { background: var(--bg); cursor: default; } 
+    @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+  </style>
+    
+  <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.35"/>
+  </filter>
+  <filter id="shadow-lifted" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.5"/>
+  </filter>
+
+    
+  </defs>
+  <rect width="552" height="310.5" fill="var(--bg)"/>
+  <g class="zoom-root">
+    
+    
+    
+    
+    <g class="g-node" data-id="n" role="img" aria-label="none">
+      <title>none</title>
+      <rect x="36" y="127.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--dim)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(84,159.5) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--dim)">none</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="s" role="img" aria-label="subtle">
+      <title>subtle</title>
+      <rect x="164" y="127.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke" filter="url(#shadow-subtle)"/>
+      <g class="screen-stable" transform="translate(212,159.5) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">subtle</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="a" role="img" aria-label="accent">
+      <title>accent</title>
+      <rect x="292" y="127.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1.5" vector-effect="non-scaling-stroke" filter="url(#shadow-subtle)"/>
+      <g class="screen-stable" transform="translate(340,159.5) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">accent</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="c" role="img" aria-label="critical">
+      <title>critical</title>
+      <rect x="420" y="127.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--red)" stroke-width="2" vector-effect="non-scaling-stroke" filter="url(#shadow-lifted)"/>
+      <g class="screen-stable" transform="translate(468,159.5) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--red)">critical</text>
+      </g>
+      
+    </g>
+  </g>
+  
+  
+</svg>

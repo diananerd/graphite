@@ -1,0 +1,16 @@
+{
+  "name": "p11-02-new-shapes-variants",
+  "title": "New shapes with all variant combos (fill × border × emphasis)",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 4,
+  "nodes": [
+    { "id": "p1", "shape": "parallelogram", "label": "filled",   "role": "primary",   "style": { "fill": "filled" } },
+    { "id": "p2", "shape": "trapezoid",     "label": "double",   "role": "secondary", "style": { "border": "double" } },
+    { "id": "p3", "shape": "note",          "label": "tinted",   "role": "info",      "style": { "fill": "tinted" } },
+    { "id": "p4", "shape": "triangle",      "label": "crit",     "role": "danger",    "style": { "emphasis": "critical", "shadow": "lifted" } },
+    { "id": "p5", "shape": "document",      "label": "glass",    "role": "data",      "style": { "fill": "glass" } },
+    { "id": "p6", "shape": "chevron",       "label": "thick",    "role": "success",   "style": { "border": "thick" } },
+    { "id": "p7", "shape": "subroutine",    "label": "dashed",   "role": "warning",   "style": { "border": "dashed" } }
+  ]
+}

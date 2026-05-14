@@ -1,0 +1,20 @@
+{
+  "name": "p9-03-arrow-tails",
+  "title": "Arrow tail decorations — dot, diamond, square at start",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 2,
+  "nodes": [
+    { "id": "a1", "shape": "round", "label": "dot",     "role": "primary" },
+    { "id": "b1", "shape": "round", "label": "dot",     "role": "secondary" },
+    { "id": "a2", "shape": "round", "label": "diamond", "role": "primary" },
+    { "id": "b2", "shape": "round", "label": "diamond", "role": "secondary" },
+    { "id": "a3", "shape": "round", "label": "square",  "role": "primary" },
+    { "id": "b3", "shape": "round", "label": "square",  "role": "secondary" }
+  ],
+  "edges": [
+    { "from": "a1", "to": "b1", "style": { "tail": "dot"     } },
+    { "from": "a2", "to": "b2", "style": { "tail": "diamond" } },
+    { "from": "a3", "to": "b3", "style": { "tail": "square"  } }
+  ]
+}

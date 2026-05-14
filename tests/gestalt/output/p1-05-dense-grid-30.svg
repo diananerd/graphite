@@ -1,0 +1,353 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 725.5 408"
+     role="application"
+     class="gestalt-root"
+     data-margin="24"
+     data-layout="pass-through"
+     data-content-bbox="-32,-20,564,360" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
+     aria-label="30 nodes in a 6×5 grid — stress the projection"
+     tabindex="0">
+  <title>30 nodes in a 6×5 grid — stress the projection</title>
+  <desc>30 nodes in a 6×5 grid — stress the projection — gestalt diagram with zoom and pan controls (keys: + - 0 f, drag to pan, wheel to zoom)</desc>
+  <defs>
+    <style>:root { 
+  --bg: #181818; --bg-surface: #202020;
+  --cyan: #00d8ff; --green: #4afa7a; --purple: #bd93f9; --pink: #ff79c6;
+  --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
+  --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
+  --font: 'Monaspace Neon', ui-monospace, monospace;
+ } .gestalt-root { background: var(--bg); cursor: grab; } 
+    @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+  </style>
+    
+  <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.35"/>
+  </filter>
+  <filter id="shadow-lifted" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.5"/>
+  </filter>
+
+    
+  </defs>
+  <rect width="725.5" height="408" fill="var(--bg)"/>
+  <g class="zoom-root">
+    
+    
+    
+    
+    <g class="g-node" data-id="n00" role="img" aria-label="a">
+      <title>a</title>
+      <rect x="80.5" y="24" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(112.5,48) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">a</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n01" role="img" aria-label="b">
+      <title>b</title>
+      <rect x="180.5" y="24" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(212.5,48) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">b</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n02" role="img" aria-label="c">
+      <title>c</title>
+      <rect x="280.5" y="24" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(312.5,48) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">c</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n03" role="img" aria-label="d">
+      <title>d</title>
+      <rect x="380.5" y="24" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(412.5,48) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">d</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n04" role="img" aria-label="e">
+      <title>e</title>
+      <rect x="480.5" y="24" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(512.5,48) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">e</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n05" role="img" aria-label="f">
+      <title>f</title>
+      <rect x="580.5" y="24" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(612.5,48) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">f</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n10" role="img" aria-label="g">
+      <title>g</title>
+      <rect x="80.5" y="104" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(112.5,128) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">g</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n11" role="img" aria-label="h">
+      <title>h</title>
+      <rect x="180.5" y="104" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(212.5,128) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">h</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n12" role="img" aria-label="i">
+      <title>i</title>
+      <rect x="280.5" y="104" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(312.5,128) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">i</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n13" role="img" aria-label="j">
+      <title>j</title>
+      <rect x="380.5" y="104" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(412.5,128) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">j</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n14" role="img" aria-label="k">
+      <title>k</title>
+      <rect x="480.5" y="104" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(512.5,128) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">k</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n15" role="img" aria-label="l">
+      <title>l</title>
+      <rect x="580.5" y="104" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(612.5,128) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">l</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n20" role="img" aria-label="m">
+      <title>m</title>
+      <rect x="80.5" y="184" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(112.5,208) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">m</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n21" role="img" aria-label="n">
+      <title>n</title>
+      <rect x="180.5" y="184" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(212.5,208) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">n</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n22" role="img" aria-label="o">
+      <title>o</title>
+      <rect x="280.5" y="184" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(312.5,208) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">o</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n23" role="img" aria-label="p">
+      <title>p</title>
+      <rect x="380.5" y="184" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(412.5,208) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">p</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n24" role="img" aria-label="q">
+      <title>q</title>
+      <rect x="480.5" y="184" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(512.5,208) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">q</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n25" role="img" aria-label="r">
+      <title>r</title>
+      <rect x="580.5" y="184" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(612.5,208) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">r</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n30" role="img" aria-label="s">
+      <title>s</title>
+      <rect x="80.5" y="264" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(112.5,288) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">s</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n31" role="img" aria-label="t">
+      <title>t</title>
+      <rect x="180.5" y="264" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(212.5,288) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">t</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n32" role="img" aria-label="u">
+      <title>u</title>
+      <rect x="280.5" y="264" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(312.5,288) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">u</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n33" role="img" aria-label="v">
+      <title>v</title>
+      <rect x="380.5" y="264" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(412.5,288) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">v</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n34" role="img" aria-label="w">
+      <title>w</title>
+      <rect x="480.5" y="264" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(512.5,288) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">w</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n35" role="img" aria-label="x">
+      <title>x</title>
+      <rect x="580.5" y="264" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(612.5,288) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">x</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n40" role="img" aria-label="y">
+      <title>y</title>
+      <rect x="80.5" y="344" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(112.5,368) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">y</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n41" role="img" aria-label="z">
+      <title>z</title>
+      <rect x="180.5" y="344" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(212.5,368) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">z</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n42" role="img" aria-label="aa">
+      <title>aa</title>
+      <rect x="280.5" y="344" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(312.5,368) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">aa</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n43" role="img" aria-label="ab">
+      <title>ab</title>
+      <rect x="380.5" y="344" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(412.5,368) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">ab</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n44" role="img" aria-label="ac">
+      <title>ac</title>
+      <rect x="480.5" y="344" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(512.5,368) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">ac</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="n45" role="img" aria-label="ad">
+      <title>ad</title>
+      <rect x="580.5" y="344" width="64" height="40" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(612.5,368) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">ad</text>
+      </g>
+      
+    </g>
+  </g>
+  <g class="controls-bar" role="group" aria-label="Diagram controls">
+    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(679.5 254)">
+      <title>Zoom out</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(679.5 290)">
+      <title>Reset view</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(679.5 326)">
+      <title>Zoom in</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(679.5 362)">
+      <title>Fullscreen</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g>
+  </g>
+  <script><![CDATA[(function(){
+function I(s){
+var hz=parseFloat(s.getAttribute("data-camera-z"))||1;
+var hx=parseFloat(s.getAttribute("data-camera-tx"))||0;
+var hy=parseFloat(s.getAttribute("data-camera-ty"))||0;
+var z=hz,tx=hx,ty=hy,zr=s.querySelector(".zoom-root"),ss=s.querySelectorAll(".screen-stable"),bs=[],i;
+for(i=0;i<ss.length;i++)bs.push(ss[i].getAttribute("transform")||"");
+var rng=(s.getAttribute("data-zoom-range")||"0.5 4").split(" ").map(parseFloat);
+function A(){
+zr.setAttribute("transform","translate("+tx+" "+ty+") scale("+z+")");
+var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal,inv=1/(z*(r.width/vb.width));
+for(var i=0;i<ss.length;i++){var m=bs[i].match(/translate\(([^)]+)\)/);ss[i].setAttribute("transform","translate("+(m?m[1]:"0 0")+") scale("+inv+")")}
+s.setAttribute("data-zoom",z.toFixed(2));
+}
+function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
+  s.addEventListener("wheel",function(e){
+    e.preventDefault();
+    var d=e.deltaY>0?0.9:1.1, nz=clamp(z*d);
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    var px=(e.clientX-r.left)/r.width*vb.width, py=(e.clientY-r.top)/r.height*vb.height;
+    tx=px-(px-tx)*(nz/z); ty=py-(py-ty)*(nz/z); z=nz; A();
+  },{passive:false});
+  var dg=0,sx=0,sy=0;
+  s.addEventListener("pointerdown",function(e){
+    if(e.target.closest(".ctrl-btn"))return;
+    dg=1; sx=e.clientX-tx; sy=e.clientY-ty; s.setPointerCapture(e.pointerId); s.style.cursor="grabbing";
+  });
+  s.addEventListener("pointermove",function(e){
+    if(!dg)return;
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    tx=(e.clientX-sx)/r.width*vb.width; ty=(e.clientY-sy)/r.height*vb.height; A();
+  });
+  function up(e){dg=0;s.releasePointerCapture(e.pointerId);s.style.cursor=""}
+  s.addEventListener("pointerup",up); s.addEventListener("pointercancel",up);
+  s.addEventListener("dblclick",function(e){e.preventDefault();z=1;tx=0;ty=0;A()});
+  s.tabIndex=0; s.setAttribute("role","application");
+  function act(k){
+    if(k==="zoom-in")z=clamp(z*1.2);
+    else if(k==="zoom-out")z=clamp(z*0.83);
+    else if(k==="auto-fit"){z=hz;tx=hx;ty=hy}
+    else if(k==="fullscreen"){if(document.fullscreenElement)document.exitFullscreen();else s.requestFullscreen()}
+    A();
+  }
+  var KMAP={"+":"zoom-in","=":"zoom-in","-":"zoom-out","_":"zoom-out","0":"auto-fit","f":"fullscreen","F":"fullscreen"};
+  function btnAt(e){return e.target&&e.target.closest&&e.target.closest(".ctrl-btn")}
+  s.addEventListener("keydown",function(e){
+    var b=btnAt(e);if(b&&(e.key===" "||e.key==="Enter")){e.preventDefault();act(b.getAttribute("data-action"));return}
+    var a=KMAP[e.key];if(a){e.preventDefault();act(a)}
+  });
+  s.addEventListener("click",function(e){var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"))}});
+  new ResizeObserver(A).observe(s);A();
+}
+var svgs=document.querySelectorAll("svg[data-controls]");
+for(var i=0;i<svgs.length;i++)I(svgs[i]);
+})();]]></script>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "name": "p9-02-arrow-heads",
+  "title": "Arrow head styles — arrow · arrow-open · dot · diamond · square · none",
+  "ratio": "16:9",
+  "margin": 48,
+  "gridCols": 2,
+  "nodes": [
+    { "id": "a1", "shape": "round", "label": "arrow",      "role": "primary" },
+    { "id": "b1", "shape": "round", "label": "arrow",      "role": "secondary" },
+    { "id": "a2", "shape": "round", "label": "arrow-open", "role": "primary" },
+    { "id": "b2", "shape": "round", "label": "arrow-open", "role": "secondary" },
+    { "id": "a3", "shape": "round", "label": "dot",        "role": "primary" },
+    { "id": "b3", "shape": "round", "label": "dot",        "role": "secondary" },
+    { "id": "a4", "shape": "round", "label": "diamond",    "role": "primary" },
+    { "id": "b4", "shape": "round", "label": "diamond",    "role": "secondary" },
+    { "id": "a5", "shape": "round", "label": "square",     "role": "primary" },
+    { "id": "b5", "shape": "round", "label": "square",     "role": "secondary" },
+    { "id": "a6", "shape": "round", "label": "none",       "role": "primary" },
+    { "id": "b6", "shape": "round", "label": "none",       "role": "secondary" }
+  ],
+  "edges": [
+    { "from": "a1", "to": "b1", "style": { "head": "arrow"      } },
+    { "from": "a2", "to": "b2", "style": { "head": "arrow-open" } },
+    { "from": "a3", "to": "b3", "style": { "head": "dot"        } },
+    { "from": "a4", "to": "b4", "style": { "head": "diamond"    } },
+    { "from": "a5", "to": "b5", "style": { "head": "square"     } },
+    { "from": "a6", "to": "b6", "style": { "head": "none"       } }
+  ]
+}
