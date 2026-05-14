@@ -22,7 +22,7 @@ const SUPPORTED_LANGS = new Set([
   'toml', 'rust', 'rs', 'c', 'cpp', 'python', 'py',
   'bash', 'sh', 'shell', 'yaml', 'yml', 'mermaid', 'anim',
   'json', 'text', 'txt', 'css', 'html', 'markdown', 'md',
-  'diff',
+  'diff', 'gherkin',
 ]);
 
 for (const file of files) {
@@ -36,7 +36,13 @@ for (const file of files) {
 
   console.log(`\n→ ${filename}`);
 
-  const bodyNoCode = body.replace(/```[\s\S]*?```/g, (m) => '\n'.repeat(m.split('\n').length - 1));
+  // Strip fenced code blocks (preserving line offsets) then inline code spans,
+  // so that markdown syntax shown inside `code` is not mis-detected as a real link/image.
+  // The fence regex anchors to start-of-line (multiline mode) so that backtick
+  // sequences shown inside prose don't accidentally swallow surrounding text.
+  const bodyNoCode = body
+    .replace(/^```[\s\S]*?^```/gm, (m) => '\n'.repeat(m.split('\n').length - 1))
+    .replace(/`[^`\n]+`/g, (m) => ' '.repeat(m.length));
 
   // Images
   const imgRefs = [...bodyNoCode.matchAll(/!\[([^\]]*)\]\(([^)]+)\)/g)];

@@ -1,5 +1,8 @@
 /**
- * rehype plugin: replaces ```anim fenced code blocks with compiled SVG.
+ * remark plugin: replaces ```anim fenced code blocks with compiled SVG.
+ *
+ * Runs at the remark stage so it sees the original `lang: 'anim'` info string
+ * before Shiki rewrites the block into a generic plaintext <pre>.
  */
 import { visit } from 'unist-util-visit';
 import { compileAnim } from '../../scripts/anim-compiler.mjs';
@@ -32,40 +35,25 @@ function buildErrorSVG(message) {
 </svg>`;
 }
 
-export function rehypeAnim({ dev = false } = {}) {
+export function remarkAnim({ dev = false } = {}) {
   return (tree) => {
-    visit(tree, 'element', (node, index, parent) => {
-      if (node.tagName !== 'pre' || !node.children?.length) return;
-      const codeEl = node.children[0];
-      if (codeEl?.tagName !== 'code') return;
-      const classes = codeEl.properties?.className ?? [];
-      const lang = (Array.isArray(classes) ? classes : []).find(c => c?.startsWith?.('language-'))?.replace('language-', '');
-      if (lang !== 'anim') return;
-
-      const source = codeEl.children?.map(c => c.value ?? '').join('') ?? '';
-      if (!source.trim()) return;
+    visit(tree, 'code', (node, index, parent) => {
+      if (node.lang !== 'anim' || !node.value?.trim()) return;
 
       let svg;
       try {
-        svg = compileAnim(source, { optimize: !dev });
+        svg = compileAnim(node.value, { optimize: !dev });
       } catch (err) {
-        if (!dev) {
-          throw new Error(`[AnimML] compile error:\n${err.message}`);
-        }
+        if (!dev) throw new Error(`[AnimML] compile error:\n${err.message}`);
         svg = buildErrorSVG(err.message);
       }
 
-      parent.children.splice(index, 1, {
-        type: 'element',
-        tagName: 'div',
-        properties: {
-          className: ['anim-diagram'],
-          style: `aspect-ratio: ${ratioCss(source)}`,
-        },
-        children: [{ type: 'raw', value: svg }],
-      });
+      parent.children[index] = {
+        type: 'html',
+        value: `<div class="anim-diagram" style="aspect-ratio: ${ratioCss(node.value)}">${svg}</div>`,
+      };
     });
   };
 }
 
-export default rehypeAnim;
+export default remarkAnim;

@@ -375,7 +375,7 @@ function emitFilters(colors) {
     </filter>`).join('');
 }
 
-function emitContainers(spec, vw, vh) {
+function emitContainers(spec, vw, vh, hiddenInitially) {
   let out = '';
   for (const [id, c] of Object.entries(spec.containers)) {
     const nodes = c.contains.map(n => spec.nodes[n]).filter(Boolean);
@@ -391,8 +391,9 @@ function emitContainers(spec, vw, vh) {
       y2 = Math.max(y2, cy + h / 2 + 8);
     }
     const p = c.padding;
+    const initOpacity = hiddenInitially.has(id) ? '0' : '1';
     out += `
-  <g id="g-${id}" opacity="0">
+  <g id="g-${id}" opacity="${initOpacity}">
     <rect x="${(x1 - p).toFixed(1)}" y="${(y1 - p).toFixed(1)}"
           width="${(x2 - x1 + p * 2).toFixed(1)}" height="${(y2 - y1 + p * 2).toFixed(1)}"
           rx="4" fill="var(--bg-container)"
@@ -437,14 +438,15 @@ function emitEdges(spec, vw, vh, smilByEdge) {
   return out;
 }
 
-function emitNodes(spec, vw, vh) {
+function emitNodes(spec, vw, vh, hiddenInitially) {
   let out = '';
   for (const [id, n] of Object.entries(spec.nodes)) {
     const cx = n.x / 100 * vw;
     const cy = n.y / 100 * vh;
     const [w, h] = SYM_SIZE[n.symbol];
+    const initOpacity = hiddenInitially.has(id) ? '0' : '1';
     out += `
-  <g id="n-${id}" transform="translate(${cx.toFixed(1)},${cy.toFixed(1)})" opacity="0">
+  <g id="n-${id}" transform="translate(${cx.toFixed(1)},${cy.toFixed(1)})" opacity="${initOpacity}">
     <use href="#sym-${n.symbol}" x="${(-w / 2).toFixed(1)}" y="${(-h / 2).toFixed(1)}"
          width="${w}" height="${h}"
          style="color:var(--${n.color}); --_fill:var(--${n.color}-dim)"/>
@@ -467,6 +469,8 @@ function emitAnimationsCSS(spec, timeline) {
   const colorsUsed = colorTokensUsed(spec);
   lines.push('@keyframes reveal { from{opacity:0; transform:scale(0.95)} to{opacity:1; transform:scale(1)} }');
   lines.push('@keyframes fade-hide { to { opacity: 0 } }');
+  lines.push('@keyframes fade-dim { to { opacity: 0.28 } }');
+  lines.push('@keyframes fade-bright { to { opacity: 1 } }');
   for (const c of colorsUsed) {
     lines.push(`@keyframes pulse-${c} {
       0% { filter: none; }
@@ -503,17 +507,33 @@ function emitAnimationsCSS(spec, timeline) {
       } else if (action.type === 'pulse') {
         for (const tid of targets) {
           const color = action.color ?? spec.nodes[tid]?.color ?? 'accent';
+          lines.push(`#n-${tid} { animation: fade-bright 200ms ease-out ${t0}ms forwards; }`);
           lines.push(`#n-${tid} use { animation: pulse-${color} 600ms var(--ease-pulse) ${t0}ms; }`);
         }
       } else if (action.type === 'active') {
         for (const tid of targets) {
           const color = action.color ?? spec.nodes[tid]?.color ?? 'accent';
+          lines.push(`#n-${tid} { animation: fade-bright 250ms ease-out ${t0}ms forwards; }`);
           lines.push(`#n-${tid} use { animation: active-${color} 300ms ease-out ${t0}ms forwards; }`);
         }
       } else if (action.type === 'deactivate') {
         // Reset filter (animations on same property with later time win — leave to CSS cascade order)
         for (const tid of targets) {
           lines.push(`#n-${tid} use { animation: none; filter: none; }`);
+        }
+      } else if (action.type === 'dim' || action.type === 'unfocus') {
+        for (const tid of targets) {
+          const sel = spec.nodes[tid] ? `#n-${tid}` : `#g-${tid}`;
+          lines.push(`${sel} { animation: fade-dim 250ms ease-out ${t0}ms forwards; }`);
+        }
+      } else if (action.type === 'highlight' || action.type === 'focus') {
+        for (const tid of targets) {
+          const color = action.color ?? spec.nodes[tid]?.color ?? 'accent';
+          const sel = spec.nodes[tid] ? `#n-${tid}` : `#g-${tid}`;
+          lines.push(`${sel} { animation: fade-bright 250ms ease-out ${t0}ms forwards; }`);
+          if (spec.nodes[tid]) {
+            lines.push(`#n-${tid} use { animation: active-${color} 400ms ease-out ${t0}ms forwards; }`);
+          }
         }
       }
     }
@@ -564,6 +584,20 @@ export function compileAnim(source, { optimize = false } = {}) {
   const colors = colorTokensUsed(spec);
   const smilMap = buildSmilMap(spec, timeline);
 
+  // Nodes/containers start hidden ONLY if some state explicitly `show`s them.
+  // Otherwise they start visible (opacity:1). This makes `dim *` workflows
+  // meaningful and avoids the gotcha of nodes never appearing.
+  const hiddenInitially = new Set();
+  for (const actions of Object.values(spec.states)) {
+    for (const action of actions) {
+      if (action.type !== 'show') continue;
+      const targets = action.targets === '*'
+        ? [...Object.keys(spec.nodes), ...Object.keys(spec.containers)]
+        : action.targets;
+      for (const t of targets) hiddenInitially.add(t);
+    }
+  }
+
   const svg = `<svg viewBox="0 0 ${vw} ${vh}" xmlns="http://www.w3.org/2000/svg"
      role="img" class="anim-root" aria-label="${escapeXml(spec.meta.title)}">
   <title>${escapeXml(spec.meta.title)}</title>
@@ -577,9 +611,9 @@ ${emitAnimationsCSS(spec, timeline)}
     ${emitFilters(colors)}
   </defs>
   <rect width="${vw}" height="${vh}" fill="var(--bg)"/>
-  ${emitContainers(spec, vw, vh)}
+  ${emitContainers(spec, vw, vh, hiddenInitially)}
   ${emitEdges(spec, vw, vh, smilMap)}
-  ${emitNodes(spec, vw, vh)}
+  ${emitNodes(spec, vw, vh, hiddenInitially)}
 </svg>`;
 
   return optimize ? optimizeSvg(svg) : svg;

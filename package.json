@@ -50,6 +50,7 @@
     "image-size": "^1.1.1",
     "lint-staged": "^15.0.0",
     "markdownlint-cli2": "^0.13.0",
+    "playwright": "^1.60.0",
     "rehype-mermaid": "^3.0.0",
     "satori": "^0.12.0",
     "svgo": "^3.0.0",
@@ -58,7 +59,12 @@
     "wrangler": "^4.0.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd", "@resvg/resvg-js"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd",
+      "@resvg/resvg-js"
+    ]
   },
   "lint-staged": {
     "content/posts/**/*.md": [
