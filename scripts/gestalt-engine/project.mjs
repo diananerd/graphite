@@ -40,9 +40,29 @@ export function computeContentBBox(placed) {
     x2 = Math.max(x2, n.x + hx);
     y2 = Math.max(y2, n.y + hy);
   }
-  // Edges & groups extend the bbox via their endpoints / member bboxes.
-  // For P1 we trust node bboxes; routed edge curves never escape node bboxes
-  // by more than a few px, accounted for by margin headroom.
+  // Sequence diagrams: lifelines extend the canvas far below the headers.
+  // Without this the auto-fit would only frame the actor row.
+  for (const l of placed._lifelines ?? []) {
+    x1 = Math.min(x1, l.x);
+    y1 = Math.min(y1, l.yTop);
+    x2 = Math.max(x2, l.x);
+    y2 = Math.max(y2, l.yBot);
+  }
+  // Swimlane bands span the full main axis; include their extents so the
+  // canvas covers the whole strip and the band labels are not clipped.
+  for (const b of placed._swimlanes?.bands ?? []) {
+    if (b.direction === 'horizontal') {
+      x1 = Math.min(x1, 0);
+      x2 = Math.max(x2, b.mainSize);
+      y1 = Math.min(y1, b.crossStart);
+      y2 = Math.max(y2, b.crossStart + b.crossSize);
+    } else {
+      y1 = Math.min(y1, 0);
+      y2 = Math.max(y2, b.mainSize);
+      x1 = Math.min(x1, b.crossStart);
+      x2 = Math.max(x2, b.crossStart + b.crossSize);
+    }
+  }
 
   if (!Number.isFinite(x1)) {
     return { x: 0, y: 0, w: 0, h: 0 };

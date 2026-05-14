@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 1052.5 592"
+     viewBox="0 0 1095 616"
      role="application"
      class="gestalt-root"
      data-margin="24"
      data-layout="swimlanes-h"
-     data-content-bbox="88,12,256,544" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
+     data-content-bbox="0,0,384,568" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
      aria-label="Horizontal swimlanes — process across 3 actors"
      tabindex="0">
   <title>Horizontal swimlanes — process across 3 actors</title>
@@ -43,95 +43,95 @@
         <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--purple)"/>
       </marker>
   </defs>
-  <rect width="1052.5" height="592" fill="var(--bg)"/>
+  <rect width="1095" height="616" fill="var(--bg)"/>
   <g class="zoom-root">
     <g class="swimlane-band">
-        <rect x="0" y="12" width="1052.5" height="168" fill="var(--bg-surface)" opacity="0.4"/>
-        <line x1="0" y1="12" x2="1052.5" y2="12" stroke="var(--border, #2c2c2a)" stroke-width="1"/>
-        <g class="screen-stable" transform="translate(326,100) scale(1)">
+        <rect x="0" y="24" width="1095" height="168" fill="var(--bg-surface)" opacity="0.4"/>
+        <line x1="0" y1="24" x2="1095" y2="24" stroke="var(--border, #2c2c2a)" stroke-width="1"/>
+        <g class="screen-stable" transform="translate(371.5,112) scale(1)">
           <text font-family="var(--font)" font-size="11" fill="var(--fg-dim, #888)" letter-spacing="0.08em">USER</text>
         </g>
       </g><g class="swimlane-band">
-        <rect x="0" y="244" width="1052.5" height="152" fill="var(--bg)" opacity="0.4"/>
-        <line x1="0" y1="244" x2="1052.5" y2="244" stroke="var(--border, #2c2c2a)" stroke-width="1"/>
-        <g class="screen-stable" transform="translate(326,324) scale(1)">
+        <rect x="0" y="256" width="1095" height="152" fill="var(--bg)" opacity="0.4"/>
+        <line x1="0" y1="256" x2="1095" y2="256" stroke="var(--border, #2c2c2a)" stroke-width="1"/>
+        <g class="screen-stable" transform="translate(371.5,336) scale(1)">
           <text font-family="var(--font)" font-size="11" fill="var(--fg-dim, #888)" letter-spacing="0.08em">FRONTEND</text>
         </g>
       </g><g class="swimlane-band">
-        <rect x="0" y="460" width="1052.5" height="120" fill="var(--bg-surface)" opacity="0.4"/>
-        <line x1="0" y1="460" x2="1052.5" y2="460" stroke="var(--border, #2c2c2a)" stroke-width="1"/>
-        <g class="screen-stable" transform="translate(326,524) scale(1)">
+        <rect x="0" y="472" width="1095" height="120" fill="var(--bg-surface)" opacity="0.4"/>
+        <line x1="0" y1="472" x2="1095" y2="472" stroke="var(--border, #2c2c2a)" stroke-width="1"/>
+        <g class="screen-stable" transform="translate(371.5,536) scale(1)">
           <text font-family="var(--font)" font-size="11" fill="var(--fg-dim, #888)" letter-spacing="0.08em">BACKEND</text>
         </g>
       </g>
     
     <g class="g-edge" data-id="client-submit">
-    <path d="M 458 96 L 490 96" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 503.5 108 L 535.5 108" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="submit-ui">
-    <path d="M 542 124 L 446 292" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 587.5 136 L 491.5 304" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="ui-validate">
-    <path d="M 494 320 L 526 320" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 539.5 332 L 571.5 332" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="validate-api">
-    <path d="M 590 384 L 446 492" stroke="var(--green)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-green)"/>
-    <g class="screen-stable edge-label" transform="translate(518.0,438.0) scale(1)">
+    <path d="M 635.5 396 L 491.5 504" stroke="var(--green)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-green)"/>
+    <g class="screen-stable edge-label" transform="translate(563.5,450.0) scale(1)">
     <rect x="-11.2" y="-8.0" width="22.4" height="16.0" rx="2" fill="var(--bg)"/>
     <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--green)">ok</text>
   </g>
   </g><g class="g-edge" data-id="api-db">
-    <path d="M 494 520 L 526 520" stroke="var(--purple)" stroke-width="4.00" fill="none" vector-effect="non-scaling-stroke" opacity="0.9" marker-end="url(#mk-arrow-purple)"/>
-      <path d="M 494 520 L 526 520" stroke="var(--bg)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke"/>
+    <path d="M 539.5 532 L 571.5 532" stroke="var(--purple)" stroke-width="4.00" fill="none" vector-effect="non-scaling-stroke" opacity="0.9" marker-end="url(#mk-arrow-purple)"/>
+      <path d="M 539.5 532 L 571.5 532" stroke="var(--bg)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke"/>
     
   </g>
     
     <g class="g-node" data-id="client" role="img" aria-label="Client">
       <title>Client</title>
       
-        <circle cx="428" cy="42.8" r="16.8" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-        <path d="M 413.72 60.599999999999994
-                 C 413.72 80.72399999999999
-                   402.8 104.202
-                   402.8 127.67999999999999
-                 L 453.2 127.67999999999999
-                 C 453.2 104.202
-                   442.28 80.72399999999999
-                   442.28 60.599999999999994
+        <circle cx="473.5" cy="54.8" r="16.8" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <path d="M 459.22 72.6
+                 C 459.22 92.72399999999999
+                   448.3 116.202
+                   448.3 139.68
+                 L 498.7 139.68
+                 C 498.7 116.202
+                   487.78 92.72399999999999
+                   487.78 72.6
                  Z" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(428,160) scale(1)">
+      <g class="screen-stable" transform="translate(473.5,172) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--pink)">Client</text>
       </g>
       
     </g>
     <g class="g-node" data-id="submit" role="img" aria-label="submit">
       <title>submit</title>
-      <polygon points="506,68 594,68 578,124 490,124" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(542,100) scale(1)">
+      <polygon points="551.5,80 639.5,80 623.5,136 535.5,136" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(587.5,112) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">submit</text>
       </g>
       
     </g>
     <g class="g-node" data-id="ui" role="img" aria-label="UI form">
       <title>UI form</title>
-      <rect x="398" y="292" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(446,324) scale(1)">
+      <rect x="443.5" y="304" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(491.5,336) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">UI form</text>
       </g>
       
     </g>
     <g class="g-node" data-id="validate" role="img" aria-label="valid?">
       <title>valid?</title>
-      <polygon points="590,256 654,320 590,384 526,320" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(590,324) scale(1)">
+      <polygon points="635.5,268 699.5,332 635.5,396 571.5,332" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(635.5,336) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">valid?</text>
       </g>
       
     </g>
     <g class="g-node" data-id="api" role="img" aria-label="API">
       <title>API</title>
-      <rect x="398" y="492" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(446,524) scale(1)">
+      <rect x="443.5" y="504" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(491.5,536) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">API</text>
       </g>
       
@@ -139,28 +139,28 @@
     <g class="g-node" data-id="db" role="img" aria-label="DB">
       <title>DB</title>
       
-        <path d="M 526 484 A 40 12 0 0 0 606 484 L 606 556 A 40 12 0 0 1 526 556 Z" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-        <ellipse cx="566" cy="484" rx="40" ry="12" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(566,524) scale(1)">
+        <path d="M 571.5 496 A 40 12 0 0 0 651.5 496 L 651.5 568 A 40 12 0 0 1 571.5 568 Z" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <ellipse cx="611.5" cy="496" rx="40" ry="12" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(611.5,536) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">DB</text>
       </g>
       
     </g>
   </g>
   <g class="controls-bar" role="group" aria-label="Diagram controls">
-    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(1006.5 438)">
+    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(1049 462)">
       <title>Zoom out</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(1006.5 474)">
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(1049 498)">
       <title>Reset view</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(1006.5 510)">
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(1049 534)">
       <title>Zoom in</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(1006.5 546)">
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(1049 570)">
       <title>Fullscreen</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>

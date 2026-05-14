@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 440 330"
+     viewBox="0 0 682.5 512"
      role="application"
      class="gestalt-root"
-     data-margin="32"
+     data-margin="24"
      data-layout="sequence"
-     data-content-bbox="0,-72,376,144" data-controls="zoom pan auto-fit" data-zoom-range="0.25 8" data-camera-z="0.93" data-camera-tx="14.92" data-camera-ty="11.19" data-steps='[{&quot;id&quot;:&quot;actors&quot;,&quot;caption&quot;:&quot;Three actors — User, App, Auth&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;],&quot;camera&quot;:{&quot;z&quot;:0.93,&quot;tx&quot;:14.92,&quot;ty&quot;:11.19,&quot;focalBBox&quot;:{&quot;x&quot;:32,&quot;y&quot;:93,&quot;w&quot;:376,&quot;h&quot;:144},&quot;focalIds&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;]}},{&quot;id&quot;:&quot;msg-1&quot;,&quot;caption&quot;:&quot;Step 1 — User clicks Login&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;user&quot;],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-2&quot;,&quot;caption&quot;:&quot;Step 2 — App posts credentials to Auth&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;app&quot;],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-3&quot;,&quot;caption&quot;:&quot;Step 3 — Auth verifies the password hash locally&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;,&quot;auth-auth&quot;],&quot;activated&quot;:[&quot;auth&quot;],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-4&quot;,&quot;caption&quot;:&quot;Step 4 — Auth returns the JWT token&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;,&quot;auth-auth&quot;,&quot;auth-app&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-5&quot;,&quot;caption&quot;:&quot;Step 5 — App renders the dashboard for the user&quot;,&quot;duration&quot;:700,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;,&quot;auth-auth&quot;,&quot;auth-app&quot;,&quot;app-user&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;user&quot;],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null}]' data-node-steps='{&quot;auth&quot;:3,&quot;user&quot;:1,&quot;app&quot;:2,&quot;user-app&quot;:1,&quot;app-auth&quot;:2,&quot;auth-auth&quot;:3,&quot;auth-app&quot;:4,&quot;app-user&quot;:5}' data-autoplay-default="2500"
+     data-content-bbox="0,-72,376,464" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4" data-camera-z="0.91" data-camera-tx="29.02" data-camera-ty="21.94" data-steps='[{&quot;id&quot;:&quot;actors&quot;,&quot;caption&quot;:&quot;Three actors — User, App, Auth&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;],&quot;camera&quot;:{&quot;z&quot;:0.91,&quot;tx&quot;:29.02,&quot;ty&quot;:21.94,&quot;focalBBox&quot;:{&quot;x&quot;:153.5,&quot;y&quot;:24,&quot;w&quot;:376,&quot;h&quot;:464},&quot;focalIds&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;]}},{&quot;id&quot;:&quot;msg-1&quot;,&quot;caption&quot;:&quot;Step 1 — User clicks Login&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;user&quot;],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-2&quot;,&quot;caption&quot;:&quot;Step 2 — App posts credentials to Auth&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;app&quot;],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-3&quot;,&quot;caption&quot;:&quot;Step 3 — Auth verifies the password hash locally&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;,&quot;auth-auth&quot;],&quot;activated&quot;:[&quot;auth&quot;],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-4&quot;,&quot;caption&quot;:&quot;Step 4 — Auth returns the JWT token&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;,&quot;auth-auth&quot;,&quot;auth-app&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;msg-5&quot;,&quot;caption&quot;:&quot;Step 5 — App renders the dashboard for the user&quot;,&quot;duration&quot;:700,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;user&quot;,&quot;app&quot;,&quot;auth&quot;,&quot;user-app&quot;,&quot;app-auth&quot;,&quot;auth-auth&quot;,&quot;auth-app&quot;,&quot;app-user&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;user&quot;],&quot;flow&quot;:[],&quot;focalIds&quot;:[],&quot;camera&quot;:null}]' data-node-steps='{&quot;auth&quot;:3,&quot;user&quot;:1,&quot;app&quot;:2,&quot;user-app&quot;:1,&quot;app-auth&quot;:2,&quot;auth-auth&quot;:3,&quot;auth-app&quot;:4,&quot;app-user&quot;:5}' data-autoplay-default="2500"
      aria-label="Sequence diagram with steps — login flow walkthrough"
      tabindex="0">
   <title>Sequence diagram with steps — login flow walkthrough</title>
@@ -41,43 +41,43 @@
         <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--purple)"/>
       </marker>
   </defs>
-  <rect width="440" height="330" fill="var(--bg)"/>
-  <g class="zoom-root" transform="translate(14.92 11.19) scale(0.93)">
+  <rect width="682.5" height="512" fill="var(--bg)"/>
+  <g class="zoom-root" transform="translate(29.02 21.94) scale(0.91)">
     
-    <line x1="60" y1="237" x2="60" y2="557"
+    <line x1="181.5" y1="168" x2="181.5" y2="488"
               stroke="var(--fg-dim, #888)" stroke-width="1" stroke-dasharray="4 4"
-              vector-effect="non-scaling-stroke" opacity="0.6"/><line x1="200" y1="193" x2="200" y2="557"
+              vector-effect="non-scaling-stroke" opacity="0.6"/><line x1="321.5" y1="124" x2="321.5" y2="488"
               stroke="var(--fg-dim, #888)" stroke-width="1" stroke-dasharray="4 4"
-              vector-effect="non-scaling-stroke" opacity="0.6"/><line x1="360" y1="193" x2="360" y2="557"
+              vector-effect="non-scaling-stroke" opacity="0.6"/><line x1="481.5" y1="124" x2="481.5" y2="488"
               stroke="var(--fg-dim, #888)" stroke-width="1" stroke-dasharray="4 4"
               vector-effect="non-scaling-stroke" opacity="0.6"/>
     <g class="g-edge" data-id="user-app" opacity="0">
-    <path d="M 60 301 L 200 301" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
-    <g class="screen-stable edge-label" transform="translate(130.0,295.0) scale(1)">
+    <path d="M 181.5 232 L 321.5 232" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <g class="screen-stable edge-label" transform="translate(251.5,226.0) scale(1)">
     <rect x="-39.1" y="-8.0" width="78.2" height="16.0" rx="2" fill="var(--bg)"/>
     <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--accent)">click login</text>
   </g>
   </g><g class="g-edge" data-id="app-auth" opacity="0">
-    <path d="M 200 349 L 360 349" stroke="var(--purple)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-purple)"/>
-    <g class="screen-stable edge-label" transform="translate(280.0,343.0) scale(1)">
+    <path d="M 321.5 280 L 481.5 280" stroke="var(--purple)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-purple)"/>
+    <g class="screen-stable edge-label" transform="translate(401.5,274.0) scale(1)">
     <rect x="-39.1" y="-8.0" width="78.2" height="16.0" rx="2" fill="var(--bg)"/>
     <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--purple)">POST /login</text>
   </g>
   </g><g class="g-edge" data-id="auth-auth" opacity="0">
-    <path d="M 360 397 L 400 397 L 400 415 L 364 415" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
-    <g class="screen-stable edge-label" transform="translate(380.0,393.0) scale(1)">
+    <path d="M 481.5 328 L 521.5 328 L 521.5 346 L 485.5 346" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <g class="screen-stable edge-label" transform="translate(501.5,324.0) scale(1)">
     <rect x="-39.1" y="-8.0" width="78.2" height="16.0" rx="2" fill="var(--bg)"/>
     <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--accent)">verify hash</text>
   </g>
   </g><g class="g-edge" data-id="auth-app" opacity="0">
-    <path d="M 360 445 L 200 445" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)" stroke-dasharray="6 4"/>
-    <g class="screen-stable edge-label" transform="translate(280.0,439.0) scale(1)">
+    <path d="M 481.5 376 L 321.5 376" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)" stroke-dasharray="6 4"/>
+    <g class="screen-stable edge-label" transform="translate(401.5,370.0) scale(1)">
     <rect x="-32.9" y="-8.0" width="65.8" height="16.0" rx="2" fill="var(--bg)"/>
     <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--accent)">JWT token</text>
   </g>
   </g><g class="g-edge" data-id="app-user" opacity="0">
-    <path d="M 200 493 L 60 493" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)" stroke-dasharray="6 4"/>
-    <g class="screen-stable edge-label" transform="translate(130.0,487.0) scale(1)">
+    <path d="M 321.5 424 L 181.5 424" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)" stroke-dasharray="6 4"/>
+    <g class="screen-stable edge-label" transform="translate(251.5,418.0) scale(1)">
     <rect x="-48.4" y="-8.0" width="96.8" height="16.0" rx="2" fill="var(--bg)"/>
     <text text-anchor="middle" dy=".35em" font-family="var(--font, monospace)" font-size="10" fill="var(--accent)">show dashboard</text>
   </g>
@@ -86,76 +86,76 @@
     <g class="g-node" data-id="user" role="img" aria-label="User">
       <title>User</title>
       
-        <circle cx="60" cy="110.68" r="15.680000000000001" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-        <path d="M 46.672 127.36000000000001
-                 C 46.672 148.156
-                   36.480000000000004 172.418
-                   36.480000000000004 196.68
-                 L 83.52 196.68
-                 C 83.52 172.418
-                   73.328 148.156
-                   73.328 127.36000000000001
+        <circle cx="181.5" cy="41.68" r="15.680000000000001" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <path d="M 168.172 58.36
+                 C 168.172 79.15599999999999
+                   157.98 103.418
+                   157.98 127.67999999999999
+                 L 205.02 127.67999999999999
+                 C 205.02 103.418
+                   194.828 79.15599999999999
+                   194.828 58.36
                  Z" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(60,229) scale(1)">
+      <g class="screen-stable" transform="translate(181.5,160) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--pink)">User</text>
       </g>
       
     </g>
     <g class="g-node" data-id="app" role="img" aria-label="App">
       <title>App</title>
-      <rect x="152" y="137" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(200,169) scale(1)">
+      <rect x="273.5" y="68" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(321.5,100) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">App</text>
       </g>
       
     </g>
     <g class="g-node" data-id="auth" role="img" aria-label="Auth">
       <title>Auth</title>
-      <rect x="312" y="137" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(360,169) scale(1)">
+      <rect x="433.5" y="68" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(481.5,100) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">Auth</text>
       </g>
       
     </g>
   </g>
   <g class="controls-bar" role="group" aria-label="Diagram controls">
-    <g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(394 68)">
+    <g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(636.5 250)">
       <title>Previous step</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 20 9 L 12 16 L 20 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="autoplay-toggle" role="button" aria-label="Toggle autoplay" tabindex="0" transform="translate(394 104)">
+    </g><g class="ctrl-btn" data-action="autoplay-toggle" role="button" aria-label="Toggle autoplay" tabindex="0" transform="translate(636.5 286)">
       <title>Toggle autoplay</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path class="icon-play"  d="M 12 9 L 22 16 L 12 23 Z"  fill="var(--accent)" stroke="none"/>
                    <path class="icon-pause" d="M 12 9 L 14 9 L 14 23 L 12 23 Z M 18 9 L 20 9 L 20 23 L 18 23 Z" fill="var(--accent)" stroke="none"/>
-    </g><g class="ctrl-btn" data-action="step-next" role="button" aria-label="Next step" tabindex="0" transform="translate(394 140)">
+    </g><g class="ctrl-btn" data-action="step-next" role="button" aria-label="Next step" tabindex="0" transform="translate(636.5 322)">
       <title>Next step</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 12 9 L 20 16 L 12 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(394 176)">
+    </g><g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(636.5 358)">
       <title>Zoom out</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(394 212)">
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(636.5 394)">
       <title>Reset view</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(394 248)">
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(636.5 430)">
       <title>Zoom in</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(394 284)">
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(636.5 466)">
       <title>Fullscreen</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
     </g>
   </g>
   <g class="caption-bar" role="status" aria-live="polite">
-    <rect x="-20" y="14" width="480" height="32" rx="6"
+    <rect x="101.25" y="14" width="480" height="32" rx="6"
           fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
-    <text class="step-caption" x="220" y="35" text-anchor="middle"
+    <text class="step-caption" x="341.25" y="35" text-anchor="middle"
           font-family="var(--font)" font-size="13" fill="var(--fg, #e0e0e0)"></text>
-    <text class="step-counter" x="446" y="35" text-anchor="end"
+    <text class="step-counter" x="567.25" y="35" text-anchor="end"
           font-family="var(--font)" font-size="10" fill="var(--fg-dim, #999)"></text>
   </g>
   <script><![CDATA[(function(){

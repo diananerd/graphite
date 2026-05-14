@@ -25,16 +25,24 @@ export function computeCamera(spec, projection) {
   const focal = (spec.nodes ?? []).filter((n) => ids.has(n.id));
   if (focal.length === 0) return null;
 
+  // In sequence layouts each "node" is a header; its lifeline extends far
+  // below. The camera should frame the lifeline column, not just the header.
+  const lifelineById = {};
+  for (const l of spec._lifelines ?? []) lifelineById[l.id] = l;
+
   // Focal nodes' bbox in projected canvas coords. Nodes carry virtual (x,y);
   // the projection's tx/ty shifts them into canvas space.
   let x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
   for (const n of focal) {
     const cx = n.x + projection.tx;
     const cy = n.y + projection.ty;
+    const ll = lifelineById[n.id];
+    const topY = ll ? ll.yTop + projection.ty : cy - n.h / 2;
+    const botY = ll ? ll.yBot + projection.ty : cy + n.h / 2;
     x1 = Math.min(x1, cx - n.w / 2);
-    y1 = Math.min(y1, cy - n.h / 2);
+    y1 = Math.min(y1, Math.min(cy - n.h / 2, topY));
     x2 = Math.max(x2, cx + n.w / 2);
-    y2 = Math.max(y2, cy + n.h / 2);
+    y2 = Math.max(y2, botY);
   }
 
   const padding = spec.viewPadding ?? DEFAULT_VIEW_PADDING;
