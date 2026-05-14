@@ -312,7 +312,7 @@ function emitShape(node, proj) {
     </g>`;
 }
 
-function emitEdge(edge, nodesById, proj, defaultStyle) {
+function emitEdge(edge, nodesById, proj, defaultStyle, radialCtx) {
   const a = nodesById[edge.from];
   const b = nodesById[edge.to];
   if (!a || !b) return '';
@@ -320,7 +320,44 @@ function emitEdge(edge, nodesById, proj, defaultStyle) {
   // Sequence-diagram messages: horizontal line at the edge's _seqY, between
   // the two lifeline x-coords. Self-messages render as a small loop.
   let aProj, bProj, override;
-  if (edge._seqY !== undefined) {
+  // Radial layouts: arrows trace SVG arcs along the loop's perimeter circle.
+  // Anchor points are the intersection of the perimeter with each node's
+  // outer bbox; the arc connects those anchors following the centroid.
+  if (radialCtx && radialCtx.angles[edge.from] !== undefined && radialCtx.angles[edge.to] !== undefined) {
+    const [cx, cy] = radialCtx.centroid;
+    const R = radialCtx.radius;
+    const θA = radialCtx.angles[edge.from];
+    const θB = radialCtx.angles[edge.to];
+    // Shorter arc direction.
+    let dθ = θB - θA;
+    while (dθ > Math.PI)  dθ -= 2 * Math.PI;
+    while (dθ < -Math.PI) dθ += 2 * Math.PI;
+    const sign = dθ >= 0 ? 1 : -1;
+    // Angular offset where the perimeter circle exits each shape's bbox.
+    // For a rect on the circle the tangent direction varies with position;
+    // arcsin(max(w,h) / (2R)) is a clean upper bound that keeps the arrow
+    // clear of the shape outline regardless of orientation.
+    const δA = Math.asin(Math.min(0.99, Math.max(a.w, a.h) / (2 * R))) + 0.03;
+    const δB = Math.asin(Math.min(0.99, Math.max(b.w, b.h) / (2 * R))) + 0.03;
+    const startθ = θA + sign * δA;
+    const endθ   = θB - sign * δB;
+    const sx = cx + R * Math.cos(startθ);
+    const sy = cy + R * Math.sin(startθ);
+    const ex = cx + R * Math.cos(endθ);
+    const ey = cy + R * Math.sin(endθ);
+    const sweep = sign > 0 ? 1 : 0;
+    const largeArc = Math.abs(dθ) > Math.PI ? 1 : 0;
+    const midθ = (startθ + endθ) / 2;
+    aProj = { ...a, x: sx, y: sy };
+    bProj = { ...b, x: ex, y: ey };
+    override = {
+      d: `M ${sx.toFixed(1)} ${sy.toFixed(1)} A ${R.toFixed(1)} ${R.toFixed(1)} 0 ${largeArc} ${sweep} ${ex.toFixed(1)} ${ey.toFixed(1)}`,
+      mid: {
+        x: cx + (R + 14 * sign) * Math.cos(midθ),
+        y: cy + (R + 14 * sign) * Math.sin(midθ),
+      },
+    };
+  } else if (edge._seqY !== undefined) {
     const seqY = edge._seqY + proj.ty;
     const ax = a.x + proj.tx, bx = b.x + proj.tx;
     if (a.id === b.id) {
@@ -547,12 +584,20 @@ export function renderSVG(placed, proj, opts = {}) {
     _initialVisible: initialVisible ? initialVisible.has(n.id) : true,
   }));
 
+  // Radial layout context — used by emitEdge to route arrows as SVG arcs
+  // along the loop's perimeter circle instead of straight chords.
+  const radialCtx = placed._radial ? {
+    centroid: [proj.tx + placed._radial.centroid[0], proj.ty + placed._radial.centroid[1]],
+    radius: placed._radial.radius * proj.scale,
+    angles: placed._radial.angles,
+  } : null;
+
   const edges = (placed.edges ?? []).map((e) => {
     const eid = `${e.from}-${e.to}`;
     const e2 = { ...e, _initialVisible: initialVisible ? initialVisible.has(eid) : true };
     return Array.isArray(e.participants) && e.participants.length >= 2
       ? emitHyperEdge(e2, nodesById, proj)
-      : emitEdge(e2, nodesById, proj, defaultStyle);
+      : emitEdge(e2, nodesById, proj, defaultStyle, radialCtx);
   }).join('');
   const nodes = annotatedNodes.map((n) => emitShape(n, proj)).join('');
   const markers = emitArrowMarkers(collectMarkerNeeds(placed));

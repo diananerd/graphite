@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 572 572"
+     viewBox="0 0 809 809"
      role="application"
      class="gestalt-root"
      data-margin="48"
      data-layout="radial"
-     data-content-bbox="-232,-222,476,444" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
+     data-content-bbox="-356.6,-352,713.2,704" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
      aria-label="Event loop — 6 phases around the clock"
      tabindex="0">
   <title>Event loop — 6 phases around the clock</title>
@@ -39,93 +39,93 @@
         <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
       </marker>
   </defs>
-  <rect width="572" height="572" fill="var(--bg)"/>
+  <rect width="809" height="809" fill="var(--bg)"/>
   <g class="zoom-root">
     
     
     <g class="g-edge" data-id="timers-pcb">
-    <path d="M 400 383 L 280 452" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 632.4 634.7 A 324.0 324.0 0 0 1 489.9 717.0" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="pcb-idle">
-    <path d="M 280 452 L 112 411" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 319.1 717.0 A 324.0 324.0 0 0 1 176.6 634.7" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="idle-poll">
-    <path d="M 112 355 L 112 217" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 91.1 486.8 A 324.0 324.0 0 0 1 91.1 322.2" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="poll-check">
-    <path d="M 160 189 L 232 92" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 176.6 174.3 A 324.0 324.0 0 0 1 319.1 92.0" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="check-close">
-    <path d="M 328 92 L 448 161" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 489.9 92.0 A 324.0 324.0 0 0 1 632.4 174.3" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="close-timers">
-    <path d="M 448 217 L 448 355" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 717.9 322.2 A 324.0 324.0 0 0 1 717.9 486.8" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g>
     
     <g class="g-node" data-id="timers" role="img" aria-label="timers">
       <title>timers</title>
-      <rect x="400" y="355" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(448,387) scale(1)">
+      <rect x="609" y="538.5" width="152" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(685,570.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">timers</text>
       </g>
       
     </g>
     <g class="g-node" data-id="pcb" role="img" aria-label="pending cb">
       <title>pending cb</title>
-      <rect x="226" y="452" width="108" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(280,484) scale(1)">
+      <rect x="328.5" y="700.5" width="152" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(404.5,732.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">pending cb</text>
       </g>
       
     </g>
     <g class="g-node" data-id="idle" role="img" aria-label="idle/prepare">
       <title>idle/prepare</title>
-      <rect x="48" y="355" width="128" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(112,387) scale(1)">
+      <rect x="48" y="538.5" width="152" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(124,570.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">idle/prepare</text>
       </g>
       
     </g>
     <g class="g-node" data-id="poll" role="img" aria-label="poll">
       <title>poll</title>
-      <rect x="64" y="161" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(112,193) scale(1)">
+      <rect x="48" y="214.5" width="152" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(124,246.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">poll</text>
       </g>
       
     </g>
     <g class="g-node" data-id="check" role="img" aria-label="check">
       <title>check</title>
-      <rect x="232" y="64" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(280,96) scale(1)">
+      <rect x="328.5" y="52.5" width="152" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(404.5,84.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">check</text>
       </g>
       
     </g>
     <g class="g-node" data-id="close" role="img" aria-label="close callbacks">
       <title>close callbacks</title>
-      <rect x="372" y="161" width="152" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(448,193) scale(1)">
+      <rect x="609" y="214.5" width="152" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(685,246.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--pink)">close callbacks</text>
       </g>
       
     </g>
   </g>
   <g class="controls-bar" role="group" aria-label="Diagram controls">
-    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(526 418)">
+    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(763 655)">
       <title>Zoom out</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(526 454)">
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(763 691)">
       <title>Reset view</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(526 490)">
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(763 727)">
       <title>Zoom in</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(526 526)">
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(763 763)">
       <title>Fullscreen</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>

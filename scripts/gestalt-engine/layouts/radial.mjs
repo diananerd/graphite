@@ -54,19 +54,30 @@ export function radial(spec) {
   if (n === 0) return { ...spec, nodes: [] };
   if (n === 1) return { ...spec, nodes: [{ ...ordered[0], x: 0, y: 0 }] };
 
-  // Required radius: ensure the chord between adjacent nodes ≥ their bbox
-  // half-diagonal + gap. Chord at angle 2π/n is 2R·sin(π/n).
+  // Aesthetic balance: every node in the loop gets the same (w, h), set to
+  // the max across all members. Variable bbox sizes around the same circle
+  // read as visually noisy; uniform sizes lock the loop into a regular
+  // polygon and make the arrows on a shared arc feel intentional.
+  const maxW = Math.max(...ordered.map((node) => node.w));
+  const maxH = Math.max(...ordered.map((node) => node.h));
+  const normalised = ordered.map((node) => ({ ...node, w: maxW, h: maxH }));
+
+  // Required radius: chord between adjacent nodes ≥ bbox half-diagonal + gap.
+  // Plus a healthy slack so the arc-routed arrows have visible length to
+  // bend through (otherwise the trimmed arc collapses to just an arrowhead).
   const gap = LEGIBILITY.gap * 2;
-  const maxDiag = Math.max(...ordered.map((node) => Math.hypot(node.w, node.h)));
-  const requiredChord = maxDiag + gap;
+  const diag = Math.hypot(maxW, maxH);
+  const requiredChord = diag + gap;
   const radius = Math.max(
-    requiredChord / (2 * Math.sin(Math.PI / n)),
-    maxDiag,    // never smaller than the bbox itself
+    requiredChord * 1.5 / (2 * Math.sin(Math.PI / n)),
+    diag * 2,
   );
 
   const angle0 = -Math.PI / 2; // first node at top (12 o'clock)
-  const nodes = ordered.map((node, i) => {
+  const angles = {};
+  const nodes = normalised.map((node, i) => {
     const theta = angle0 + (2 * Math.PI * i) / n;
+    angles[node.id] = theta;
     return {
       ...node,
       x: Math.round(radius * Math.cos(theta) * 10) / 10,
@@ -74,11 +85,16 @@ export function radial(spec) {
     };
   });
 
-  // Restore original order in the returned spec (for stable IDs in render).
-  const placedById = Object.fromEntries(nodes.map((n) => [n.id, n]));
+  // Restore original spec order in the returned nodes array.
+  const placedById = Object.fromEntries(nodes.map((p) => [p.id, p]));
   return {
     ...spec,
     nodes: spec.nodes.map((n) => placedById[n.id] ?? n),
-    _radial: { radius, count: n },
+    _radial: {
+      radius,
+      count: n,
+      centroid: [0, 0],     // in virtual coords; render projects to canvas
+      angles,               // node id → angle (radians)
+    },
   };
 }

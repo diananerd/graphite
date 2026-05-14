@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 553.5 553.5"
+     viewBox="0 0 815 815"
      role="application"
      class="gestalt-root"
      data-margin="48"
      data-layout="radial"
-     data-content-bbox="-190,-218.7,388,457.4" data-controls="zoom pan auto-fit" data-zoom-range="0.25 8" data-camera-z="1" data-camera-tx="0.2" data-camera-ty="0.2" data-steps='[{&quot;id&quot;:&quot;all&quot;,&quot;caption&quot;:&quot;Node.js event loop — 6 phases&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;],&quot;camera&quot;:{&quot;z&quot;:1,&quot;tx&quot;:0.2,&quot;ty&quot;:0.2,&quot;focalBBox&quot;:{&quot;x&quot;:82.5,&quot;y&quot;:47.80000000000001,&quot;w&quot;:388,&quot;h&quot;:457.4},&quot;focalIds&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;]}},{&quot;id&quot;:&quot;timers&quot;,&quot;caption&quot;:&quot;Phase 1 — timers fire&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;timers&quot;],&quot;dimmed&quot;:[&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;timers&quot;],&quot;camera&quot;:{&quot;z&quot;:3.22,&quot;tx&quot;:-1115.05,&quot;ty&quot;:-878.2,&quot;focalBBox&quot;:{&quot;x&quot;:394.5,&quot;y&quot;:320.9,&quot;w&quot;:76,&quot;h&quot;:76},&quot;focalIds&quot;:[&quot;timers&quot;]}},{&quot;id&quot;:&quot;pcb&quot;,&quot;caption&quot;:&quot;Phase 2 — pending callbacks&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;pcb&quot;],&quot;dimmed&quot;:[&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;pcb&quot;],&quot;camera&quot;:{&quot;z&quot;:2.71,&quot;tx&quot;:-462.61,&quot;ty&quot;:-947.46,&quot;focalBBox&quot;:{&quot;x&quot;:218.5,&quot;y&quot;:397.2,&quot;w&quot;:108,&quot;h&quot;:108},&quot;focalIds&quot;:[&quot;pcb&quot;]}},{&quot;id&quot;:&quot;idle&quot;,&quot;caption&quot;:&quot;Phase 3 — idle / prepare&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;idle&quot;],&quot;dimmed&quot;:[&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers&quot;,&quot;pcb&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;idle&quot;],&quot;camera&quot;:{&quot;z&quot;:3.55,&quot;tx&quot;:-122.41,&quot;ty&quot;:-996.65,&quot;focalBBox&quot;:{&quot;x&quot;:82.5,&quot;y&quot;:328.9,&quot;w&quot;:60,&quot;h&quot;:60},&quot;focalIds&quot;:[&quot;idle&quot;]}},{&quot;id&quot;:&quot;poll&quot;,&quot;caption&quot;:&quot;Phase 4 — poll for I/O&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;poll&quot;],&quot;dimmed&quot;:[&quot;check&quot;,&quot;close&quot;,&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;poll&quot;],&quot;camera&quot;:{&quot;z&quot;:3.55,&quot;tx&quot;:-122.41,&quot;ty&quot;:-340.97,&quot;focalBBox&quot;:{&quot;x&quot;:82.5,&quot;y&quot;:144.1,&quot;w&quot;:60,&quot;h&quot;:60},&quot;focalIds&quot;:[&quot;poll&quot;]}},{&quot;id&quot;:&quot;check&quot;,&quot;caption&quot;:&quot;Phase 5 — setImmediate callbacks&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;check&quot;],&quot;dimmed&quot;:[&quot;close&quot;,&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;check&quot;],&quot;camera&quot;:{&quot;z&quot;:3.38,&quot;tx&quot;:-642.94,&quot;ty&quot;:0.67,&quot;focalBBox&quot;:{&quot;x&quot;:238.5,&quot;y&quot;:47.80000000000001,&quot;w&quot;:68,&quot;h&quot;:68},&quot;focalIds&quot;:[&quot;check&quot;]}},{&quot;id&quot;:&quot;close&quot;,&quot;caption&quot;:&quot;Phase 6 — close callbacks&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;close&quot;],&quot;dimmed&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;close&quot;],&quot;camera&quot;:{&quot;z&quot;:3.38,&quot;tx&quot;:-1182.94,&quot;ty&quot;:-310.84,&quot;focalBBox&quot;:{&quot;x&quot;:398.5,&quot;y&quot;:140.1,&quot;w&quot;:68,&quot;h&quot;:68},&quot;focalIds&quot;:[&quot;close&quot;]}}]' data-node-steps='{&quot;timers&quot;:1,&quot;pcb&quot;:2,&quot;idle&quot;:3,&quot;poll&quot;:4,&quot;check&quot;:5,&quot;close&quot;:6,&quot;timers-pcb&quot;:0,&quot;pcb-idle&quot;:0,&quot;idle-poll&quot;:0,&quot;poll-check&quot;:0,&quot;check-close&quot;:0,&quot;close-timers&quot;:0}' data-autoplay-default="1800" data-autoplay-loop="1"
+     data-content-bbox="-318.5,-359.5,637,719" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4" data-camera-z="1" data-camera-tx="0" data-camera-ty="0" data-steps='[{&quot;id&quot;:&quot;all&quot;,&quot;caption&quot;:&quot;Node.js event loop — 6 phases&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;],&quot;camera&quot;:{&quot;z&quot;:1,&quot;tx&quot;:0,&quot;ty&quot;:0,&quot;focalBBox&quot;:{&quot;x&quot;:89,&quot;y&quot;:48,&quot;w&quot;:637,&quot;h&quot;:719},&quot;focalIds&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;]}},{&quot;id&quot;:&quot;timers&quot;,&quot;caption&quot;:&quot;Phase 1 — timers fire&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;timers&quot;],&quot;dimmed&quot;:[&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;timers&quot;],&quot;camera&quot;:{&quot;z&quot;:4,&quot;tx&quot;:-2277.21,&quot;ty&quot;:-1830.55,&quot;focalBBox&quot;:{&quot;x&quot;:618,&quot;y&quot;:506.20000000000005,&quot;w&quot;:108,&quot;h&quot;:108},&quot;focalIds&quot;:[&quot;timers&quot;]}},{&quot;id&quot;:&quot;pcb&quot;,&quot;caption&quot;:&quot;Phase 2 — pending callbacks&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;pcb&quot;],&quot;dimmed&quot;:[&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;pcb&quot;],&quot;camera&quot;:{&quot;z&quot;:4,&quot;tx&quot;:-1220.5,&quot;ty&quot;:-2441,&quot;focalBBox&quot;:{&quot;x&quot;:353.5,&quot;y&quot;:659,&quot;w&quot;:108,&quot;h&quot;:108},&quot;focalIds&quot;:[&quot;pcb&quot;]}},{&quot;id&quot;:&quot;idle&quot;,&quot;caption&quot;:&quot;Phase 3 — idle / prepare&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;idle&quot;],&quot;dimmed&quot;:[&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers&quot;,&quot;pcb&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;idle&quot;],&quot;camera&quot;:{&quot;z&quot;:4,&quot;tx&quot;:-163.8,&quot;ty&quot;:-1830.55,&quot;focalBBox&quot;:{&quot;x&quot;:89,&quot;y&quot;:506.20000000000005,&quot;w&quot;:108,&quot;h&quot;:108},&quot;focalIds&quot;:[&quot;idle&quot;]}},{&quot;id&quot;:&quot;poll&quot;,&quot;caption&quot;:&quot;Phase 4 — poll for I/O&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;poll&quot;],&quot;dimmed&quot;:[&quot;check&quot;,&quot;close&quot;,&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;poll&quot;],&quot;camera&quot;:{&quot;z&quot;:4,&quot;tx&quot;:-163.8,&quot;ty&quot;:-610.45,&quot;focalBBox&quot;:{&quot;x&quot;:89,&quot;y&quot;:200.8,&quot;w&quot;:108,&quot;h&quot;:108},&quot;focalIds&quot;:[&quot;poll&quot;]}},{&quot;id&quot;:&quot;check&quot;,&quot;caption&quot;:&quot;Phase 5 — setImmediate callbacks&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;check&quot;],&quot;dimmed&quot;:[&quot;close&quot;,&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;check&quot;],&quot;camera&quot;:{&quot;z&quot;:4,&quot;tx&quot;:-1220.5,&quot;ty&quot;:0,&quot;focalBBox&quot;:{&quot;x&quot;:353.5,&quot;y&quot;:48,&quot;w&quot;:108,&quot;h&quot;:108},&quot;focalIds&quot;:[&quot;check&quot;]}},{&quot;id&quot;:&quot;close&quot;,&quot;caption&quot;:&quot;Phase 6 — close callbacks&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;,&quot;close&quot;,&quot;timers-pcb&quot;,&quot;pcb-idle&quot;,&quot;idle-poll&quot;,&quot;poll-check&quot;,&quot;check-close&quot;,&quot;close-timers&quot;],&quot;activated&quot;:[&quot;close&quot;],&quot;dimmed&quot;:[&quot;timers&quot;,&quot;pcb&quot;,&quot;idle&quot;,&quot;poll&quot;,&quot;check&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;close&quot;],&quot;camera&quot;:{&quot;z&quot;:4,&quot;tx&quot;:-2277.21,&quot;ty&quot;:-610.45,&quot;focalBBox&quot;:{&quot;x&quot;:618,&quot;y&quot;:200.8,&quot;w&quot;:108,&quot;h&quot;:108},&quot;focalIds&quot;:[&quot;close&quot;]}}]' data-node-steps='{&quot;timers&quot;:1,&quot;pcb&quot;:2,&quot;idle&quot;:3,&quot;poll&quot;:4,&quot;check&quot;:5,&quot;close&quot;:6,&quot;timers-pcb&quot;:0,&quot;pcb-idle&quot;:0,&quot;idle-poll&quot;:0,&quot;poll-check&quot;:0,&quot;check-close&quot;:0,&quot;close-timers&quot;:0}' data-autoplay-default="1800" data-autoplay-loop="1"
      aria-label="Autoplay loop — event loop cycles forever once played"
      tabindex="0">
   <title>Autoplay loop — event loop cycles forever once played</title>
@@ -39,121 +39,121 @@
         <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
       </marker>
   </defs>
-  <rect width="553.5" height="553.5" fill="var(--bg)"/>
-  <g class="zoom-root" transform="translate(0.2 0.2) scale(1)">
+  <rect width="815" height="815" fill="var(--bg)"/>
+  <g class="zoom-root" transform="translate(0 0) scale(1)">
     
     
     <g class="g-edge" data-id="timers-pcb">
-    <path d="M 394.5 359 L 326.5 451" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 634.9 611.5 A 305.5 305.5 0 0 1 470.5 706.4" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="pcb-idle">
-    <path d="M 218.5 451 L 142.5 359" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 344.5 706.4 A 305.5 305.5 0 0 1 180.1 611.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="idle-poll">
-    <path d="M 112.5 329 L 112.5 204" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 117.1 502.4 A 305.5 305.5 0 0 1 117.1 312.6" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="poll-check">
-    <path d="M 142.5 174 L 238.5 82" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 180.1 203.5 A 305.5 305.5 0 0 1 344.5 108.6" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="check-close">
-    <path d="M 306.5 82 L 398.5 174" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 470.5 108.6 A 305.5 305.5 0 0 1 634.9 203.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="close-timers">
-    <path d="M 432.5 208 L 432.5 321" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 697.9 312.6 A 305.5 305.5 0 0 1 697.9 502.4" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g>
     
     <g class="g-node" data-id="timers" role="img" aria-label="timers">
       <title>timers</title>
-      <circle cx="432.5" cy="359" r="38" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(432.5,363) scale(1)">
+      <circle cx="672" cy="560" r="54" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(672,564) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">timers</text>
       </g>
       
     </g>
     <g class="g-node" data-id="pcb" role="img" aria-label="pending cb">
       <title>pending cb</title>
-      <circle cx="272.5" cy="451" r="54" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(272.5,455) scale(1)">
+      <circle cx="407.5" cy="713" r="54" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(407.5,717) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">pending cb</text>
       </g>
       
     </g>
     <g class="g-node" data-id="idle" role="img" aria-label="idle">
       <title>idle</title>
-      <circle cx="112.5" cy="359" r="30" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(112.5,363) scale(1)">
+      <circle cx="143" cy="560" r="54" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(143,564) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">idle</text>
       </g>
       
     </g>
     <g class="g-node" data-id="poll" role="img" aria-label="poll">
       <title>poll</title>
-      <circle cx="112.5" cy="174" r="30" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(112.5,178) scale(1)">
+      <circle cx="143" cy="255" r="54" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(143,259) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">poll</text>
       </g>
       
     </g>
     <g class="g-node" data-id="check" role="img" aria-label="check">
       <title>check</title>
-      <circle cx="272.5" cy="82" r="34" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(272.5,86) scale(1)">
+      <circle cx="407.5" cy="102" r="54" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(407.5,106) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">check</text>
       </g>
       
     </g>
     <g class="g-node" data-id="close" role="img" aria-label="close">
       <title>close</title>
-      <circle cx="432.5" cy="174" r="34" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(432.5,178) scale(1)">
+      <circle cx="672" cy="255" r="54" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(672,259) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--pink)">close</text>
       </g>
       
     </g>
   </g>
   <g class="controls-bar" role="group" aria-label="Diagram controls">
-    <g class="ctrl-btn" data-action="step-restart" role="button" aria-label="Restart sequence" tabindex="0" transform="translate(507.5 255.5)">
+    <g class="ctrl-btn" data-action="step-restart" role="button" aria-label="Restart sequence" tabindex="0" transform="translate(769 517)">
       <title>Restart sequence</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 21 9 L 13 16 L 21 23 Z M 11 9 L 11 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(507.5 291.5)">
+    </g><g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(769 553)">
       <title>Previous step</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 20 9 L 12 16 L 20 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="autoplay-toggle" role="button" aria-label="Toggle autoplay" tabindex="0" transform="translate(507.5 327.5)">
+    </g><g class="ctrl-btn" data-action="autoplay-toggle" role="button" aria-label="Toggle autoplay" tabindex="0" transform="translate(769 589)">
       <title>Toggle autoplay</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path class="icon-play"  d="M 12 9 L 22 16 L 12 23 Z"  fill="var(--accent)" stroke="none"/>
                    <path class="icon-pause" d="M 12 9 L 14 9 L 14 23 L 12 23 Z M 18 9 L 20 9 L 20 23 L 18 23 Z" fill="var(--accent)" stroke="none"/>
-    </g><g class="ctrl-btn" data-action="step-next" role="button" aria-label="Next step" tabindex="0" transform="translate(507.5 363.5)">
+    </g><g class="ctrl-btn" data-action="step-next" role="button" aria-label="Next step" tabindex="0" transform="translate(769 625)">
       <title>Next step</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 12 9 L 20 16 L 12 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(507.5 399.5)">
+    </g><g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(769 661)">
       <title>Zoom out</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(507.5 435.5)">
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(769 697)">
       <title>Reset view</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(507.5 471.5)">
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(769 733)">
       <title>Zoom in</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(507.5 507.5)">
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(769 769)">
       <title>Fullscreen</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
     </g>
   </g>
   <g class="caption-bar" role="status" aria-live="polite">
-    <rect x="36.75" y="14" width="480" height="32" rx="6"
+    <rect x="167.5" y="14" width="480" height="32" rx="6"
           fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
-    <text class="step-caption" x="276.75" y="35" text-anchor="middle"
+    <text class="step-caption" x="407.5" y="35" text-anchor="middle"
           font-family="var(--font)" font-size="13" fill="var(--fg, #e0e0e0)"></text>
-    <text class="step-counter" x="502.75" y="35" text-anchor="end"
+    <text class="step-counter" x="633.5" y="35" text-anchor="end"
           font-family="var(--font)" font-size="10" fill="var(--fg-dim, #999)"></text>
   </g>
   <script><![CDATA[(function(){

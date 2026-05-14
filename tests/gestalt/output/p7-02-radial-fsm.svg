@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 452 452"
-     role="img"
+     viewBox="0 0 632 632"
+     role="application"
      class="gestalt-root"
-     data-margin="64"
+     data-margin="48"
      data-layout="radial"
-     data-content-bbox="-164,-162.3,324,304.1"
+     data-content-bbox="-268,-279.6,536,513.8" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
      aria-label="FSM with cycle — radial layout (clock face)"
-     tabindex="-1">
+     tabindex="0">
   <title>FSM with cycle — radial layout (clock face)</title>
-  <desc>FSM with cycle — radial layout (clock face) — gestalt diagram</desc>
+  <desc>FSM with cycle — radial layout (clock face) — gestalt diagram with zoom and pan controls (keys: + - 0 f, drag to pan, wheel to zoom)</desc>
   <defs>
     <style>:root { 
   --bg: #181818; --bg-surface: #202020;
@@ -16,7 +16,7 @@
   --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
   --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
   --font: 'Monaspace Neon', ui-monospace, monospace;
- } .gestalt-root { background: var(--bg); cursor: default; } 
+ } .gestalt-root { background: var(--bg); cursor: grab; } 
     @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
     .g-node, .g-edge { transition: opacity 250ms ease-out; }
     .g-node.is-dimmed, .g-edge.is-dimmed { opacity: 0.28; }
@@ -39,69 +39,202 @@
         <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
       </marker>
   </defs>
-  <rect width="452" height="452" fill="var(--bg)"/>
+  <rect width="632" height="632" fill="var(--bg)"/>
   <g class="zoom-root">
     
     
     <g class="g-edge" data-id="idle-request">
-    <path d="M 152.5 310.5 L 106 239" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 139.7 497.8 A 237.6 237.6 0 0 1 79.8 313.3" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="request-fetch">
-    <path d="M 148 197 L 194 108" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 110.0 220.1 A 237.6 237.6 0 0 1 267.0 106.0" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="fetch-render">
-    <path d="M 262 108 L 312 197" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 365.0 106.0 A 237.6 237.6 0 0 1 522.0 220.1" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="render-settle">
-    <path d="M 350 235 L 303.5 302.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 552.2 313.3 A 237.6 237.6 0 0 1 492.3 497.8" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g><g class="g-edge" data-id="settle-idle">
-    <path d="M 265.5 340.5 L 182.5 340.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 413.0 555.4 A 237.6 237.6 0 0 1 219.0 555.4" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g>
     
     <g class="g-node" data-id="idle" role="img" aria-label="idle">
       <title>idle</title>
-      <circle cx="152.5" cy="340.5" r="30" fill="var(--bg-surface, #202020)" stroke="var(--dim)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(152.5,344.5) scale(1)">
+      <circle cx="176.5" cy="530.5" r="42" fill="var(--bg-surface, #202020)" stroke="var(--dim)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(176.5,534.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--dim)">idle</text>
       </g>
       
     </g>
     <g class="g-node" data-id="request" role="img" aria-label="request">
       <title>request</title>
-      <circle cx="106" cy="197" r="42" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(106,201) scale(1)">
+      <circle cx="90" cy="265" r="42" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(90,269) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">request</text>
       </g>
       
     </g>
     <g class="g-node" data-id="fetch" role="img" aria-label="fetch">
       <title>fetch</title>
-      <circle cx="228" cy="108" r="34" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(228,112) scale(1)">
+      <circle cx="316" cy="101" r="42" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(316,105) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">fetch</text>
       </g>
       
     </g>
     <g class="g-node" data-id="render" role="img" aria-label="render">
       <title>render</title>
-      <circle cx="350" cy="197" r="38" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(350,201) scale(1)">
+      <circle cx="542" cy="265" r="42" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(542,269) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">render</text>
       </g>
       
     </g>
     <g class="g-node" data-id="settle" role="img" aria-label="settle">
       <title>settle</title>
-      <circle cx="303.5" cy="340.5" r="38" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(303.5,344.5) scale(1)">
+      <circle cx="455.5" cy="530.5" r="42" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(455.5,534.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">settle</text>
       </g>
       
     </g>
   </g>
+  <g class="controls-bar" role="group" aria-label="Diagram controls">
+    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(586 478)">
+      <title>Zoom out</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(586 514)">
+      <title>Reset view</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(586 550)">
+      <title>Zoom in</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(586 586)">
+      <title>Fullscreen</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g>
+  </g>
   
-  
-  
+  <script><![CDATA[(function(){
+function I(s){
+var hz=parseFloat(s.getAttribute("data-camera-z"))||1;
+var hx=parseFloat(s.getAttribute("data-camera-tx"))||0;
+var hy=parseFloat(s.getAttribute("data-camera-ty"))||0;
+var z=hz,tx=hx,ty=hy,zr=s.querySelector(".zoom-root"),ss=s.querySelectorAll(".screen-stable"),bs=[],i;
+for(i=0;i<ss.length;i++)bs.push(ss[i].getAttribute("transform")||"");
+var rng=(s.getAttribute("data-zoom-range")||"0.5 4").split(" ").map(parseFloat);
+function A(){
+zr.setAttribute("transform","translate("+tx+" "+ty+") scale("+z+")");
+var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal,inv=1/(z*(r.width/vb.width));
+for(var i=0;i<ss.length;i++){var m=bs[i].match(/translate\(([^)]+)\)/);ss[i].setAttribute("transform","translate("+(m?m[1]:"0 0")+") scale("+inv+")")}
+s.setAttribute("data-zoom",z.toFixed(2));
+}
+function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
+  s.addEventListener("wheel",function(e){
+    e.preventDefault();
+    var d=e.deltaY>0?0.9:1.1, nz=clamp(z*d);
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    var px=(e.clientX-r.left)/r.width*vb.width, py=(e.clientY-r.top)/r.height*vb.height;
+    tx=px-(px-tx)*(nz/z); ty=py-(py-ty)*(nz/z); z=nz; A();
+  },{passive:false});
+  var dg=0,sx=0,sy=0;
+  s.addEventListener("pointerdown",function(e){
+    if(e.target.closest(".ctrl-btn"))return;
+    dg=1; sx=e.clientX-tx; sy=e.clientY-ty; s.setPointerCapture(e.pointerId); s.style.cursor="grabbing";
+  });
+  s.addEventListener("pointermove",function(e){
+    if(!dg)return;
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    tx=(e.clientX-sx)/r.width*vb.width; ty=(e.clientY-sy)/r.height*vb.height; A();
+  });
+  function up(e){dg=0;s.releasePointerCapture(e.pointerId);s.style.cursor=""}
+  s.addEventListener("pointerup",up); s.addEventListener("pointercancel",up);
+  s.addEventListener("dblclick",function(e){e.preventDefault();z=1;tx=0;ty=0;A()});
+  s.tabIndex=0; s.setAttribute("role","application");
+  // Step FSM (optional).
+  var stepData=s.getAttribute("data-steps"),steps=stepData?JSON.parse(stepData):null,stepIdx=0,tweening=0;
+  var nodeStepData=s.getAttribute("data-node-steps"),nodeMap=nodeStepData?JSON.parse(nodeStepData):{};
+  var autoDefault=parseInt(s.getAttribute("data-autoplay-default"))||2500,autoplayId=null;
+  var autoLoop=s.getAttribute("data-autoplay-loop")==="1";
+  function stopAutoplay(){if(autoplayId){clearTimeout(autoplayId);autoplayId=null;s.removeAttribute("data-autoplay")}}
+  function startAutoplay(){
+    if(!steps||autoplayId)return;
+    s.setAttribute("data-autoplay","1");
+    function tick(){
+      if(stepIdx>=steps.length-1){if(autoLoop){applyStep(0)}else{stopAutoplay();return}}
+      else{applyStep(stepIdx+1)}
+      var dur=(steps[stepIdx].autoDuration||autoDefault);
+      autoplayId=setTimeout(tick,dur);
+    }
+    var d=(steps[stepIdx].autoDuration||autoDefault);
+    autoplayId=setTimeout(tick,d);
+  }
+  function toggleAutoplay(){if(autoplayId)stopAutoplay();else startAutoplay()}
+  var tweenGen=0;
+  function tweenCam(tz,ttx,tty,dur){
+    tweenGen++;var gen=tweenGen;
+    var z0=z,x0=tx,y0=ty,t0=performance.now();tweening=1;
+    function f(){if(gen!==tweenGen)return;
+      var t=Math.min(1,(performance.now()-t0)/dur);var e=t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+      z=z0+(tz-z0)*e;tx=x0+(ttx-x0)*e;ty=y0+(tty-y0)*e;A();if(t<1)requestAnimationFrame(f);else tweening=0}
+    requestAnimationFrame(f);
+  }
+  function applyStep(i){
+    if(!steps||i<0||i>=steps.length)return;
+    stepIdx=i;var st=steps[i],vis=new Set(st.visible||[]),act=new Set(st.activated||[]),dim=new Set(st.dimmed||[]);
+    var nodes=s.querySelectorAll(".g-node, .g-edge");
+    for(var k=0;k<nodes.length;k++){
+      var n=nodes[k],id=n.getAttribute("data-id");
+      n.style.opacity=vis.has(id)?(dim.has(id)?"0.28":"1"):"0";
+      n.classList.toggle("is-dimmed",dim.has(id));
+      n.classList.toggle("is-activated",act.has(id));
+    }
+    for(var k=0;k<(st.pulse||[]).length;k++){
+      var p=s.querySelector('[data-id="'+st.pulse[k]+'"]');
+      if(p){p.classList.remove("is-pulsing");void p.offsetWidth;p.classList.add("is-pulsing")}
+    }
+    var cap=s.querySelector(".step-caption"),cnt=s.querySelector(".step-counter");
+    if(cap)cap.textContent=st.caption||"";
+    if(cnt)cnt.textContent=(i+1)+" / "+steps.length;
+    if(st.camera)tweenCam(st.camera.z,st.camera.tx,st.camera.ty,st.duration||600);
+    s.setAttribute("data-step",i);
+  }
+  function act(k){
+    if(k==="zoom-in"){z=clamp(z*1.2);A()}
+    else if(k==="zoom-out"){z=clamp(z*0.83);A()}
+    else if(k==="auto-fit"){if(steps)applyStep(stepIdx);else{z=hz;tx=hx;ty=hy;A()}}
+    else if(k==="fullscreen"){if(document.fullscreenElement)document.exitFullscreen();else s.requestFullscreen()}
+    else if(k==="step-next"&&steps&&!tweening){stopAutoplay();applyStep(Math.min(steps.length-1,stepIdx+1))}
+    else if(k==="step-prev"&&steps&&!tweening){stopAutoplay();applyStep(Math.max(0,stepIdx-1))}
+    else if(k==="step-restart"&&steps){stopAutoplay();applyStep(0)}
+    else if(k==="autoplay-toggle"){toggleAutoplay()}
+  }
+  var KMAP={"+":"zoom-in","=":"zoom-in","-":"zoom-out","_":"zoom-out","0":"auto-fit","f":"fullscreen","F":"fullscreen",
+            "ArrowRight":"step-next","ArrowLeft":"step-prev","n":"step-next","p":"step-prev"," ":"autoplay-toggle",
+            "Home":"step-restart","r":"step-restart","R":"step-restart"};
+  function btnAt(e){return e.target&&e.target.closest&&e.target.closest(".ctrl-btn")}
+  s.addEventListener("keydown",function(e){
+    var b=btnAt(e);if(b&&(e.key===" "||e.key==="Enter")){e.preventDefault();act(b.getAttribute("data-action"));return}
+    var a=KMAP[e.key];if(a){e.preventDefault();act(a)}
+  });
+  s.addEventListener("click",function(e){
+    var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"));return}
+    if(steps&&!tweening){
+      var n=e.target.closest&&e.target.closest(".g-node");
+      if(n){var nid=n.getAttribute("data-id"),tgt=nodeMap[nid];
+        if(tgt!==undefined&&tgt!==stepIdx){e.stopPropagation();stopAutoplay();applyStep(tgt)}}
+    }
+  });
+  new ResizeObserver(A).observe(s);A();
+  if(steps)applyStep(0);
+}
+var svgs=document.querySelectorAll("svg[data-controls]");
+for(var i=0;i<svgs.length;i++)I(svgs[i]);
+})();]]></script>
 </svg>
