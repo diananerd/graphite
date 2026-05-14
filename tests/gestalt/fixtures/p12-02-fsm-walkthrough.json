@@ -1,0 +1,35 @@
+{
+  "name": "p12-02-fsm-walkthrough",
+  "title": "Radial FSM walkthrough — visiting each state",
+  "ratio": "1:1",
+  "margin": 64,
+  "nodes": [
+    { "id": "idle",    "shape": "circle", "label": "idle",    "role": "muted" },
+    { "id": "request", "shape": "circle", "label": "request", "role": "primary" },
+    { "id": "fetch",   "shape": "circle", "label": "fetch",   "role": "secondary" },
+    { "id": "render",  "shape": "circle", "label": "render",  "role": "success" },
+    { "id": "settle",  "shape": "circle", "label": "settle",  "role": "info" }
+  ],
+  "edges": [
+    { "from": "idle",    "to": "request" },
+    { "from": "request", "to": "fetch" },
+    { "from": "fetch",   "to": "render" },
+    { "from": "render",  "to": "settle" },
+    { "from": "settle",  "to": "idle" }
+  ],
+  "steps": [
+    {
+      "id": "all-states",
+      "caption": "Five states arranged on a clock face — all transitions form a cycle",
+      "show": "*",
+      "dim": ["request", "fetch", "render", "settle"],
+      "camera": "*"
+    },
+    { "id": "at-idle",    "caption": "State: idle — waiting for input",       "undim": ["idle"],    "dim": ["request","fetch","render","settle"], "activate": ["idle"],    "camera": ["idle"] },
+    { "id": "at-request", "caption": "State: request — user dispatched action","deactivate": ["idle"],    "dim": ["idle"], "undim": ["request"], "activate": ["request"], "camera": ["request"] },
+    { "id": "at-fetch",   "caption": "State: fetch — server responding",      "deactivate": ["request"], "dim": ["request"], "undim": ["fetch"], "activate": ["fetch"],   "camera": ["fetch"] },
+    { "id": "at-render",  "caption": "State: render — UI updating",           "deactivate": ["fetch"],   "dim": ["fetch"], "undim": ["render"], "activate": ["render"], "camera": ["render"] },
+    { "id": "at-settle",  "caption": "State: settle — animation winding down","deactivate": ["render"], "dim": ["render"], "undim": ["settle"], "activate": ["settle"], "camera": ["settle"] },
+    { "id": "cycle-complete", "caption": "Cycle complete — back to idle",     "deactivate": ["settle"], "dim": ["settle"], "undim": ["idle"], "activate": ["idle"], "highlight": ["idle"], "camera": "*", "duration": 900 }
+  ]
+}

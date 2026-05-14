@@ -1,0 +1,33 @@
+{
+  "name": "p12-04-sequence-steps",
+  "title": "Sequence diagram with steps — login flow walkthrough",
+  "ratio": "4:3",
+  "margin": 32,
+  "layout": "sequence",
+  "nodes": [
+    { "id": "user", "shape": "actor", "label": "User",  "role": "external" },
+    { "id": "app",  "shape": "rect",  "label": "App",   "role": "primary" },
+    { "id": "auth", "shape": "rect",  "label": "Auth",  "role": "data" }
+  ],
+  "edges": [
+    { "from": "user", "to": "app",  "label": "click login",  "style": { "head": "arrow" } },
+    { "from": "app",  "to": "auth", "label": "POST /login",  "style": { "head": "arrow" }, "role": "data" },
+    { "from": "auth", "to": "auth", "label": "verify hash",  "style": { "head": "arrow" } },
+    { "from": "auth", "to": "app",  "label": "JWT token",    "style": { "head": "arrow", "line": "dashed" } },
+    { "from": "app",  "to": "user", "label": "show dashboard","style": { "head": "arrow", "line": "dashed" } }
+  ],
+  "steps": [
+    { "id": "actors",   "caption": "Three actors — User, App, Auth",
+      "show": ["user", "app", "auth"], "camera": ["user", "app", "auth"] },
+    { "id": "msg-1",    "caption": "Step 1 — User clicks Login",
+      "show": ["user-app"],  "highlight": ["user"] },
+    { "id": "msg-2",    "caption": "Step 2 — App posts credentials to Auth",
+      "show": ["app-auth"],  "highlight": ["app"] },
+    { "id": "msg-3",    "caption": "Step 3 — Auth verifies the password hash locally",
+      "show": ["auth-auth"], "activate": ["auth"] },
+    { "id": "msg-4",    "caption": "Step 4 — Auth returns the JWT token",
+      "show": ["auth-app"],  "deactivate": ["auth"] },
+    { "id": "msg-5",    "caption": "Step 5 — App renders the dashboard for the user",
+      "show": ["app-user"], "highlight": ["user"], "duration": 700 }
+  ]
+}

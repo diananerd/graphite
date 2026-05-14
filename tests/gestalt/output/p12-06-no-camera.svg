@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 808 454.5"
+     viewBox="0 0 680 382.5"
      role="application"
      class="gestalt-root"
      data-margin="36"
-     data-layout="sugiyama-lr"
-     data-content-bbox="0,-116,736,232" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4"
-     aria-label="Complex DAG — 7 nodes, 4 layers, crossing-reduction stress"
+     data-layout="linear-row"
+     data-content-bbox="0,-28,608,56" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4" data-steps='[{&quot;id&quot;:&quot;all-grey&quot;,&quot;caption&quot;:&quot;Pipeline at rest — every stage is muted&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;,&quot;src-lint&quot;,&quot;lint-test&quot;,&quot;test-build&quot;,&quot;build-depl&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;src&quot;,&quot;caption&quot;:&quot;Source — commit triggers the pipeline&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;,&quot;src-lint&quot;,&quot;lint-test&quot;,&quot;test-build&quot;,&quot;build-depl&quot;],&quot;activated&quot;:[&quot;src&quot;],&quot;dimmed&quot;:[&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;src&quot;],&quot;flow&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;lint&quot;,&quot;caption&quot;:&quot;Lint — checks style and types&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;,&quot;src-lint&quot;,&quot;lint-test&quot;,&quot;test-build&quot;,&quot;build-depl&quot;],&quot;activated&quot;:[&quot;lint&quot;],&quot;dimmed&quot;:[&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;,&quot;src&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;test&quot;,&quot;caption&quot;:&quot;Test — runs the suite&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;,&quot;src-lint&quot;,&quot;lint-test&quot;,&quot;test-build&quot;,&quot;build-depl&quot;],&quot;activated&quot;:[&quot;test&quot;],&quot;dimmed&quot;:[&quot;build&quot;,&quot;depl&quot;,&quot;src&quot;,&quot;lint&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;build&quot;,&quot;caption&quot;:&quot;Build — emits artefacts&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;,&quot;src-lint&quot;,&quot;lint-test&quot;,&quot;test-build&quot;,&quot;build-depl&quot;],&quot;activated&quot;:[&quot;build&quot;],&quot;dimmed&quot;:[&quot;depl&quot;,&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:null},{&quot;id&quot;:&quot;depl&quot;,&quot;caption&quot;:&quot;Deploy — promotes to production&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;,&quot;depl&quot;,&quot;src-lint&quot;,&quot;lint-test&quot;,&quot;test-build&quot;,&quot;build-depl&quot;],&quot;activated&quot;:[&quot;depl&quot;],&quot;dimmed&quot;:[&quot;src&quot;,&quot;lint&quot;,&quot;test&quot;,&quot;build&quot;],&quot;emphasised&quot;:[&quot;depl&quot;],&quot;pulse&quot;:[&quot;depl&quot;],&quot;flow&quot;:[],&quot;camera&quot;:null}]'
+     aria-label="Steps without camera — only visibility/style changes"
      tabindex="0">
-  <title>Complex DAG — 7 nodes, 4 layers, crossing-reduction stress</title>
-  <desc>Complex DAG — 7 nodes, 4 layers, crossing-reduction stress — gestalt diagram with zoom and pan controls (keys: + - 0 f, drag to pan, wheel to zoom)</desc>
+  <title>Steps without camera — only visibility/style changes</title>
+  <desc>Steps without camera — only visibility/style changes — gestalt diagram with zoom and pan controls (keys: + - 0 f, drag to pan, wheel to zoom)</desc>
   <defs>
     <style>:root { 
   --bg: #181818; --bg-surface: #202020;
@@ -33,119 +33,102 @@
 
     <marker id="mk-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
         <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
-      </marker><marker id="mk-arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--red)"/>
-      </marker><marker id="mk-arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--green)"/>
       </marker>
   </defs>
-  <rect width="808" height="454.5" fill="var(--bg)"/>
+  <rect width="680" height="382.5" fill="var(--bg)"/>
   <g class="zoom-root">
     
     
     <g class="g-edge" data-id="src-lint">
-    <path d="M 132 227.5 L 164 227.5 L 164 139.5 L 196 139.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    <path d="M 132 191.5 L 164 191.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
-  </g><g class="g-edge" data-id="src-test">
-    <path d="M 132 227.5 L 164 227.5 L 164 315.5 L 196 315.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+  </g><g class="g-edge" data-id="lint-test">
+    <path d="M 260 191.5 L 292 191.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
-  </g><g class="g-edge" data-id="src-scan">
-    <path d="M 132 227.5 L 164 227.5 L 164 227.5 L 196 227.5" stroke="var(--red)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-red)"/>
+  </g><g class="g-edge" data-id="test-build">
+    <path d="M 388 191.5 L 420 191.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
-  </g><g class="g-edge" data-id="lint-buil">
-    <path d="M 292 139.5 L 324 139.5 L 324 227.5 L 356 227.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
-    
-  </g><g class="g-edge" data-id="test-buil">
-    <path d="M 292 315.5 L 324 315.5 L 324 227.5 L 356 227.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
-    
-  </g><g class="g-edge" data-id="scan-buil">
-    <path d="M 292 227.5 L 324 227.5 L 324 227.5 L 356 227.5" stroke="var(--red)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-red)"/>
-    
-  </g><g class="g-edge" data-id="buil-pack">
-    <path d="M 452 227.5 L 484 227.5 L 484 227.5 L 516 227.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
-    
-  </g><g class="g-edge" data-id="pack-depl">
-    <path d="M 612 227.5 L 644 227.5 L 644 227.5 L 676 227.5" stroke="var(--green)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-green)"/>
+  </g><g class="g-edge" data-id="build-depl">
+    <path d="M 516 191.5 L 548 191.5" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
     
   </g>
     
     <g class="g-node" data-id="src" role="img" aria-label="Source">
       <title>Source</title>
-      <rect x="36" y="199.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(84,231.5) scale(1)">
+      <rect x="36" y="163.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(84,195.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">Source</text>
       </g>
       
     </g>
     <g class="g-node" data-id="lint" role="img" aria-label="Lint">
       <title>Lint</title>
-      <rect x="196" y="111.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(244,143.5) scale(1)">
+      <rect x="164" y="163.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(212,195.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">Lint</text>
-      </g>
-      
-    </g>
-    <g class="g-node" data-id="scan" role="img" aria-label="Security">
-      <title>Security</title>
-      <rect x="196" y="199.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--red)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(244,231.5) scale(1)">
-        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--red)">Security</text>
       </g>
       
     </g>
     <g class="g-node" data-id="test" role="img" aria-label="Test">
       <title>Test</title>
-      <rect x="196" y="287.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(244,319.5) scale(1)">
+      <rect x="292" y="163.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(340,195.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">Test</text>
       </g>
       
     </g>
-    <g class="g-node" data-id="buil" role="img" aria-label="Build">
+    <g class="g-node" data-id="build" role="img" aria-label="Build">
       <title>Build</title>
-      <rect x="356" y="199.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(404,231.5) scale(1)">
+      <rect x="420" y="163.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(468,195.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">Build</text>
-      </g>
-      
-    </g>
-    <g class="g-node" data-id="pack" role="img" aria-label="Package">
-      <title>Package</title>
-      <rect x="516" y="199.5" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(564,231.5) scale(1)">
-        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">Package</text>
       </g>
       
     </g>
     <g class="g-node" data-id="depl" role="img" aria-label="Deploy">
       <title>Deploy</title>
-      <rect x="676" y="199.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
-      <g class="screen-stable" transform="translate(724,231.5) scale(1)">
+      <rect x="548" y="163.5" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(596,195.5) scale(1)">
         <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">Deploy</text>
       </g>
       
     </g>
   </g>
   <g class="controls-bar" role="group" aria-label="Diagram controls">
-    <g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(762 300.5)">
+    <g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(634 156.5)">
+      <title>Previous step</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 20 9 L 12 16 L 20 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="step-next" role="button" aria-label="Next step" tabindex="0" transform="translate(634 192.5)">
+      <title>Next step</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 12 9 L 20 16 L 12 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(634 228.5)">
       <title>Zoom out</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(762 336.5)">
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(634 264.5)">
       <title>Reset view</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(762 372.5)">
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(634 300.5)">
       <title>Zoom in</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(762 408.5)">
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(634 336.5)">
       <title>Fullscreen</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
     </g>
   </g>
-  
+  <g class="caption-bar" role="status" aria-live="polite">
+    <rect x="100" y="14" width="480" height="32" rx="6"
+          fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+    <text class="step-caption" x="340" y="35" text-anchor="middle"
+          font-family="var(--font)" font-size="13" fill="var(--fg, #e0e0e0)"></text>
+    <text class="step-counter" x="566" y="35" text-anchor="end"
+          font-family="var(--font)" font-size="10" fill="var(--fg-dim, #999)"></text>
+  </g>
   <script><![CDATA[(function(){
 function I(s){
 var hz=parseFloat(s.getAttribute("data-camera-z"))||1;

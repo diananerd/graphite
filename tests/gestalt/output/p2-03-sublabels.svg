@@ -18,6 +18,10 @@
   --font: 'Monaspace Neon', ui-monospace, monospace;
  } .gestalt-root { background: var(--bg); cursor: default; } 
     @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+    .g-node, .g-edge { transition: opacity 250ms ease-out; }
+    .g-node.is-dimmed, .g-edge.is-dimmed { opacity: 0.28; }
+    .g-node.is-pulsing { animation: gestalt-pulse 600ms ease-out; }
+    @keyframes gestalt-pulse { 0%,100% { filter: none } 40% { filter: brightness(1.6) drop-shadow(0 0 6px currentColor) } }
   </style>
     
   <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
@@ -70,6 +74,7 @@
       
     </g>
   </g>
+  
   
   
 </svg>

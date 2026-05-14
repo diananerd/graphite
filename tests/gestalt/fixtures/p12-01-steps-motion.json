@@ -1,0 +1,72 @@
+{
+  "name": "p12-01-steps-motion",
+  "title": "Step-based motion FSM — request lifecycle in 5 frames",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "client", "shape": "actor",    "label": "Client",  "role": "external" },
+    { "id": "edge",   "shape": "round",    "label": "Edge",    "role": "info" },
+    { "id": "api",    "shape": "rect",     "label": "API",     "role": "primary" },
+    { "id": "auth",   "shape": "hexagon",  "label": "Auth",    "role": "data" },
+    { "id": "worker", "shape": "rect",     "label": "Worker",  "role": "secondary" },
+    { "id": "db",     "shape": "cylinder", "label": "DB",      "role": "data" }
+  ],
+  "edges": [
+    { "from": "client", "to": "edge",   "style": { "head": "arrow" }, "label": "HTTPS" },
+    { "from": "edge",   "to": "api",    "style": { "head": "arrow" } },
+    { "from": "api",    "to": "auth",   "style": { "head": "arrow", "line": "dashed" }, "role": "data", "label": "verify" },
+    { "from": "api",    "to": "worker", "style": { "head": "arrow" }, "role": "secondary" },
+    { "from": "worker", "to": "db",     "style": { "head": "arrow", "line": "double" }, "role": "data", "label": "write" }
+  ],
+  "steps": [
+    {
+      "id": "idle",
+      "caption": "Client at rest — the system is idle",
+      "show": ["client"],
+      "camera": ["client"]
+    },
+    {
+      "id": "request",
+      "caption": "Client opens an HTTPS connection to the edge",
+      "show": ["edge", "client-edge"],
+      "highlight": ["client"],
+      "camera": ["client", "edge"]
+    },
+    {
+      "id": "routed",
+      "caption": "Edge proxies the request to the API",
+      "show": ["api", "edge-api"],
+      "camera": ["edge", "api"]
+    },
+    {
+      "id": "verified",
+      "caption": "API verifies the session against Auth",
+      "show": ["auth", "api-auth"],
+      "activate": ["auth"],
+      "camera": ["api", "auth"]
+    },
+    {
+      "id": "dispatched",
+      "caption": "API hands off to a worker",
+      "show": ["worker", "api-worker"],
+      "deactivate": ["auth"],
+      "dim": ["auth"],
+      "activate": ["worker"],
+      "camera": ["api", "worker"]
+    },
+    {
+      "id": "persisted",
+      "caption": "Worker writes the transaction to the database",
+      "show": ["db", "worker-db"],
+      "activate": ["db"],
+      "emphasize": ["db"],
+      "camera": ["worker", "db"]
+    },
+    {
+      "id": "summary",
+      "caption": "Full request lifecycle — pan the diagram to inspect",
+      "camera": "*",
+      "duration": 900
+    }
+  ]
+}

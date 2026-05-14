@@ -1,0 +1,339 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1056 594"
+     role="application"
+     class="gestalt-root"
+     data-margin="24"
+     data-layout="sugiyama-lr"
+     data-content-bbox="0,-216,1008,432" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4" data-camera-z="0.96" data-camera-tx="22.96" data-camera-ty="12.91" data-steps='[{&quot;id&quot;:&quot;overview&quot;,&quot;caption&quot;:&quot;Overview — 13 nodes, 4 subsystems&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:0.96,&quot;tx&quot;:22.96,&quot;ty&quot;:12.91,&quot;focalBBox&quot;:{&quot;x&quot;:24,&quot;y&quot;:81,&quot;w&quot;:1008,&quot;h&quot;:432},&quot;focalIds&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;]}},{&quot;id&quot;:&quot;ingress&quot;,&quot;caption&quot;:&quot;Ingress — Client → LB → Gateway&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[&quot;auth&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;audit&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:2.22,&quot;tx&quot;:53.24,&quot;ty&quot;:-361.89,&quot;focalBBox&quot;:{&quot;x&quot;:24,&quot;y&quot;:225,&quot;w&quot;:380,&quot;h&quot;:144},&quot;focalIds&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;]}},{&quot;id&quot;:&quot;api-tier&quot;,&quot;caption&quot;:&quot;API tier — Gateway distributes to 3 API shards&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[&quot;gw&quot;],&quot;dimmed&quot;:[&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;audit&quot;,&quot;client&quot;,&quot;lb&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:1.75,&quot;tx&quot;:-233.72,&quot;ty&quot;:-57.65,&quot;focalBBox&quot;:{&quot;x&quot;:308,&quot;y&quot;:81,&quot;w&quot;:256,&quot;h&quot;:244},&quot;focalIds&quot;:[&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;]}},{&quot;id&quot;:&quot;queue&quot;,&quot;caption&quot;:&quot;Async fanout — APIs push to the queue&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[&quot;queue&quot;],&quot;dimmed&quot;:[&quot;auth&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;audit&quot;,&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:1.81,&quot;tx&quot;:-554.96,&quot;ty&quot;:-59.76,&quot;focalBBox&quot;:{&quot;x&quot;:468,&quot;y&quot;:81,&quot;w&quot;:260,&quot;h&quot;:232},&quot;focalIds&quot;:[&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;queue&quot;]}},{&quot;id&quot;:&quot;workers&quot;,&quot;caption&quot;:&quot;Workers — pool processes the queue&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;],&quot;dimmed&quot;:[&quot;auth&quot;,&quot;db&quot;,&quot;audit&quot;,&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:1.81,&quot;tx&quot;:-844.72,&quot;ty&quot;:-240.86,&quot;focalBBox&quot;:{&quot;x&quot;:628,&quot;y&quot;:181,&quot;w&quot;:260,&quot;h&quot;:232},&quot;focalIds&quot;:[&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;]}},{&quot;id&quot;:&quot;persist&quot;,&quot;caption&quot;:&quot;Persistence — workers write to the replicated DB&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[&quot;auth&quot;,&quot;audit&quot;,&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;],&quot;emphasised&quot;:[&quot;db&quot;],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:1.81,&quot;tx&quot;:-1123.61,&quot;ty&quot;:-240.86,&quot;focalBBox&quot;:{&quot;x&quot;:792,&quot;y&quot;:181,&quot;w&quot;:240,&quot;h&quot;:232},&quot;focalIds&quot;:[&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;]}},{&quot;id&quot;:&quot;audit&quot;,&quot;caption&quot;:&quot;Audit channel — Gateway also writes diagnostic telemetry&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[&quot;audit&quot;],&quot;dimmed&quot;:[&quot;auth&quot;,&quot;client&quot;,&quot;lb&quot;],&quot;emphasised&quot;:[&quot;db&quot;],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:2.61,&quot;tx&quot;:-607.89,&quot;ty&quot;:-575.76,&quot;focalBBox&quot;:{&quot;x&quot;:308,&quot;y&quot;:269,&quot;w&quot;:256,&quot;h&quot;:132},&quot;focalIds&quot;:[&quot;gw&quot;,&quot;audit&quot;]}},{&quot;id&quot;:&quot;final&quot;,&quot;caption&quot;:&quot;Full picture — pan/zoom freely to explore&quot;,&quot;duration&quot;:1000,&quot;visible&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;,&quot;client-lb&quot;,&quot;lb-gw&quot;,&quot;gw-auth&quot;,&quot;gw-api1&quot;,&quot;gw-api2&quot;,&quot;gw-api3&quot;,&quot;api1-queue&quot;,&quot;api2-queue&quot;,&quot;api3-queue&quot;,&quot;queue-w1&quot;,&quot;queue-w2&quot;,&quot;queue-w3&quot;,&quot;w1-db&quot;,&quot;w2-db&quot;,&quot;w3-db&quot;,&quot;gw-audit&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[&quot;db&quot;],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:0.96,&quot;tx&quot;:22.96,&quot;ty&quot;:12.91,&quot;focalBBox&quot;:{&quot;x&quot;:24,&quot;y&quot;:81,&quot;w&quot;:1008,&quot;h&quot;:432},&quot;focalIds&quot;:[&quot;client&quot;,&quot;lb&quot;,&quot;gw&quot;,&quot;api1&quot;,&quot;api2&quot;,&quot;api3&quot;,&quot;audit&quot;,&quot;auth&quot;,&quot;queue&quot;,&quot;w1&quot;,&quot;w2&quot;,&quot;w3&quot;,&quot;db&quot;]}}]'
+     aria-label="ROI tour — dense system, zoom into each subsystem"
+     tabindex="0">
+  <title>ROI tour — dense system, zoom into each subsystem</title>
+  <desc>ROI tour — dense system, zoom into each subsystem — gestalt diagram with zoom and pan controls (keys: + - 0 f, drag to pan, wheel to zoom)</desc>
+  <defs>
+    <style>:root { 
+  --bg: #181818; --bg-surface: #202020;
+  --cyan: #00d8ff; --green: #4afa7a; --purple: #bd93f9; --pink: #ff79c6;
+  --yellow: #f1fa8c; --orange: #ffb86c; --red: #ff5555;
+  --accent: #bf7fff; --white: #f8f8f2; --dim: #6e6e6b;
+  --font: 'Monaspace Neon', ui-monospace, monospace;
+ } .gestalt-root { background: var(--bg); cursor: grab; } 
+    @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+    .g-node, .g-edge { transition: opacity 250ms ease-out; }
+    .g-node.is-dimmed, .g-edge.is-dimmed { opacity: 0.28; }
+    .g-node.is-pulsing { animation: gestalt-pulse 600ms ease-out; }
+    @keyframes gestalt-pulse { 0%,100% { filter: none } 40% { filter: brightness(1.6) drop-shadow(0 0 6px currentColor) } }
+  </style>
+    
+  <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.35"/>
+  </filter>
+  <filter id="shadow-lifted" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.5"/>
+  </filter>
+
+    <marker id="mk-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+      </marker><marker id="mk-arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--purple)"/>
+      </marker><marker id="mk-arrow-yellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--yellow)"/>
+      </marker><marker id="mk-diamond-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 5 0 L 10 5 L 5 10 L 0 5 z" fill="var(--accent)"/>
+      </marker>
+  </defs>
+  <rect width="1056" height="594" fill="var(--bg)"/>
+  <g class="zoom-root" transform="translate(22.96 12.91) scale(0.96)">
+    
+    
+    <g class="g-edge" data-id="client-lb">
+    <path d="M 84 297 L 148 297" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="lb-gw">
+    <path d="M 244 297 L 308 297" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="gw-auth">
+    <path d="M 356 325 L 516 433" stroke="var(--purple)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-purple)"/>
+    
+  </g><g class="g-edge" data-id="gw-api1">
+    <path d="M 356 269 L 516 137" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="gw-api2">
+    <path d="M 356 269 L 516 225" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="gw-api3">
+    <path d="M 404 297 L 468 285" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="api1-queue">
+    <path d="M 516 137 L 678 281" stroke="var(--yellow)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-yellow)"/>
+    
+  </g><g class="g-edge" data-id="api2-queue">
+    <path d="M 516 225 L 678 281" stroke="var(--yellow)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-yellow)"/>
+    
+  </g><g class="g-edge" data-id="api3-queue">
+    <path d="M 564 285 L 628 297" stroke="var(--yellow)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-yellow)"/>
+    
+  </g><g class="g-edge" data-id="queue-w1">
+    <path d="M 678 281 L 792 209" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="queue-w2">
+    <path d="M 728 297 L 792 297" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="queue-w3">
+    <path d="M 678 313 L 792 385" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-arrow-accent)"/>
+    
+  </g><g class="g-edge" data-id="w1-db">
+    <path d="M 888 209 L 952 297" stroke="var(--purple)" stroke-width="4.00" fill="none" vector-effect="non-scaling-stroke" opacity="0.9" marker-end="url(#mk-arrow-purple)"/>
+      <path d="M 888 209 L 952 297" stroke="var(--bg)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke"/>
+    
+  </g><g class="g-edge" data-id="w2-db">
+    <path d="M 888 297 L 952 297" stroke="var(--purple)" stroke-width="4.00" fill="none" vector-effect="non-scaling-stroke" opacity="0.9" marker-end="url(#mk-arrow-purple)"/>
+      <path d="M 888 297 L 952 297" stroke="var(--bg)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke"/>
+    
+  </g><g class="g-edge" data-id="w3-db">
+    <path d="M 888 385 L 952 297" stroke="var(--purple)" stroke-width="4.00" fill="none" vector-effect="non-scaling-stroke" opacity="0.9" marker-end="url(#mk-arrow-purple)"/>
+      <path d="M 888 385 L 952 297" stroke="var(--bg)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke"/>
+    
+  </g><g class="g-edge" data-id="gw-audit">
+    <path d="M 404 297 L 468 373" stroke="var(--accent)" stroke-width="1.25" fill="none" vector-effect="non-scaling-stroke" opacity="0.85" marker-end="url(#mk-diamond-accent)" stroke-dasharray="1.5 3"/>
+    
+  </g>
+    
+    <g class="g-node" data-id="client" role="img" aria-label="Client">
+      <title>Client</title>
+      
+        <circle cx="54" cy="243.8" r="16.8" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <path d="M 39.72 261.6
+                 C 39.72 281.72400000000005
+                   28.8 305.202
+                   28.8 328.68
+                 L 79.2 328.68
+                 C 79.2 305.202
+                   68.28 281.72400000000005
+                   68.28 261.6
+                 Z" fill="var(--bg-surface, #202020)" stroke="var(--pink)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(54,361) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--pink)">Client</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="lb" role="img" aria-label="LB">
+      <title>LB</title>
+      <rect x="148" y="269" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(196,301) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">LB</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="gw" role="img" aria-label="Gateway">
+      <title>Gateway</title>
+      <rect x="308" y="269" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(356,301) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">Gateway</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="api1" role="img" aria-label="API-1">
+      <title>API-1</title>
+      <rect x="468" y="81" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(516,113) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">API-1</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="api2" role="img" aria-label="API-2">
+      <title>API-2</title>
+      <rect x="468" y="169" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(516,201) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">API-2</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="api3" role="img" aria-label="API-3">
+      <title>API-3</title>
+      <rect x="468" y="257" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--cyan)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(516,289) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--cyan)">API-3</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="audit" role="img" aria-label="Audit">
+      <title>Audit</title>
+      <rect x="468" y="345" width="96" height="56" rx="0" fill="var(--bg-surface, #202020)" stroke="var(--accent)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(516,377) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--accent)">Audit</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="auth" role="img" aria-label="Auth">
+      <title>Auth</title>
+      <polygon points="492,433 540,433 564,473 540,513 492,513 468,473" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(516,477) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">Auth</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="queue" role="img" aria-label="Queue">
+      <title>Queue</title>
+      <rect x="628" y="281" width="100" height="32" rx="16" fill="var(--bg-surface, #202020)" stroke="var(--yellow)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(678,301) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--yellow)">Queue</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="w1" role="img" aria-label="Worker-1">
+      <title>Worker-1</title>
+      <rect x="792" y="181" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(840,213) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">Worker-1</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="w2" role="img" aria-label="Worker-2">
+      <title>Worker-2</title>
+      <rect x="792" y="269" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(840,301) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">Worker-2</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="w3" role="img" aria-label="Worker-3">
+      <title>Worker-3</title>
+      <rect x="792" y="357" width="96" height="56" rx="8" fill="var(--bg-surface, #202020)" stroke="var(--green)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(840,389) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--green)">Worker-3</text>
+      </g>
+      
+    </g>
+    <g class="g-node" data-id="db" role="img" aria-label="DB">
+      <title>DB</title>
+      
+        <path d="M 952 261 A 40 12 0 0 0 1032 261 L 1032 333 A 40 12 0 0 1 952 333 Z" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <ellipse cx="992" cy="261" rx="40" ry="12" fill="var(--bg-surface, #202020)" stroke="var(--purple)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g class="screen-stable" transform="translate(992,301) scale(1)">
+        <text text-anchor="middle" font-family="var(--font, monospace)" font-size="13" fill="var(--purple)">DB</text>
+      </g>
+      
+    </g>
+  </g>
+  <g class="controls-bar" role="group" aria-label="Diagram controls">
+    <g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(1010 368)">
+      <title>Previous step</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 20 9 L 12 16 L 20 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="step-next" role="button" aria-label="Next step" tabindex="0" transform="translate(1010 404)">
+      <title>Next step</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 12 9 L 20 16 L 12 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="zoom-out" role="button" aria-label="Zoom out" tabindex="0" transform="translate(1010 440)">
+      <title>Zoom out</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="auto-fit" role="button" aria-label="Reset view" tabindex="0" transform="translate(1010 476)">
+      <title>Reset view</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="zoom-in" role="button" aria-label="Zoom in" tabindex="0" transform="translate(1010 512)">
+      <title>Zoom in</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 16 L 23 16 M 16 9 L 16 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="fullscreen" role="button" aria-label="Fullscreen" tabindex="0" transform="translate(1010 548)">
+      <title>Fullscreen</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path d="M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g>
+  </g>
+  <g class="caption-bar" role="status" aria-live="polite">
+    <rect x="288" y="14" width="480" height="32" rx="6"
+          fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+    <text class="step-caption" x="528" y="35" text-anchor="middle"
+          font-family="var(--font)" font-size="13" fill="var(--fg, #e0e0e0)"></text>
+    <text class="step-counter" x="754" y="35" text-anchor="end"
+          font-family="var(--font)" font-size="10" fill="var(--fg-dim, #999)"></text>
+  </g>
+  <script><![CDATA[(function(){
+function I(s){
+var hz=parseFloat(s.getAttribute("data-camera-z"))||1;
+var hx=parseFloat(s.getAttribute("data-camera-tx"))||0;
+var hy=parseFloat(s.getAttribute("data-camera-ty"))||0;
+var z=hz,tx=hx,ty=hy,zr=s.querySelector(".zoom-root"),ss=s.querySelectorAll(".screen-stable"),bs=[],i;
+for(i=0;i<ss.length;i++)bs.push(ss[i].getAttribute("transform")||"");
+var rng=(s.getAttribute("data-zoom-range")||"0.5 4").split(" ").map(parseFloat);
+function A(){
+zr.setAttribute("transform","translate("+tx+" "+ty+") scale("+z+")");
+var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal,inv=1/(z*(r.width/vb.width));
+for(var i=0;i<ss.length;i++){var m=bs[i].match(/translate\(([^)]+)\)/);ss[i].setAttribute("transform","translate("+(m?m[1]:"0 0")+") scale("+inv+")")}
+s.setAttribute("data-zoom",z.toFixed(2));
+}
+function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
+  s.addEventListener("wheel",function(e){
+    e.preventDefault();
+    var d=e.deltaY>0?0.9:1.1, nz=clamp(z*d);
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    var px=(e.clientX-r.left)/r.width*vb.width, py=(e.clientY-r.top)/r.height*vb.height;
+    tx=px-(px-tx)*(nz/z); ty=py-(py-ty)*(nz/z); z=nz; A();
+  },{passive:false});
+  var dg=0,sx=0,sy=0;
+  s.addEventListener("pointerdown",function(e){
+    if(e.target.closest(".ctrl-btn"))return;
+    dg=1; sx=e.clientX-tx; sy=e.clientY-ty; s.setPointerCapture(e.pointerId); s.style.cursor="grabbing";
+  });
+  s.addEventListener("pointermove",function(e){
+    if(!dg)return;
+    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+    tx=(e.clientX-sx)/r.width*vb.width; ty=(e.clientY-sy)/r.height*vb.height; A();
+  });
+  function up(e){dg=0;s.releasePointerCapture(e.pointerId);s.style.cursor=""}
+  s.addEventListener("pointerup",up); s.addEventListener("pointercancel",up);
+  s.addEventListener("dblclick",function(e){e.preventDefault();z=1;tx=0;ty=0;A()});
+  s.tabIndex=0; s.setAttribute("role","application");
+  // Step FSM (optional).
+  var stepData=s.getAttribute("data-steps"),steps=stepData?JSON.parse(stepData):null,stepIdx=0,tweening=0;
+  function tweenCam(tz,ttx,tty,dur){
+    var z0=z,x0=tx,y0=ty,t0=performance.now();tweening=1;
+    function f(){var t=Math.min(1,(performance.now()-t0)/dur);var e=t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+      z=z0+(tz-z0)*e;tx=x0+(ttx-x0)*e;ty=y0+(tty-y0)*e;A();if(t<1)requestAnimationFrame(f);else tweening=0}
+    requestAnimationFrame(f);
+  }
+  function applyStep(i){
+    if(!steps||i<0||i>=steps.length)return;
+    stepIdx=i;var st=steps[i],vis=new Set(st.visible||[]),act=new Set(st.activated||[]),dim=new Set(st.dimmed||[]);
+    var nodes=s.querySelectorAll(".g-node, .g-edge");
+    for(var k=0;k<nodes.length;k++){
+      var n=nodes[k],id=n.getAttribute("data-id");
+      n.style.opacity=vis.has(id)?(dim.has(id)?"0.28":"1"):"0";
+      n.classList.toggle("is-dimmed",dim.has(id));
+      n.classList.toggle("is-activated",act.has(id));
+    }
+    for(var k=0;k<(st.pulse||[]).length;k++){
+      var p=s.querySelector('[data-id="'+st.pulse[k]+'"]');
+      if(p){p.classList.remove("is-pulsing");void p.offsetWidth;p.classList.add("is-pulsing")}
+    }
+    var cap=s.querySelector(".step-caption"),cnt=s.querySelector(".step-counter");
+    if(cap)cap.textContent=st.caption||"";
+    if(cnt)cnt.textContent=(i+1)+" / "+steps.length;
+    if(st.camera)tweenCam(st.camera.z,st.camera.tx,st.camera.ty,st.duration||600);
+    s.setAttribute("data-step",i);
+  }
+  function act(k){
+    if(k==="zoom-in"){z=clamp(z*1.2);A()}
+    else if(k==="zoom-out"){z=clamp(z*0.83);A()}
+    else if(k==="auto-fit"){if(steps)applyStep(stepIdx);else{z=hz;tx=hx;ty=hy;A()}}
+    else if(k==="fullscreen"){if(document.fullscreenElement)document.exitFullscreen();else s.requestFullscreen()}
+    else if(k==="step-next"&&steps&&!tweening){applyStep(Math.min(steps.length-1,stepIdx+1))}
+    else if(k==="step-prev"&&steps&&!tweening){applyStep(Math.max(0,stepIdx-1))}
+  }
+  var KMAP={"+":"zoom-in","=":"zoom-in","-":"zoom-out","_":"zoom-out","0":"auto-fit","f":"fullscreen","F":"fullscreen",
+            "ArrowRight":"step-next","ArrowLeft":"step-prev","n":"step-next","p":"step-prev"};
+  function btnAt(e){return e.target&&e.target.closest&&e.target.closest(".ctrl-btn")}
+  s.addEventListener("keydown",function(e){
+    var b=btnAt(e);if(b&&(e.key===" "||e.key==="Enter")){e.preventDefault();act(b.getAttribute("data-action"));return}
+    var a=KMAP[e.key];if(a){e.preventDefault();act(a)}
+  });
+  s.addEventListener("click",function(e){var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"))}});
+  new ResizeObserver(A).observe(s);A();
+  if(steps)applyStep(0);
+}
+var svgs=document.querySelectorAll("svg[data-controls]");
+for(var i=0;i<svgs.length;i++)I(svgs[i]);
+})();]]></script>
+</svg>

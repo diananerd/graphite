@@ -1,0 +1,42 @@
+{
+  "name": "p12-03-tree-reveal",
+  "title": "Tree progressive reveal — root, then each level expands",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "root", "shape": "round", "label": "App",      "role": "primary" },
+    { "id": "ui",   "shape": "rect",  "label": "Frontend", "role": "secondary" },
+    { "id": "be",   "shape": "rect",  "label": "Backend",  "role": "secondary" },
+    { "id": "rt",   "shape": "round", "label": "Router",   "role": "info" },
+    { "id": "co",   "shape": "round", "label": "Components","role": "info" },
+    { "id": "api",  "shape": "round", "label": "API",      "role": "data" },
+    { "id": "wk",   "shape": "round", "label": "Workers",  "role": "data" },
+    { "id": "au",   "shape": "round", "label": "Auth",     "role": "warning" },
+    { "id": "bi",   "shape": "round", "label": "Billing",  "role": "warning" }
+  ],
+  "edges": [
+    { "from": "root", "to": "ui" },
+    { "from": "root", "to": "be" },
+    { "from": "ui",   "to": "rt" },
+    { "from": "ui",   "to": "co" },
+    { "from": "be",   "to": "api" },
+    { "from": "be",   "to": "wk" },
+    { "from": "api",  "to": "au" },
+    { "from": "api",  "to": "bi" }
+  ],
+  "steps": [
+    { "id": "root",  "caption": "Step 1: just the root — an app",
+      "show": ["root"], "camera": ["root"] },
+    { "id": "halves", "caption": "Step 2: app splits into Frontend and Backend",
+      "show": ["ui", "be", "root-ui", "root-be"], "camera": ["root", "ui", "be"] },
+    { "id": "frontend",  "caption": "Step 3: Frontend breaks into Router + Components",
+      "show": ["rt", "co", "ui-rt", "ui-co"], "activate": ["ui"], "camera": ["ui", "rt", "co"] },
+    { "id": "backend",  "caption": "Step 4: Backend exposes API and Workers",
+      "deactivate": ["ui"], "dim": ["ui","rt","co"],
+      "show": ["api", "wk", "be-api", "be-wk"], "activate": ["be"], "camera": ["be", "api", "wk"] },
+    { "id": "domains", "caption": "Step 5: API splits into Auth and Billing domains",
+      "show": ["au", "bi", "api-au", "api-bi"], "activate": ["api"], "deactivate": ["be"], "camera": ["api", "au", "bi"] },
+    { "id": "overview", "caption": "Step 6: full tree — pan or zoom to inspect any sub-tree",
+      "undim": ["ui","rt","co"], "deactivate": ["api"], "camera": "*", "duration": 900 }
+  ]
+}

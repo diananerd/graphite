@@ -1,0 +1,33 @@
+{
+  "name": "p12-06-no-camera",
+  "title": "Steps without camera — only visibility/style changes",
+  "ratio": "16:9",
+  "margin": 48,
+  "nodes": [
+    { "id": "src",   "shape": "round", "label": "Source",  "role": "primary"   },
+    { "id": "lint",  "shape": "rect",  "label": "Lint",    "role": "secondary" },
+    { "id": "test",  "shape": "rect",  "label": "Test",    "role": "warning"   },
+    { "id": "build", "shape": "rect",  "label": "Build",   "role": "data"      },
+    { "id": "depl",  "shape": "round", "label": "Deploy",  "role": "success"   }
+  ],
+  "edges": [
+    { "from": "src",   "to": "lint" },
+    { "from": "lint",  "to": "test" },
+    { "from": "test",  "to": "build" },
+    { "from": "build", "to": "depl" }
+  ],
+  "steps": [
+    { "id": "all-grey", "caption": "Pipeline at rest — every stage is muted",
+      "show": "*", "dim": ["src","lint","test","build","depl"] },
+    { "id": "src",      "caption": "Source — commit triggers the pipeline",
+      "undim": ["src"], "activate": ["src"], "highlight": ["src"] },
+    { "id": "lint",     "caption": "Lint — checks style and types",
+      "deactivate": ["src"], "dim": ["src"], "undim": ["lint"], "activate": ["lint"] },
+    { "id": "test",     "caption": "Test — runs the suite",
+      "deactivate": ["lint"], "dim": ["lint"], "undim": ["test"], "activate": ["test"] },
+    { "id": "build",    "caption": "Build — emits artefacts",
+      "deactivate": ["test"], "dim": ["test"], "undim": ["build"], "activate": ["build"] },
+    { "id": "depl",     "caption": "Deploy — promotes to production",
+      "deactivate": ["build"], "dim": ["build"], "undim": ["depl"], "activate": ["depl"], "emphasize": ["depl"], "highlight": ["depl"] }
+  ]
+}

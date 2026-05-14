@@ -296,8 +296,13 @@ function emitShape(node, proj) {
   // Accessible name for the node: label, plus sublabel if present.
   const accName = node.label + (node.sublabel ? ` — ${node.sublabel}` : '');
 
+  // Step-driven initial opacity: when steps are declared, only the elements
+  // in step 0's visible set start opaque.
+  const initVis = node._initialVisible;
+  const initOpacityAttr = initVis === false ? ' opacity="0"' : '';
+
   return `
-    <g class="g-node" data-id="${escapeXml(node.id)}" role="img" aria-label="${escapeXml(accName)}">
+    <g class="g-node" data-id="${escapeXml(node.id)}" role="img" aria-label="${escapeXml(accName)}"${initOpacityAttr}>
       <title>${escapeXml(accName)}</title>
       ${geom}
       <g class="screen-stable" transform="translate(${cx},${labelY}) scale(1)">
@@ -361,7 +366,9 @@ function emitEdge(edge, nodesById, proj, defaultStyle) {
     pathBlock = `<path d="${d}" stroke="${color}" stroke-width="${v.width.toFixed(2)}" fill="none" vector-effect="non-scaling-stroke" opacity="0.85"${headMk}${tailMk}${dashAttr}${filterAttr}/>`;
   }
 
-  return `<g class="g-edge" data-id="${escapeXml(edge.from)}-${escapeXml(edge.to)}">
+  const initVis = edge._initialVisible;
+  const initOp = initVis === false ? ' opacity="0"' : '';
+  return `<g class="g-edge" data-id="${escapeXml(edge.from)}-${escapeXml(edge.to)}"${initOp}>
     ${pathBlock}
     ${label}
   </g>`;
@@ -522,14 +529,31 @@ const STYLEKIT = `
  */
 export function renderSVG(placed, proj, opts = {}) {
   const camera = opts.camera ?? null;
+  const stepPlan = opts.stepPlan ?? null;
+  // For step 0: which elements are visible? If there's no plan, every
+  // element is visible by default. Otherwise visibility is driven by
+  // step 0's `visible` set.
+  const initialVisible = stepPlan
+    ? new Set(stepPlan[0]?.visible ?? [])
+    : null;
+  placed.__initialVisible = initialVisible;
   const nodesById = Object.fromEntries(placed.nodes.map((n) => [n.id, n]));
   const defaultStyle = defaultStyleFor(placed._layout);
-  const edges = (placed.edges ?? []).map((e) =>
-    Array.isArray(e.participants) && e.participants.length >= 2
-      ? emitHyperEdge(e, nodesById, proj)
-      : emitEdge(e, nodesById, proj, defaultStyle)
-  ).join('');
-  const nodes = placed.nodes.map((n) => emitShape(n, proj)).join('');
+
+  // Annotate each node with its initial visibility from step 0 (if steps exist).
+  const annotatedNodes = placed.nodes.map((n) => ({
+    ...n,
+    _initialVisible: initialVisible ? initialVisible.has(n.id) : true,
+  }));
+
+  const edges = (placed.edges ?? []).map((e) => {
+    const eid = `${e.from}-${e.to}`;
+    const e2 = { ...e, _initialVisible: initialVisible ? initialVisible.has(eid) : true };
+    return Array.isArray(e.participants) && e.participants.length >= 2
+      ? emitHyperEdge(e2, nodesById, proj)
+      : emitEdge(e2, nodesById, proj, defaultStyle);
+  }).join('');
+  const nodes = annotatedNodes.map((n) => emitShape(n, proj)).join('');
   const markers = emitArrowMarkers(collectMarkerNeeds(placed));
 
   const controls = Array.isArray(placed.controls) && placed.controls.length
@@ -541,14 +565,22 @@ export function renderSVG(placed, proj, opts = {}) {
   const camAttr = camera
     ? ` data-camera-z="${camera.z}" data-camera-tx="${camera.tx}" data-camera-ty="${camera.ty}"`
     : '';
+  const stepsAttr = stepPlan
+    ? ` data-steps='${escapeXml(JSON.stringify(stepPlan))}'`
+    : '';
   const role = controls ? 'application' : 'img';
   const scriptBlock = controls ? `<script><![CDATA[${CONTROLS_SCRIPT}]]></script>` : '';
-  const controlBar = controls ? emitControlBar(proj) : '';
+  const controlBar = controls ? emitControlBar(proj, !!stepPlan) : '';
+  const captionBar = stepPlan ? emitCaptionBar(proj) : '';
 
   // Container-query block (§17): hide sublabels at the smallest tier; ease
   // gaps at the largest. The container is the wrapping div in the host page.
   const cqStyle = `
     @container (max-width: 480px) { .gestalt-root .sublabel-stable { display: none; } }
+    .g-node, .g-edge { transition: opacity 250ms ease-out; }
+    .g-node.is-dimmed, .g-edge.is-dimmed { opacity: 0.28; }
+    .g-node.is-pulsing { animation: gestalt-pulse 600ms ease-out; }
+    @keyframes gestalt-pulse { 0%,100% { filter: none } 40% { filter: brightness(1.6) drop-shadow(0 0 6px currentColor) } }
   `;
 
   return `<svg xmlns="http://www.w3.org/2000/svg"
@@ -557,7 +589,7 @@ export function renderSVG(placed, proj, opts = {}) {
      class="gestalt-root"
      data-margin="${proj.margin}"
      data-layout="${escapeXml(placed._layout ?? '?')}"
-     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}
+     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}${stepsAttr}
      aria-label="${escapeXml(placed.title ?? 'diagram')}"
      tabindex="${controls ? 0 : -1}">
   <title>${escapeXml(placed.title ?? 'diagram')}</title>
@@ -575,8 +607,24 @@ export function renderSVG(placed, proj, opts = {}) {
     ${nodes}
   </g>
   ${controlBar}
+  ${captionBar}
   ${scriptBlock}
 </svg>`;
+}
+
+/**
+ * Caption strip at the top — JS controller writes the current step's
+ * `caption` text here on every step change.
+ */
+function emitCaptionBar(proj) {
+  return `<g class="caption-bar" role="status" aria-live="polite">
+    <rect x="${proj.canvasW / 2 - 240}" y="14" width="480" height="32" rx="6"
+          fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+    <text class="step-caption" x="${proj.canvasW / 2}" y="35" text-anchor="middle"
+          font-family="var(--font)" font-size="13" fill="var(--fg, #e0e0e0)"></text>
+    <text class="step-counter" x="${proj.canvasW / 2 + 226}" y="35" text-anchor="end"
+          font-family="var(--font)" font-size="10" fill="var(--fg-dim, #999)"></text>
+  </g>`;
 }
 
 /**
@@ -587,16 +635,21 @@ export function renderSVG(placed, proj, opts = {}) {
  * buttons stay at a constant rendered size regardless of container width.
  * Every button is keyboard-reachable (`tabindex=0`) and carries an `aria-label`.
  */
-function emitControlBar(proj) {
+function emitControlBar(proj, hasSteps) {
   const w = 32, gap = 4;
   const x = proj.canvasW - w - 14;
-  const yTop = proj.canvasH - (w * 4 + gap * 3) - 14;
-  const btns = [
+  const baseBtns = [
     { action: 'zoom-out',   label: 'Zoom out',  icon: 'M 9 16 L 23 16' },
     { action: 'auto-fit',   label: 'Reset view',icon: 'M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2' },
     { action: 'zoom-in',    label: 'Zoom in',   icon: 'M 9 16 L 23 16 M 16 9 L 16 23' },
     { action: 'fullscreen', label: 'Fullscreen',icon: 'M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23' },
   ];
+  const stepBtns = hasSteps ? [
+    { action: 'step-prev',  label: 'Previous step', icon: 'M 20 9 L 12 16 L 20 23' },
+    { action: 'step-next',  label: 'Next step',     icon: 'M 12 9 L 20 16 L 12 23' },
+  ] : [];
+  const btns = [...stepBtns, ...baseBtns];
+  const yTop = proj.canvasH - (w * btns.length + gap * (btns.length - 1)) - 14;
   const buttons = btns.map((b, i) => {
     const ty = yTop + i * (w + gap);
     return `<g class="ctrl-btn" data-action="${b.action}" role="button" aria-label="${b.label}" tabindex="0" transform="translate(${x} ${ty})">

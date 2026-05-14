@@ -13,23 +13,32 @@ import { measure } from './measure.mjs';
 import { place } from './classify.mjs';
 import { adapt } from './cascade.mjs';
 import { computeCamera } from './camera.mjs';
+import { computeSteps } from './steps.mjs';
 import { renderSVG } from './render.mjs';
 
 export function compile(spec, options = {}) {
   const measured = measure(spec);
   const placed   = place(measured);
   const { spec: adapted, projection, log, violations } = adapt(placed, options);
-  // Camera framing for ROI / initial view. Auto-enable controls if a
-  // camera is set — the reader needs to be able to pan/zoom out.
-  const camera = computeCamera(adapted, projection);
-  if (camera && !adapted.controls) {
+
+  // Step-based motion FSM (optional). The first step's camera (if any)
+  // wins over a static `view:` directive.
+  const { plan: stepPlan, initialCamera: stepCamera } = computeSteps(adapted, projection);
+
+  // Static camera framing — used when steps don't define one.
+  const camera = stepCamera ?? computeCamera(adapted, projection);
+
+  // Controls are auto-enabled when there's a camera OR when there are steps
+  // (next/prev navigation needs the JS controller).
+  if ((camera || stepPlan) && !adapted.controls) {
     adapted.controls = ['zoom', 'pan', 'auto-fit'];
     adapted.zoomRange = adapted.zoomRange ?? [0.25, 8];
     adapted._controlsAutoEnabled = true;
-    log.push({ strategy: 'auto-enable-controls', reason: 'camera-view' });
+    log.push({ strategy: 'auto-enable-controls', reason: stepPlan ? 'steps' : 'camera-view' });
   }
-  const svg = renderSVG(adapted, projection, { camera });
-  return { svg, projection, log, violations, spec: adapted, layout: placed._layout, camera };
+
+  const svg = renderSVG(adapted, projection, { camera, stepPlan });
+  return { svg, projection, log, violations, spec: adapted, layout: placed._layout, camera, steps: stepPlan };
 }
 
 export { measure } from './measure.mjs';
