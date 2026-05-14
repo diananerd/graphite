@@ -656,13 +656,14 @@ function emitControlBar(proj, hasSteps) {
     { action: 'fullscreen', label: 'Fullscreen',icon: 'M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23' },
   ];
   const stepBtns = hasSteps ? [
-    { action: 'step-prev',       label: 'Previous step',  icon: 'M 20 9 L 12 16 L 20 23' },
+    { action: 'step-restart',    label: 'Restart sequence', icon: 'M 21 9 L 13 16 L 21 23 Z M 11 9 L 11 23' },
+    { action: 'step-prev',       label: 'Previous step',    icon: 'M 20 9 L 12 16 L 20 23' },
     { action: 'autoplay-toggle', label: 'Toggle autoplay',
       iconDual: {
         play:  'M 12 9 L 22 16 L 12 23 Z',
         pause: 'M 12 9 L 14 9 L 14 23 L 12 23 Z M 18 9 L 20 9 L 20 23 L 18 23 Z',
       } },
-    { action: 'step-next',       label: 'Next step',      icon: 'M 12 9 L 20 16 L 12 23' },
+    { action: 'step-next',       label: 'Next step',        icon: 'M 12 9 L 20 16 L 12 23' },
   ] : [];
   const btns = [...stepBtns, ...baseBtns];
   const yTop = proj.canvasH - (w * btns.length + gap * (btns.length - 1)) - 14;
