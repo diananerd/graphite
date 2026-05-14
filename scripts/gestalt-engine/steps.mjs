@@ -95,17 +95,43 @@ export function computeSteps(placed, projection) {
       id: s.id ?? `step-${i}`,
       caption: s.caption ?? null,
       duration: s.duration ?? DEFAULT_TRANSITION_MS,
+      autoDuration: s.autoDuration ?? null,
       visible: [...visible],
       activated: [...activated],
       dimmed: [...dimmed],
       emphasised: [...emphasised],
-      pulse: expand(s.highlight),   // sticky reset per step
+      pulse: expand(s.highlight),
       flow: expand(s.flow),
-      camera: cam,                  // null → stay
+      focalIds: camIds,             // raw camera input (used for node→step map)
+      camera: cam,                  // resolved transform; null → stay
     });
   }
 
-  // The initial pose: step 0's camera if set, else null.
   const initialCamera = plan[0].camera ?? null;
   return { plan, initialCamera };
+}
+
+/**
+ * Build a node-id → step-index map so clicking a node jumps to the step
+ * where that node is most relevant. Priority cascade:
+ *   1. activated  — node becomes the focal actor
+ *   2. emphasised — stylistically singled out
+ *   3. pulse      — explicit highlight
+ *   4. focal      — appears in the step's camera ids
+ *   5. visible    — first appearance
+ *
+ * Edges (id "from-to") inherit their endpoints' steps.
+ */
+export function buildNodeStepMap(plan) {
+  if (!plan) return {};
+  const map = {};
+  const tiers = ['activated', 'emphasised', 'pulse', 'focalIds', 'visible'];
+  for (const tier of tiers) {
+    for (let i = 0; i < plan.length; i++) {
+      for (const id of plan[i][tier] ?? []) {
+        if (map[id] === undefined) map[id] = i;
+      }
+    }
+  }
+  return map;
 }

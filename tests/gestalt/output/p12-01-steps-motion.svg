@@ -4,7 +4,7 @@
      class="gestalt-root"
      data-margin="36"
      data-layout="tree-tb"
-     data-content-bbox="0,0,224,688" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4" data-camera-z="3.17" data-camera-tx="-1463.58" data-camera-ty="38" data-steps='[{&quot;id&quot;:&quot;idle&quot;,&quot;caption&quot;:&quot;Client at rest — the system is idle&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:3.17,&quot;tx&quot;:-1463.58,&quot;ty&quot;:38,&quot;focalBBox&quot;:{&quot;x&quot;:645.5,&quot;y&quot;:36,&quot;w&quot;:60,&quot;h&quot;:144},&quot;focalIds&quot;:[&quot;client&quot;]}},{&quot;id&quot;:&quot;request&quot;,&quot;caption&quot;:&quot;Client opens an HTTPS connection to the edge&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;client&quot;],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:2.11,&quot;tx&quot;:-750.56,&quot;ty&quot;:25.33,&quot;focalBBox&quot;:{&quot;x&quot;:627.5,&quot;y&quot;:36,&quot;w&quot;:96,&quot;h&quot;:264},&quot;focalIds&quot;:[&quot;client&quot;,&quot;edge&quot;]}},{&quot;id&quot;:&quot;routed&quot;,&quot;caption&quot;:&quot;Edge proxies the request to the API&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:2.79,&quot;tx&quot;:-1211.93,&quot;ty&quot;:-547.65,&quot;focalBBox&quot;:{&quot;x&quot;:627.5,&quot;y&quot;:244,&quot;w&quot;:96,&quot;h&quot;:176},&quot;focalIds&quot;:[&quot;edge&quot;,&quot;api&quot;]}},{&quot;id&quot;:&quot;verified&quot;,&quot;caption&quot;:&quot;API verifies the session against Auth&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;],&quot;activated&quot;:[&quot;auth&quot;],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:2.57,&quot;tx&quot;:-976.73,&quot;ty&quot;:-811.35,&quot;focalBBox&quot;:{&quot;x&quot;:563.5,&quot;y&quot;:364,&quot;w&quot;:160,&quot;h&quot;:200},&quot;focalIds&quot;:[&quot;api&quot;,&quot;auth&quot;]}},{&quot;id&quot;:&quot;dispatched&quot;,&quot;caption&quot;:&quot;API hands off to a worker&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;,&quot;worker&quot;,&quot;api-worker&quot;],&quot;activated&quot;:[&quot;worker&quot;],&quot;dimmed&quot;:[&quot;auth&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:2.68,&quot;tx&quot;:-1217.81,&quot;ty&quot;:-845.63,&quot;focalBBox&quot;:{&quot;x&quot;:627.5,&quot;y&quot;:364,&quot;w&quot;:160,&quot;h&quot;:188},&quot;focalIds&quot;:[&quot;api&quot;,&quot;worker&quot;]}},{&quot;id&quot;:&quot;persisted&quot;,&quot;caption&quot;:&quot;Worker writes the transaction to the database&quot;,&quot;duration&quot;:600,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;,&quot;worker&quot;,&quot;api-worker&quot;,&quot;db&quot;,&quot;worker-db&quot;],&quot;activated&quot;:[&quot;worker&quot;,&quot;db&quot;],&quot;dimmed&quot;:[&quot;auth&quot;],&quot;emphasised&quot;:[&quot;db&quot;],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:2.35,&quot;tx&quot;:-1059.13,&quot;ty&quot;:-1050.86,&quot;focalBBox&quot;:{&quot;x&quot;:691.5,&quot;y&quot;:496,&quot;w&quot;:96,&quot;h&quot;:228},&quot;focalIds&quot;:[&quot;worker&quot;,&quot;db&quot;]}},{&quot;id&quot;:&quot;summary&quot;,&quot;caption&quot;:&quot;Full request lifecycle — pan the diagram to inspect&quot;,&quot;duration&quot;:900,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;,&quot;worker&quot;,&quot;api-worker&quot;,&quot;db&quot;,&quot;worker-db&quot;],&quot;activated&quot;:[&quot;worker&quot;,&quot;db&quot;],&quot;dimmed&quot;:[&quot;auth&quot;],&quot;emphasised&quot;:[&quot;db&quot;],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;camera&quot;:{&quot;z&quot;:0.97,&quot;tx&quot;:20.68,&quot;ty&quot;:11.63,&quot;focalBBox&quot;:{&quot;x&quot;:563.5,&quot;y&quot;:36,&quot;w&quot;:224,&quot;h&quot;:688},&quot;focalIds&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;api&quot;,&quot;auth&quot;,&quot;worker&quot;,&quot;db&quot;]}}]'
+     data-content-bbox="0,0,224,688" data-controls="zoom pan auto-fit" data-zoom-range="0.5 4" data-camera-z="3.17" data-camera-tx="-1463.58" data-camera-ty="38" data-steps='[{&quot;id&quot;:&quot;idle&quot;,&quot;caption&quot;:&quot;Client at rest — the system is idle&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;client&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;client&quot;],&quot;camera&quot;:{&quot;z&quot;:3.17,&quot;tx&quot;:-1463.58,&quot;ty&quot;:38,&quot;focalBBox&quot;:{&quot;x&quot;:645.5,&quot;y&quot;:36,&quot;w&quot;:60,&quot;h&quot;:144},&quot;focalIds&quot;:[&quot;client&quot;]}},{&quot;id&quot;:&quot;request&quot;,&quot;caption&quot;:&quot;Client opens an HTTPS connection to the edge&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[&quot;client&quot;],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;client&quot;,&quot;edge&quot;],&quot;camera&quot;:{&quot;z&quot;:2.11,&quot;tx&quot;:-750.56,&quot;ty&quot;:25.33,&quot;focalBBox&quot;:{&quot;x&quot;:627.5,&quot;y&quot;:36,&quot;w&quot;:96,&quot;h&quot;:264},&quot;focalIds&quot;:[&quot;client&quot;,&quot;edge&quot;]}},{&quot;id&quot;:&quot;routed&quot;,&quot;caption&quot;:&quot;Edge proxies the request to the API&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;],&quot;activated&quot;:[],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;edge&quot;,&quot;api&quot;],&quot;camera&quot;:{&quot;z&quot;:2.79,&quot;tx&quot;:-1211.93,&quot;ty&quot;:-547.65,&quot;focalBBox&quot;:{&quot;x&quot;:627.5,&quot;y&quot;:244,&quot;w&quot;:96,&quot;h&quot;:176},&quot;focalIds&quot;:[&quot;edge&quot;,&quot;api&quot;]}},{&quot;id&quot;:&quot;verified&quot;,&quot;caption&quot;:&quot;API verifies the session against Auth&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;],&quot;activated&quot;:[&quot;auth&quot;],&quot;dimmed&quot;:[],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;api&quot;,&quot;auth&quot;],&quot;camera&quot;:{&quot;z&quot;:2.57,&quot;tx&quot;:-976.73,&quot;ty&quot;:-811.35,&quot;focalBBox&quot;:{&quot;x&quot;:563.5,&quot;y&quot;:364,&quot;w&quot;:160,&quot;h&quot;:200},&quot;focalIds&quot;:[&quot;api&quot;,&quot;auth&quot;]}},{&quot;id&quot;:&quot;dispatched&quot;,&quot;caption&quot;:&quot;API hands off to a worker&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;,&quot;worker&quot;,&quot;api-worker&quot;],&quot;activated&quot;:[&quot;worker&quot;],&quot;dimmed&quot;:[&quot;auth&quot;],&quot;emphasised&quot;:[],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;api&quot;,&quot;worker&quot;],&quot;camera&quot;:{&quot;z&quot;:2.68,&quot;tx&quot;:-1217.81,&quot;ty&quot;:-845.63,&quot;focalBBox&quot;:{&quot;x&quot;:627.5,&quot;y&quot;:364,&quot;w&quot;:160,&quot;h&quot;:188},&quot;focalIds&quot;:[&quot;api&quot;,&quot;worker&quot;]}},{&quot;id&quot;:&quot;persisted&quot;,&quot;caption&quot;:&quot;Worker writes the transaction to the database&quot;,&quot;duration&quot;:600,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;,&quot;worker&quot;,&quot;api-worker&quot;,&quot;db&quot;,&quot;worker-db&quot;],&quot;activated&quot;:[&quot;worker&quot;,&quot;db&quot;],&quot;dimmed&quot;:[&quot;auth&quot;],&quot;emphasised&quot;:[&quot;db&quot;],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;worker&quot;,&quot;db&quot;],&quot;camera&quot;:{&quot;z&quot;:2.35,&quot;tx&quot;:-1059.13,&quot;ty&quot;:-1050.86,&quot;focalBBox&quot;:{&quot;x&quot;:691.5,&quot;y&quot;:496,&quot;w&quot;:96,&quot;h&quot;:228},&quot;focalIds&quot;:[&quot;worker&quot;,&quot;db&quot;]}},{&quot;id&quot;:&quot;summary&quot;,&quot;caption&quot;:&quot;Full request lifecycle — pan the diagram to inspect&quot;,&quot;duration&quot;:900,&quot;autoDuration&quot;:null,&quot;visible&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;client-edge&quot;,&quot;api&quot;,&quot;edge-api&quot;,&quot;auth&quot;,&quot;api-auth&quot;,&quot;worker&quot;,&quot;api-worker&quot;,&quot;db&quot;,&quot;worker-db&quot;],&quot;activated&quot;:[&quot;worker&quot;,&quot;db&quot;],&quot;dimmed&quot;:[&quot;auth&quot;],&quot;emphasised&quot;:[&quot;db&quot;],&quot;pulse&quot;:[],&quot;flow&quot;:[],&quot;focalIds&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;api&quot;,&quot;auth&quot;,&quot;worker&quot;,&quot;db&quot;],&quot;camera&quot;:{&quot;z&quot;:0.97,&quot;tx&quot;:20.68,&quot;ty&quot;:11.63,&quot;focalBBox&quot;:{&quot;x&quot;:563.5,&quot;y&quot;:36,&quot;w&quot;:224,&quot;h&quot;:688},&quot;focalIds&quot;:[&quot;client&quot;,&quot;edge&quot;,&quot;api&quot;,&quot;auth&quot;,&quot;worker&quot;,&quot;db&quot;]}}]' data-node-steps='{&quot;auth&quot;:3,&quot;worker&quot;:4,&quot;db&quot;:5,&quot;client&quot;:1,&quot;edge&quot;:1,&quot;api&quot;:2,&quot;client-edge&quot;:1,&quot;edge-api&quot;:2,&quot;api-auth&quot;:3,&quot;api-worker&quot;:4,&quot;worker-db&quot;:5}' data-autoplay-default="2500"
      aria-label="Step-based motion FSM — request lifecycle in 5 frames"
      tabindex="0">
   <title>Step-based motion FSM — request lifecycle in 5 frames</title>
@@ -22,6 +22,10 @@
     .g-node.is-dimmed, .g-edge.is-dimmed { opacity: 0.28; }
     .g-node.is-pulsing { animation: gestalt-pulse 600ms ease-out; }
     @keyframes gestalt-pulse { 0%,100% { filter: none } 40% { filter: brightness(1.6) drop-shadow(0 0 6px currentColor) } }
+    .gestalt-root[data-node-steps] .g-node { cursor: pointer; }
+    .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: none; }
+    .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-play { display: none; }
+    .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: block; }
   </style>
     
   <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
@@ -132,10 +136,15 @@
     </g>
   </g>
   <g class="controls-bar" role="group" aria-label="Diagram controls">
-    <g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(1305 534)">
+    <g class="ctrl-btn" data-action="step-prev" role="button" aria-label="Previous step" tabindex="0" transform="translate(1305 498)">
       <title>Previous step</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
       <path d="M 20 9 L 12 16 L 20 23" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    </g><g class="ctrl-btn" data-action="autoplay-toggle" role="button" aria-label="Toggle autoplay" tabindex="0" transform="translate(1305 534)">
+      <title>Toggle autoplay</title>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <path class="icon-play"  d="M 12 9 L 22 16 L 12 23 Z"  fill="var(--accent)" stroke="none"/>
+                   <path class="icon-pause" d="M 12 9 L 14 9 L 14 23 L 12 23 Z M 18 9 L 20 9 L 20 23 L 18 23 Z" fill="var(--accent)" stroke="none"/>
     </g><g class="ctrl-btn" data-action="step-next" role="button" aria-label="Next step" tabindex="0" transform="translate(1305 570)">
       <title>Next step</title>
       <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
@@ -204,6 +213,22 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
   s.tabIndex=0; s.setAttribute("role","application");
   // Step FSM (optional).
   var stepData=s.getAttribute("data-steps"),steps=stepData?JSON.parse(stepData):null,stepIdx=0,tweening=0;
+  var nodeStepData=s.getAttribute("data-node-steps"),nodeMap=nodeStepData?JSON.parse(nodeStepData):{};
+  var autoDefault=parseInt(s.getAttribute("data-autoplay-default"))||2500,autoplayId=null;
+  function stopAutoplay(){if(autoplayId){clearTimeout(autoplayId);autoplayId=null;s.removeAttribute("data-autoplay")}}
+  function startAutoplay(){
+    if(!steps||autoplayId)return;
+    s.setAttribute("data-autoplay","1");
+    function tick(){
+      if(stepIdx>=steps.length-1){stopAutoplay();return}
+      applyStep(stepIdx+1);
+      var dur=(steps[stepIdx].autoDuration||autoDefault);
+      autoplayId=setTimeout(tick,dur);
+    }
+    var d=(steps[stepIdx].autoDuration||autoDefault);
+    autoplayId=setTimeout(tick,d);
+  }
+  function toggleAutoplay(){if(autoplayId)stopAutoplay();else startAutoplay()}
   function tweenCam(tz,ttx,tty,dur){
     var z0=z,x0=tx,y0=ty,t0=performance.now();tweening=1;
     function f(){var t=Math.min(1,(performance.now()-t0)/dur);var e=t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
@@ -235,17 +260,25 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
     else if(k==="zoom-out"){z=clamp(z*0.83);A()}
     else if(k==="auto-fit"){if(steps)applyStep(stepIdx);else{z=hz;tx=hx;ty=hy;A()}}
     else if(k==="fullscreen"){if(document.fullscreenElement)document.exitFullscreen();else s.requestFullscreen()}
-    else if(k==="step-next"&&steps&&!tweening){applyStep(Math.min(steps.length-1,stepIdx+1))}
-    else if(k==="step-prev"&&steps&&!tweening){applyStep(Math.max(0,stepIdx-1))}
+    else if(k==="step-next"&&steps&&!tweening){stopAutoplay();applyStep(Math.min(steps.length-1,stepIdx+1))}
+    else if(k==="step-prev"&&steps&&!tweening){stopAutoplay();applyStep(Math.max(0,stepIdx-1))}
+    else if(k==="autoplay-toggle"){toggleAutoplay()}
   }
   var KMAP={"+":"zoom-in","=":"zoom-in","-":"zoom-out","_":"zoom-out","0":"auto-fit","f":"fullscreen","F":"fullscreen",
-            "ArrowRight":"step-next","ArrowLeft":"step-prev","n":"step-next","p":"step-prev"};
+            "ArrowRight":"step-next","ArrowLeft":"step-prev","n":"step-next","p":"step-prev"," ":"autoplay-toggle"};
   function btnAt(e){return e.target&&e.target.closest&&e.target.closest(".ctrl-btn")}
   s.addEventListener("keydown",function(e){
     var b=btnAt(e);if(b&&(e.key===" "||e.key==="Enter")){e.preventDefault();act(b.getAttribute("data-action"));return}
     var a=KMAP[e.key];if(a){e.preventDefault();act(a)}
   });
-  s.addEventListener("click",function(e){var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"))}});
+  s.addEventListener("click",function(e){
+    var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"));return}
+    if(steps&&!tweening){
+      var n=e.target.closest&&e.target.closest(".g-node");
+      if(n){var nid=n.getAttribute("data-id"),tgt=nodeMap[nid];
+        if(tgt!==undefined&&tgt!==stepIdx){e.stopPropagation();stopAutoplay();applyStep(tgt)}}
+    }
+  });
   new ResizeObserver(A).observe(s);A();
   if(steps)applyStep(0);
 }

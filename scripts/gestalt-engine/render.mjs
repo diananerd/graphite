@@ -530,6 +530,7 @@ const STYLEKIT = `
 export function renderSVG(placed, proj, opts = {}) {
   const camera = opts.camera ?? null;
   const stepPlan = opts.stepPlan ?? null;
+  const nodeStepMap = opts.nodeStepMap ?? null;
   // For step 0: which elements are visible? If there's no plan, every
   // element is visible by default. Otherwise visibility is driven by
   // step 0's `visible` set.
@@ -568,6 +569,11 @@ export function renderSVG(placed, proj, opts = {}) {
   const stepsAttr = stepPlan
     ? ` data-steps='${escapeXml(JSON.stringify(stepPlan))}'`
     : '';
+  const nodeMapAttr = nodeStepMap && Object.keys(nodeStepMap).length
+    ? ` data-node-steps='${escapeXml(JSON.stringify(nodeStepMap))}'`
+    : '';
+  const autoplayDefault = placed.autoplayDuration ?? 2500;
+  const autoplayAttr = stepPlan ? ` data-autoplay-default="${autoplayDefault}"` : '';
   const role = controls ? 'application' : 'img';
   const scriptBlock = controls ? `<script><![CDATA[${CONTROLS_SCRIPT}]]></script>` : '';
   const controlBar = controls ? emitControlBar(proj, !!stepPlan) : '';
@@ -581,6 +587,10 @@ export function renderSVG(placed, proj, opts = {}) {
     .g-node.is-dimmed, .g-edge.is-dimmed { opacity: 0.28; }
     .g-node.is-pulsing { animation: gestalt-pulse 600ms ease-out; }
     @keyframes gestalt-pulse { 0%,100% { filter: none } 40% { filter: brightness(1.6) drop-shadow(0 0 6px currentColor) } }
+    .gestalt-root[data-node-steps] .g-node { cursor: pointer; }
+    .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: none; }
+    .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-play { display: none; }
+    .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: block; }
   `;
 
   return `<svg xmlns="http://www.w3.org/2000/svg"
@@ -589,7 +599,7 @@ export function renderSVG(placed, proj, opts = {}) {
      class="gestalt-root"
      data-margin="${proj.margin}"
      data-layout="${escapeXml(placed._layout ?? '?')}"
-     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}${stepsAttr}
+     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}${stepsAttr}${nodeMapAttr}${autoplayAttr}
      aria-label="${escapeXml(placed.title ?? 'diagram')}"
      tabindex="${controls ? 0 : -1}">
   <title>${escapeXml(placed.title ?? 'diagram')}</title>
@@ -645,17 +655,29 @@ function emitControlBar(proj, hasSteps) {
     { action: 'fullscreen', label: 'Fullscreen',icon: 'M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23' },
   ];
   const stepBtns = hasSteps ? [
-    { action: 'step-prev',  label: 'Previous step', icon: 'M 20 9 L 12 16 L 20 23' },
-    { action: 'step-next',  label: 'Next step',     icon: 'M 12 9 L 20 16 L 12 23' },
+    { action: 'step-prev',       label: 'Previous step',  icon: 'M 20 9 L 12 16 L 20 23' },
+    { action: 'autoplay-toggle', label: 'Toggle autoplay',
+      iconDual: {
+        play:  'M 12 9 L 22 16 L 12 23 Z',
+        pause: 'M 12 9 L 14 9 L 14 23 L 12 23 Z M 18 9 L 20 9 L 20 23 L 18 23 Z',
+      } },
+    { action: 'step-next',       label: 'Next step',      icon: 'M 12 9 L 20 16 L 12 23' },
   ] : [];
   const btns = [...stepBtns, ...baseBtns];
   const yTop = proj.canvasH - (w * btns.length + gap * (btns.length - 1)) - 14;
   const buttons = btns.map((b, i) => {
     const ty = yTop + i * (w + gap);
+    let iconBlock;
+    if (b.iconDual) {
+      iconBlock = `<path class="icon-play"  d="${b.iconDual.play}"  fill="var(--accent)" stroke="none"/>
+                   <path class="icon-pause" d="${b.iconDual.pause}" fill="var(--accent)" stroke="none"/>`;
+    } else {
+      iconBlock = `<path d="${b.icon}" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>`;
+    }
     return `<g class="ctrl-btn" data-action="${b.action}" role="button" aria-label="${b.label}" tabindex="0" transform="translate(${x} ${ty})">
       <title>${b.label}</title>
       <rect x="0" y="0" width="${w}" height="${w}" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
-      <path d="${b.icon}" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+      ${iconBlock}
     </g>`;
   }).join('');
   return `<g class="controls-bar" role="group" aria-label="Diagram controls">

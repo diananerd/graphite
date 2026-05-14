@@ -13,7 +13,7 @@ import { measure } from './measure.mjs';
 import { place } from './classify.mjs';
 import { adapt } from './cascade.mjs';
 import { computeCamera } from './camera.mjs';
-import { computeSteps } from './steps.mjs';
+import { computeSteps, buildNodeStepMap } from './steps.mjs';
 import { renderSVG } from './render.mjs';
 
 export function compile(spec, options = {}) {
@@ -37,8 +37,9 @@ export function compile(spec, options = {}) {
     log.push({ strategy: 'auto-enable-controls', reason: stepPlan ? 'steps' : 'camera-view' });
   }
 
-  const svg = renderSVG(adapted, projection, { camera, stepPlan });
-  return { svg, projection, log, violations, spec: adapted, layout: placed._layout, camera, steps: stepPlan };
+  const nodeStepMap = stepPlan ? buildNodeStepMap(stepPlan) : null;
+  const svg = renderSVG(adapted, projection, { camera, stepPlan, nodeStepMap });
+  return { svg, projection, log, violations, spec: adapted, layout: placed._layout, camera, steps: stepPlan, nodeStepMap };
 }
 
 export { measure } from './measure.mjs';

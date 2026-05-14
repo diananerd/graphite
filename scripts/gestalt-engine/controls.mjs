@@ -55,6 +55,22 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
   s.tabIndex=0; s.setAttribute("role","application");
   // Step FSM (optional).
   var stepData=s.getAttribute("data-steps"),steps=stepData?JSON.parse(stepData):null,stepIdx=0,tweening=0;
+  var nodeStepData=s.getAttribute("data-node-steps"),nodeMap=nodeStepData?JSON.parse(nodeStepData):{};
+  var autoDefault=parseInt(s.getAttribute("data-autoplay-default"))||2500,autoplayId=null;
+  function stopAutoplay(){if(autoplayId){clearTimeout(autoplayId);autoplayId=null;s.removeAttribute("data-autoplay")}}
+  function startAutoplay(){
+    if(!steps||autoplayId)return;
+    s.setAttribute("data-autoplay","1");
+    function tick(){
+      if(stepIdx>=steps.length-1){stopAutoplay();return}
+      applyStep(stepIdx+1);
+      var dur=(steps[stepIdx].autoDuration||autoDefault);
+      autoplayId=setTimeout(tick,dur);
+    }
+    var d=(steps[stepIdx].autoDuration||autoDefault);
+    autoplayId=setTimeout(tick,d);
+  }
+  function toggleAutoplay(){if(autoplayId)stopAutoplay();else startAutoplay()}
   function tweenCam(tz,ttx,tty,dur){
     var z0=z,x0=tx,y0=ty,t0=performance.now();tweening=1;
     function f(){var t=Math.min(1,(performance.now()-t0)/dur);var e=t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
@@ -86,17 +102,25 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
     else if(k==="zoom-out"){z=clamp(z*0.83);A()}
     else if(k==="auto-fit"){if(steps)applyStep(stepIdx);else{z=hz;tx=hx;ty=hy;A()}}
     else if(k==="fullscreen"){if(document.fullscreenElement)document.exitFullscreen();else s.requestFullscreen()}
-    else if(k==="step-next"&&steps&&!tweening){applyStep(Math.min(steps.length-1,stepIdx+1))}
-    else if(k==="step-prev"&&steps&&!tweening){applyStep(Math.max(0,stepIdx-1))}
+    else if(k==="step-next"&&steps&&!tweening){stopAutoplay();applyStep(Math.min(steps.length-1,stepIdx+1))}
+    else if(k==="step-prev"&&steps&&!tweening){stopAutoplay();applyStep(Math.max(0,stepIdx-1))}
+    else if(k==="autoplay-toggle"){toggleAutoplay()}
   }
   var KMAP={"+":"zoom-in","=":"zoom-in","-":"zoom-out","_":"zoom-out","0":"auto-fit","f":"fullscreen","F":"fullscreen",
-            "ArrowRight":"step-next","ArrowLeft":"step-prev","n":"step-next","p":"step-prev"};
+            "ArrowRight":"step-next","ArrowLeft":"step-prev","n":"step-next","p":"step-prev"," ":"autoplay-toggle"};
   function btnAt(e){return e.target&&e.target.closest&&e.target.closest(".ctrl-btn")}
   s.addEventListener("keydown",function(e){
     var b=btnAt(e);if(b&&(e.key===" "||e.key==="Enter")){e.preventDefault();act(b.getAttribute("data-action"));return}
     var a=KMAP[e.key];if(a){e.preventDefault();act(a)}
   });
-  s.addEventListener("click",function(e){var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"))}});
+  s.addEventListener("click",function(e){
+    var b=btnAt(e);if(b){e.stopPropagation();act(b.getAttribute("data-action"));return}
+    if(steps&&!tweening){
+      var n=e.target.closest&&e.target.closest(".g-node");
+      if(n){var nid=n.getAttribute("data-id"),tgt=nodeMap[nid];
+        if(tgt!==undefined&&tgt!==stepIdx){e.stopPropagation();stopAutoplay();applyStep(tgt)}}
+    }
+  });
   new ResizeObserver(A).observe(s);A();
   if(steps)applyStep(0);
 }
