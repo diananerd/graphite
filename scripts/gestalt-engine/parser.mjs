@@ -132,7 +132,12 @@ export function parseSpec(source) {
       if (k === 'margin' || k === 'gridCols') spec[k] = parseInt(v, 10);
       else if (k === 'view-padding') spec.viewPadding = parseInt(v, 10);
       else if (k === 'view') spec.view = v.split(/[\s,]+/).filter(Boolean);
-      else if (k === 'controls') spec.controls = v.split(/\s+/);
+      else if (k === 'controls') {
+        const lower = v.trim().toLowerCase();
+        spec.controls = (lower === 'none' || lower === 'off' || lower === 'false' || lower === 'no')
+          ? false
+          : v.split(/\s+/);
+      }
       else if (k === 'zoom-range') {
         const parts = v.split(/\s+/).map(Number);
         if (parts.length === 2) spec.zoomRange = parts;

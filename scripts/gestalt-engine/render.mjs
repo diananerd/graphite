@@ -312,6 +312,59 @@ function emitShape(node, proj) {
     </g>`;
 }
 
+/**
+ * Is (dx, dy) — an offset from the node centre — inside the node's outline?
+ * Used by the radial router to anchor arrows at the actual shape border.
+ * For shapes with non-convex outlines (cloud, document, ...) we fall back to
+ * the bbox, which is a tight upper bound and visually correct since the
+ * perimeter circle is locally near-radial at the entry point.
+ */
+function pointInShape(node, dx, dy) {
+  const rx = node.w / 2, ry = node.h / 2;
+  if (rx <= 0 || ry <= 0) return false;
+  switch (node.shape) {
+    case 'circle':
+    case 'ellipse':
+      return (dx / rx) ** 2 + (dy / ry) ** 2 <= 1;
+    case 'diamond':
+      return Math.abs(dx) / rx + Math.abs(dy) / ry <= 1;
+    case 'triangle': {
+      // Apex at top, base at bottom. Linear-narrowing inside test.
+      const t = (dy + ry) / (2 * ry);                // 0 at apex, 1 at base
+      if (t < 0 || t > 1) return false;
+      return Math.abs(dx) <= rx * t;
+    }
+    default:
+      return Math.abs(dx) <= rx && Math.abs(dy) <= ry;
+  }
+}
+
+/**
+ * For a node sitting at angle `θ` on a circle of radius `R` centred at the
+ * cluster centroid, return the angular offset δ (always positive) along the
+ * perimeter where the circle exits the node's outline in direction `sign`.
+ * The arrow anchor is placed at the intersection point, then nudged by a
+ * small visual gap so the head/tail don't touch the stroke.
+ */
+function radialExitAngle(node, R, θ, sign) {
+  const lo0 = 0, hi0 = Math.PI;
+  let lo = lo0, hi = hi0;
+  // Anchor node centre on the perimeter circle so the inside test reduces
+  // to offsets from the node centre.
+  const nx = R * Math.cos(θ);
+  const ny = R * Math.sin(θ);
+  for (let it = 0; it < 22; it++) {
+    const mid = (lo + hi) / 2;
+    const px = R * Math.cos(θ + sign * mid);
+    const py = R * Math.sin(θ + sign * mid);
+    if (pointInShape(node, px - nx, py - ny)) lo = mid;
+    else hi = mid;
+  }
+  const δ = (lo + hi) / 2;
+  const gap = 4 / R;                                  // ~4 px of arc
+  return Math.min(δ + gap, Math.PI - 0.05);
+}
+
 function emitEdge(edge, nodesById, proj, defaultStyle, radialCtx) {
   const a = nodesById[edge.from];
   const b = nodesById[edge.to];
@@ -321,24 +374,20 @@ function emitEdge(edge, nodesById, proj, defaultStyle, radialCtx) {
   // the two lifeline x-coords. Self-messages render as a small loop.
   let aProj, bProj, override;
   // Radial layouts: arrows trace SVG arcs along the loop's perimeter circle.
-  // Anchor points are the intersection of the perimeter with each node's
-  // outer bbox; the arc connects those anchors following the centroid.
+  // Anchor points are the actual intersection of the perimeter with each
+  // node's outline (per-shape, not a uniform bound), so a circle, a diamond
+  // and a rect on the same loop each get their own correct anchor.
   if (radialCtx && radialCtx.angles[edge.from] !== undefined && radialCtx.angles[edge.to] !== undefined) {
     const [cx, cy] = radialCtx.centroid;
     const R = radialCtx.radius;
     const θA = radialCtx.angles[edge.from];
     const θB = radialCtx.angles[edge.to];
-    // Shorter arc direction.
     let dθ = θB - θA;
     while (dθ > Math.PI)  dθ -= 2 * Math.PI;
     while (dθ < -Math.PI) dθ += 2 * Math.PI;
     const sign = dθ >= 0 ? 1 : -1;
-    // Angular offset where the perimeter circle exits each shape's bbox.
-    // For a rect on the circle the tangent direction varies with position;
-    // arcsin(max(w,h) / (2R)) is a clean upper bound that keeps the arrow
-    // clear of the shape outline regardless of orientation.
-    const δA = Math.asin(Math.min(0.99, Math.max(a.w, a.h) / (2 * R))) + 0.03;
-    const δB = Math.asin(Math.min(0.99, Math.max(b.w, b.h) / (2 * R))) + 0.03;
+    const δA = radialExitAngle(a, R, θA, sign);
+    const δB = radialExitAngle(b, R, θB, -sign);
     const startθ = θA + sign * δA;
     const endθ   = θB - sign * δB;
     const sx = cx + R * Math.cos(startθ);
@@ -393,12 +442,21 @@ function emitEdge(edge, nodesById, proj, defaultStyle, radialCtx) {
 
   let pathBlock;
   if (v.double) {
-    // Channel-overlay double: outer thick coloured stroke + inner thinner
-    // bg-colour stroke covers the centre, creating a parallel-line effect.
-    const outerW = v.width * 2 + 1.5;
-    const innerW = Math.max(LEGIBILITY.stroke.border, v.width);
-    pathBlock = `<path d="${d}" stroke="${color}" stroke-width="${outerW.toFixed(2)}" fill="none" vector-effect="non-scaling-stroke" opacity="0.9"${headMk}${tailMk}${filterAttr}/>
-      <path d="${d}" stroke="var(--bg)" stroke-width="${innerW.toFixed(2)}" fill="none" vector-effect="non-scaling-stroke"/>`;
+    // True parallel-line double using an SVG mask. The mask paints a
+    // wide-stroke "white band" then knocks out a narrower "black gap" down
+    // the middle, leaving a transparent (not bg-coloured) channel between
+    // two parallel coloured strokes. Markers go on a separate centreline
+    // path with the *normal* stroke-width so the arrowhead is proportional
+    // to the visible lines rather than to the outer band — no fused blob.
+    const outerW = v.width * 2.4 + 1;
+    const gapW   = Math.max(LEGIBILITY.stroke.border, v.width * 0.9);
+    const maskId = `dbl-${escapeXml(edge.from)}-${escapeXml(edge.to)}`;
+    pathBlock = `<mask id="${maskId}" maskUnits="userSpaceOnUse">
+        <path d="${d}" stroke="white" stroke-width="${outerW.toFixed(2)}" fill="none" stroke-linecap="butt" stroke-linejoin="miter" vector-effect="non-scaling-stroke"/>
+        <path d="${d}" stroke="black" stroke-width="${gapW.toFixed(2)}" fill="none" stroke-linecap="butt" stroke-linejoin="miter" vector-effect="non-scaling-stroke"/>
+      </mask>
+      <path d="${d}" stroke="${color}" stroke-width="${outerW.toFixed(2)}" fill="none" vector-effect="non-scaling-stroke" opacity="0.9" mask="url(#${maskId})"${dashAttr}${filterAttr}/>
+      <path d="${d}" stroke="none" stroke-width="${v.width.toFixed(2)}" fill="none"${headMk}${tailMk}/>`;
   } else {
     pathBlock = `<path d="${d}" stroke="${color}" stroke-width="${v.width.toFixed(2)}" fill="none" vector-effect="non-scaling-stroke" opacity="0.85"${headMk}${tailMk}${dashAttr}${filterAttr}/>`;
   }
@@ -611,6 +669,9 @@ export function renderSVG(placed, proj, opts = {}) {
   const camAttr = camera
     ? ` data-camera-z="${camera.z}" data-camera-tx="${camera.tx}" data-camera-ty="${camera.ty}"`
     : '';
+  // Wrap each step's caption to fit the canvas width. Mutates the plan in
+  // place so the serialised `data-steps` payload below carries the lines.
+  const captionMeta = stepPlan ? wrapCaptions(stepPlan, proj) : null;
   const stepsAttr = stepPlan
     ? ` data-steps='${escapeXml(JSON.stringify(stepPlan))}'`
     : '';
@@ -619,11 +680,13 @@ export function renderSVG(placed, proj, opts = {}) {
     : '';
   const autoplayDefault = placed.autoplayDuration ?? 2500;
   const autoplayAttr = stepPlan ? ` data-autoplay-default="${autoplayDefault}"` : '';
-  const loopAttr = stepPlan && placed.autoplayLoop ? ` data-autoplay-loop="1"` : '';
+  const loopAttr = stepPlan ? ` data-loop="${placed.autoplayLoop ? 1 : 0}"` : '';
+  const chromeAttr = controls ? ' data-chrome="1"' : '';
   const role = controls ? 'application' : 'img';
   const scriptBlock = controls ? `<script><![CDATA[${CONTROLS_SCRIPT}]]></script>` : '';
-  const controlBar = controls ? emitControlBar(proj, !!stepPlan) : '';
-  const captionBar = stepPlan ? emitCaptionBar(proj) : '';
+  const controlBar = controls ? emitControlBar(proj, !!stepPlan, placed) : '';
+  const captionBar = stepPlan ? emitCaptionBar(proj, stepPlan, captionMeta) : '';
+  const stepCounter = stepPlan ? emitStepCounter(proj, stepPlan) : '';
 
   // Container-query block (§17): hide sublabels at the smallest tier; ease
   // gaps at the largest. The container is the wrapping div in the host page.
@@ -637,6 +700,28 @@ export function renderSVG(placed, proj, opts = {}) {
     .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: none; }
     .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-play { display: none; }
     .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: block; }
+    .ctrl-btn[data-action="loop-toggle"] { opacity: 0.5; }
+    .gestalt-root[data-loop="1"] .ctrl-btn[data-action="loop-toggle"] { opacity: 1; }
+    .gestalt-root[data-chrome="0"] .controls-bar,
+    .gestalt-root[data-chrome="0"] .caption-bar,
+    .gestalt-root[data-chrome="0"] .step-counter { opacity: 0; pointer-events: none; transition: opacity 180ms ease-out; }
+    .gestalt-root[data-chrome="1"] .controls-bar,
+    .gestalt-root[data-chrome="1"] .caption-bar,
+    .gestalt-root[data-chrome="1"] .step-counter { transition: opacity 180ms ease-out; }
+    .gestalt-root:fullscreen { width: 100vw; height: 100vh; background: var(--bg); }
+    .gestalt-root::backdrop { background: var(--bg); }
+    /* A11y: visible focus ring for keyboard navigation. */
+    .gestalt-root:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .gestalt-root:focus:not(:focus-visible) { outline: none; }
+    .ctrl-btn:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .ctrl-btn:focus:not(:focus-visible) { outline: none; }
+    /* A11y: respect prefers-reduced-motion — animations and step transitions
+       collapse to instant updates so users sensitive to motion can still
+       follow the sequence without vestibular discomfort. */
+    @media (prefers-reduced-motion: reduce) {
+      .g-node, .g-edge, .controls-bar, .caption-bar, .step-counter,
+      .g-node.is-pulsing { transition: none !important; animation: none !important; }
+    }
   `;
 
   return `<svg xmlns="http://www.w3.org/2000/svg"
@@ -645,11 +730,11 @@ export function renderSVG(placed, proj, opts = {}) {
      class="gestalt-root"
      data-margin="${proj.margin}"
      data-layout="${escapeXml(placed._layout ?? '?')}"
-     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}${stepsAttr}${nodeMapAttr}${autoplayAttr}${loopAttr}
+     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}${stepsAttr}${nodeMapAttr}${autoplayAttr}${loopAttr}${chromeAttr}
      aria-label="${escapeXml(placed.title ?? 'diagram')}"
      tabindex="${controls ? 0 : -1}">
   <title>${escapeXml(placed.title ?? 'diagram')}</title>
-  <desc>${escapeXml(placed.title ?? '')} — gestalt diagram${controls ? ' with zoom and pan controls (keys: + - 0 f, drag to pan, wheel to zoom)' : ''}</desc>
+  <desc>${escapeXml(placed.title ?? '')} — gestalt diagram${controls ? ' with zoom and pan controls (keys: + - 0 f, drag to pan' + (controls.includes('wheel-zoom') ? ', wheel to zoom)' : ')') : ''}</desc>
   <defs>
     <style>:root { ${STYLEKIT} } .gestalt-root { background: var(--bg); cursor: ${controls ? 'grab' : 'default'}; } ${cqStyle}</style>
     ${SHADOW_DEFS}
@@ -664,6 +749,7 @@ export function renderSVG(placed, proj, opts = {}) {
   </g>
   ${controlBar}
   ${captionBar}
+  ${stepCounter}
   ${scriptBlock}
 </svg>`;
 }
@@ -672,48 +758,166 @@ export function renderSVG(placed, proj, opts = {}) {
  * Caption strip at the top — JS controller writes the current step's
  * `caption` text here on every step change.
  */
-function emitCaptionBar(proj) {
-  return `<g class="caption-bar" role="status" aria-live="polite">
-    <rect x="${proj.canvasW / 2 - 240}" y="14" width="480" height="32" rx="6"
-          fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
-    <text class="step-caption" x="${proj.canvasW / 2}" y="35" text-anchor="middle"
-          font-family="var(--font)" font-size="13" fill="var(--fg, #e0e0e0)"></text>
-    <text class="step-counter" x="${proj.canvasW / 2 + 226}" y="35" text-anchor="end"
-          font-family="var(--font)" font-size="10" fill="var(--fg-dim, #999)"></text>
+/**
+ * Greedy word-wrap of `text` to at most `maxChars` per line. Long single
+ * words are not split — they get their own (overflowing) line so the
+ * algorithm never loses content.
+ */
+function wrapText(text, maxChars) {
+  if (!text) return [''];
+  const words = String(text).split(/\s+/);
+  const lines = [];
+  let cur = '';
+  for (const w of words) {
+    if (!cur) cur = w;
+    else if (cur.length + 1 + w.length <= maxChars) cur += ' ' + w;
+    else { lines.push(cur); cur = w; }
+  }
+  if (cur) lines.push(cur);
+  return lines.length ? lines : [String(text)];
+}
+
+/**
+ * Compute fs / line-wrapping metadata for the caption bar and mutate each
+ * step in `stepPlan` to attach a `lines` array. Centralised here so the
+ * `data-steps` JSON the JS controller reads already carries the wrapped
+ * lines — no runtime wrapping logic needed.
+ */
+function wrapCaptions(stepPlan, proj) {
+  // Everything below is in display-pixel units. The wrapping group will be
+  // counter-scaled at runtime so these numbers always render at the same
+  // size on screen.
+  const fs       = 14;
+  const advance  = fs * 0.62;
+  const sidePad  = 16;
+  // Controls reserve: ctrlW (32) + ctrlPad (14) + safe gap (14). The bar is
+  // centred horizontally so we reserve symmetrically. We use an assumed
+  // typical display width derived from the canvas aspect — the counter-
+  // scaling means container width drives the runtime; we just want to pick
+  // a reasonable upper bound for line length.
+  const reserve  = 32 + 14 + 14;
+  const assumedDisplayW = 640; // typical column width in blog/gallery
+  const maxBarW  = Math.max(160, assumedDisplayW - 2 * reserve);
+  const maxLineW = Math.max(40, maxBarW - 2 * sidePad);
+  const maxChars = Math.max(10, Math.floor(maxLineW / advance));
+  const minBarW  = 120;
+  let maxLineCount = 1;
+  for (const st of stepPlan) {
+    st.lines = wrapText(st.caption ?? '', maxChars);
+    let maxLen = 0;
+    for (const ln of st.lines) if (ln.length > maxLen) maxLen = ln.length;
+    st.barW = Math.round(Math.max(minBarW, Math.min(maxBarW, maxLen * advance + sidePad * 2)));
+    if (st.lines.length > maxLineCount) maxLineCount = st.lines.length;
+  }
+  return { fs, advance, sidePad, maxLineCount };
+}
+
+/**
+ * Caption strip. Sized algorithmically at compile time using metadata from
+ * `wrapCaptions`. Long titles wrap to additional lines; the rect grows
+ * vertically to fit the worst-case step. The JS controller swaps `<tspan>`
+ * children per step — no runtime width or layout math.
+ */
+function emitCaptionBar(proj, stepPlan, meta) {
+  const { fs, sidePad, maxLineCount } = meta;
+  // All values in pixel-space; the wrapping group counter-scales to keep
+  // them constant on screen.
+  const padY       = 14;
+  const lineHeight = Math.round(fs * 1.3);
+  const innerPadY  = Math.round(fs * 0.55);
+  const h          = maxLineCount * lineHeight + 2 * innerPadY - Math.round(lineHeight - fs);
+  const radius     = Math.round(Math.min(h * 0.18, fs * 0.6));
+  const initBarW   = stepPlan[0]?.barW ?? 160;
+  const rectX      = -initBarW / 2;
+  const firstLineY = padY + innerPadY + fs * 0.85;
+  const firstLines = stepPlan[0]?.lines ?? [stepPlan[0]?.caption ?? ''];
+  const tspans = firstLines.map((ln, i) =>
+    `<tspan x="0"${i === 0 ? '' : ` dy="${lineHeight}"`}>${escapeXml(ln)}</tspan>`
+  ).join('');
+  return `<g class="caption-bar screen-stable-fixed" data-anchor="tc" role="status" aria-live="polite" transform="translate(${proj.canvasW / 2} 0) scale(1)">
+    <rect class="caption-bg" x="${rectX.toFixed(1)}" y="${padY}" width="${initBarW}" height="${h}" rx="${radius}"
+          fill="var(--bg-surface)" opacity="0.92"/>
+    <text class="step-caption" x="0" y="${firstLineY.toFixed(1)}" text-anchor="middle"
+          data-line-h="${lineHeight}" data-cx="0"
+          font-family="var(--font)" font-size="${fs}" fill="var(--fg, #e0e0e0)">${tspans}</text>
   </g>`;
 }
 
 /**
- * Emit the controls button bar (zoom-out / auto-fit / zoom-in / fullscreen).
- *
- * Placed at the bottom-right corner of the canvas, wrapped in a
- * `screen-stable-fixed` group so the JS counter-scales it by `1/ds` and the
- * buttons stay at a constant rendered size regardless of container width.
- * Every button is keyboard-reachable (`tabindex=0`) and carries an `aria-label`.
+ * Step counter rendered as a small standalone label in the bottom-right
+ * corner of the canvas. Engine-positioned in viewBox coords; the JS
+ * controller only swaps the text on step change.
  */
-function emitControlBar(proj, hasSteps) {
-  const w = 32, gap = 4;
-  const x = proj.canvasW - w - 14;
-  const baseBtns = [
+function emitStepCounter(proj, stepPlan) {
+  // Pixel-space; wrapping group counter-scales for constant size.
+  const fs = 12;
+  const total = stepPlan.length;
+  // Anchor at bottom-left (canvas corner). Counter offset above and right
+  // of the corner by ~ctrlPad so it sits within the diagram frame.
+  const x = 14 + 32 + 8;   // ctrlPad + (where a left button would be) + visual gap
+  const y = -14;            // above the bottom edge by ctrlPad
+  return `<g class="step-counter-anchor screen-stable-fixed" data-anchor="bl" transform="translate(0 ${proj.canvasH}) scale(1)">
+    <text class="step-counter" x="${x}" y="${y}" text-anchor="start"
+        role="status" aria-live="polite" aria-atomic="true"
+        aria-label="Step 1 of ${total}"
+        font-family="var(--font)" font-size="${fs}" fill="var(--fg-dim, #999)">1 / ${total}</text>
+  </g>`;
+}
+
+/**
+ * Emit two button groups, sized and positioned algorithmically from the
+ * canvas dimensions. No runtime DOM repositioning: the gallery / blog
+ * wrapper is responsible for matching the SVG's viewBox aspect (via
+ * `aspect-ratio` CSS), so positions in viewBox coords already land flush
+ * with the container border.
+ *
+ *   • view group — top-right corner, vertical stack
+ *     (zoom-out / auto-fit / zoom-in / fullscreen)
+ *   • sequence  — bottom-centre, horizontal row
+ *     (restart / prev / autoplay / loop / next)
+ *
+ * Button size and padding scale with the canvas so tiny fixtures don't get
+ * lost-in-noise buttons and large ones don't get postage-stamps. Icons are
+ * authored in a 32-unit grid and scaled via the outer transform.
+ */
+function emitControlBar(proj, hasSteps, placed) {
+  // Constant display-pixel sizing. The wrapping groups are
+  // `screen-stable-fixed`, anchored at a viewBox corner; at runtime the JS
+  // controller appends `scale(1/ds)` so children — authored in a 32-unit
+  // pixel-space — always render at the same display size regardless of
+  // canvas, container, aspect, zoom, or camera.
+  const w   = 32;
+  const gap = 4;
+  const pad = 14;
+
+  const viewBtns = [
     { action: 'zoom-out',   label: 'Zoom out',  icon: 'M 9 16 L 23 16' },
     { action: 'auto-fit',   label: 'Reset view',icon: 'M 11 11 a 6 6 0 1 1 -2 4 M 9 11 l 2 0 l 0 -2' },
     { action: 'zoom-in',    label: 'Zoom in',   icon: 'M 9 16 L 23 16 M 16 9 L 16 23' },
     { action: 'fullscreen', label: 'Fullscreen',icon: 'M 9 13 L 9 9 L 13 9 M 23 13 L 23 9 L 19 9 M 9 19 L 9 23 L 13 23 M 23 19 L 23 23 L 19 23' },
   ];
-  const stepBtns = hasSteps ? [
-    { action: 'step-restart',    label: 'Restart sequence', icon: 'M 21 9 L 13 16 L 21 23 Z M 11 9 L 11 23' },
-    { action: 'step-prev',       label: 'Previous step',    icon: 'M 20 9 L 12 16 L 20 23' },
+  const seqBtns = hasSteps ? [
+    { action: 'step-restart',    label: 'Restart sequence (R)', icon: 'M 21 9 L 13 16 L 21 23 Z M 11 9 L 11 23' },
     { action: 'autoplay-toggle', label: 'Toggle autoplay',
       iconDual: {
         play:  'M 12 9 L 22 16 L 12 23 Z',
         pause: 'M 12 9 L 14 9 L 14 23 L 12 23 Z M 18 9 L 20 9 L 20 23 L 18 23 Z',
       } },
-    { action: 'step-next',       label: 'Next step',        icon: 'M 12 9 L 20 16 L 12 23' },
+    { action: 'loop-toggle',     label: 'Toggle loop',      icon: 'M 11 13 L 21 13 L 18 10 M 21 13 L 18 16 M 21 19 L 11 19 L 14 16 M 11 19 L 14 22' },
   ] : [];
-  const btns = [...stepBtns, ...baseBtns];
-  const yTop = proj.canvasH - (w * btns.length + gap * (btns.length - 1)) - 14;
-  const buttons = btns.map((b, i) => {
-    const ty = yTop + i * (w + gap);
+  const prevBtn = hasSteps ? { action: 'step-prev', label: 'Previous step (←)', icon: 'M 20 9 L 12 16 L 20 23' } : null;
+  const nextBtn = hasSteps ? { action: 'step-next', label: 'Next step (→)',     icon: 'M 12 9 L 20 16 L 12 23' } : null;
+
+  const KEY_HINTS = {
+    'zoom-in': '+', 'zoom-out': '-', 'auto-fit': '0', 'fullscreen': 'F',
+    'step-prev': 'ArrowLeft', 'step-next': 'ArrowRight', 'step-restart': 'R',
+    'autoplay-toggle': 'Space', 'loop-toggle': 'L',
+  };
+  const TOGGLE_PRESSED = {
+    'autoplay-toggle': false,
+    'loop-toggle': !!placed.autoplayLoop,
+  };
+  const renderBtn = (b, x, y) => {
     let iconBlock;
     if (b.iconDual) {
       iconBlock = `<path class="icon-play"  d="${b.iconDual.play}"  fill="var(--accent)" stroke="none"/>
@@ -721,13 +925,37 @@ function emitControlBar(proj, hasSteps) {
     } else {
       iconBlock = `<path d="${b.icon}" stroke="var(--accent)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>`;
     }
-    return `<g class="ctrl-btn" data-action="${b.action}" role="button" aria-label="${b.label}" tabindex="0" transform="translate(${x} ${ty})">
+    const pressed = b.action in TOGGLE_PRESSED ? ` aria-pressed="${TOGGLE_PRESSED[b.action]}"` : '';
+    const keyAttr = KEY_HINTS[b.action] ? ` aria-keyshortcuts="${KEY_HINTS[b.action]}"` : '';
+    return `<g class="ctrl-btn" data-action="${b.action}" role="button" aria-label="${b.label}"${pressed}${keyAttr} tabindex="0" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})">
       <title>${b.label}</title>
-      <rect x="0" y="0" width="${w}" height="${w}" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92"/>
+      <rect x="0" y="0" width="32" height="32" rx="6" fill="var(--bg-surface)" stroke="var(--accent)" stroke-width="1" opacity="0.92" aria-hidden="true"/>
       ${iconBlock}
     </g>`;
-  }).join('');
-  return `<g class="controls-bar" role="group" aria-label="Diagram controls">
-    ${buttons}
+  };
+
+  // View controls — anchored top-right; children at negative-x local coords
+  // so they grow inward from the corner.
+  const viewButtons = viewBtns.map((b, i) => renderBtn(b, -pad - w, pad + i * (w + gap))).join('');
+  const viewGroup = `<g class="controls-bar controls-view screen-stable-fixed" data-anchor="tr" role="group" aria-label="View controls" transform="translate(${proj.canvasW} 0) scale(1)">
+    ${viewButtons}
   </g>`;
+
+  if (!hasSteps) return viewGroup;
+
+  // Sequence controls — anchored bottom-centre; row centred around 0 above
+  // the bottom edge.
+  const rowW = w * seqBtns.length + gap * (seqBtns.length - 1);
+  const seqButtons = seqBtns.map((b, i) => renderBtn(b, -rowW / 2 + i * (w + gap), -pad - w)).join('');
+  const seqGroup = `<g class="controls-bar controls-seq screen-stable-fixed" data-anchor="bc" role="group" aria-label="Sequence controls" transform="translate(${proj.canvasW / 2} ${proj.canvasH}) scale(1)">
+    ${seqButtons}
+  </g>`;
+
+  // Prev + next grouped together at bottom-right — prev sits immediately to
+  // the left of next so the two-arrow pair reads as a single nav cluster.
+  const navGroup = `<g class="controls-bar controls-nav screen-stable-fixed" data-anchor="br" role="group" aria-label="Step navigation" transform="translate(${proj.canvasW} ${proj.canvasH}) scale(1)">
+    ${renderBtn(prevBtn, -2 * w - gap - pad, -pad - w)}
+    ${renderBtn(nextBtn, -w - pad, -pad - w)}
+  </g>`;
+  return `${viewGroup}${seqGroup}${navGroup}`;
 }

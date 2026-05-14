@@ -83,6 +83,25 @@ export function computeSteps(placed, projection) {
     setSubtract(dimmed,  expand(s.undim));
     setUnion(emphasised, expand(s.emphasize));
 
+    // Automatic edge rule: in shape-to-shape diagrams, an edge mirrors the
+    // dim state of its endpoints — un-dimmed iff both endpoints are visible
+    // AND un-dimmed; otherwise it is dimmed. "Highlight" is just the
+    // un-attenuated state, so authors never have to manage edge classes.
+    // Skipped for sequence diagrams, where the message arrow IS the focal
+    // element and the rule would dim the very thing each step is meant to
+    // surface.
+    if (placed._layout !== 'sequence') {
+      for (const e of placed.edges ?? []) {
+        if (!e.from || !e.to) continue;
+        const eid = `${e.from}-${e.to}`;
+        if (!visible.has(e.from) || !visible.has(e.to)) continue;
+        visible.add(eid);
+        const bothLit = !dimmed.has(e.from) && !dimmed.has(e.to);
+        if (bothLit) dimmed.delete(eid);
+        else         dimmed.add(eid);
+      }
+    }
+
     // Camera framing for this step.
     const camIds = s.camera === '*' ? allNodeIds : arr(s.camera);
     let cam = null;

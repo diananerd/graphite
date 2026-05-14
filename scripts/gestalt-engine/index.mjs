@@ -29,8 +29,17 @@ export function compile(spec, options = {}) {
   const camera = stepCamera ?? computeCamera(adapted, projection);
 
   // Controls are auto-enabled when there's a camera OR when there are steps
-  // (next/prev navigation needs the JS controller).
-  if ((camera || stepPlan) && !adapted.controls) {
+  // (next/prev navigation needs the JS controller). Authors can opt out with
+  // `controls: false | 'none' | 'off'` — useful when embedding inside their
+  // own chrome or when the diagram should be purely static.
+  const explicitlyDisabled =
+    adapted.controls === false ||
+    adapted.controls === 'none' ||
+    adapted.controls === 'off';
+  if (explicitlyDisabled) {
+    adapted.controls = '';
+    adapted._controlsExplicitlyDisabled = true;
+  } else if ((camera || stepPlan) && !adapted.controls) {
     adapted.controls = ['zoom', 'pan', 'auto-fit'];
     adapted.zoomRange = adapted.zoomRange ?? [0.25, 8];
     adapted._controlsAutoEnabled = true;

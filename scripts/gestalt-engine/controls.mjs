@@ -22,23 +22,41 @@ function I(s){
 var hz=parseFloat(s.getAttribute("data-camera-z"))||1;
 var hx=parseFloat(s.getAttribute("data-camera-tx"))||0;
 var hy=parseFloat(s.getAttribute("data-camera-ty"))||0;
-var z=hz,tx=hx,ty=hy,zr=s.querySelector(".zoom-root"),ss=s.querySelectorAll(".screen-stable"),bs=[],i;
+var z=hz,tx=hx,ty=hy,zr=s.querySelector(".zoom-root"),ss=s.querySelectorAll(".screen-stable"),sf=s.querySelectorAll(".screen-stable-fixed"),bs=[],i;
 for(i=0;i<ss.length;i++)bs.push(ss[i].getAttribute("transform")||"");
 var rng=(s.getAttribute("data-zoom-range")||"0.5 4").split(" ").map(parseFloat);
+function CS(el,bsv,sc){var m=bsv.match(/translate\\(([^)]+)\\)/);el.setAttribute("transform","translate("+(m?m[1]:"0 0")+") scale("+sc+")")}
 function A(){
 zr.setAttribute("transform","translate("+tx+" "+ty+") scale("+z+")");
-var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal,inv=1/(z*(r.width/vb.width));
-for(var i=0;i<ss.length;i++){var m=bs[i].match(/translate\\(([^)]+)\\)/);ss[i].setAttribute("transform","translate("+(m?m[1]:"0 0")+") scale("+inv+")")}
+var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal,
+ds=Math.min(r.width/vb.width,r.height/vb.height),inv=1/(z*ds),iv=1/ds,vw=vb.width,vh=vb.height;
+for(var i=0;i<ss.length;i++)CS(ss[i],bs[i],inv);
+// Chrome (controls, caption, counter) is anchored to a viewBox corner via
+// data-anchor and then counter-scaled by 1/ds so the inner pixel-space
+// coordinates render at constant display size regardless of canvas, zoom,
+// aspect, or camera.
+for(var i=0;i<sf.length;i++){
+  var el=sf[i],a=el.getAttribute("data-anchor"),px=0,py=0;
+  if(a==="tr"){px=vw;py=0}else if(a==="tl"){px=0;py=0}
+  else if(a==="br"){px=vw;py=vh}else if(a==="bl"){px=0;py=vh}
+  else if(a==="tc"){px=vw/2;py=0}else if(a==="bc"){px=vw/2;py=vh}
+  el.setAttribute("transform","translate("+px+" "+py+") scale("+iv+")");
+}
 s.setAttribute("data-zoom",z.toFixed(2));
 }
 function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
-  s.addEventListener("wheel",function(e){
-    e.preventDefault();
-    var d=e.deltaY>0?0.9:1.1, nz=clamp(z*d);
-    var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
-    var px=(e.clientX-r.left)/r.width*vb.width, py=(e.clientY-r.top)/r.height*vb.height;
-    tx=px-(px-tx)*(nz/z); ty=py-(py-ty)*(nz/z); z=nz; A();
-  },{passive:false});
+  // Wheel zoom is opt-in via \`wheel-zoom\` in the controls list. Hijacking
+  // page scroll without explicit consent is hostile UX, so the default is
+  // off; users can still zoom with the +/- buttons or keys.
+  if((s.getAttribute("data-controls")||"").split(/\\s+/).indexOf("wheel-zoom")>=0){
+    s.addEventListener("wheel",function(e){
+      e.preventDefault();
+      var d=e.deltaY>0?0.9:1.1, nz=clamp(z*d);
+      var r=s.getBoundingClientRect(),vb=s.viewBox.baseVal;
+      var px=(e.clientX-r.left)/r.width*vb.width, py=(e.clientY-r.top)/r.height*vb.height;
+      tx=px-(px-tx)*(nz/z); ty=py-(py-ty)*(nz/z); z=nz; A();
+    },{passive:false});
+  }
   var dg=0,sx=0,sy=0;
   s.addEventListener("pointerdown",function(e){
     if(e.target.closest(".ctrl-btn"))return;
@@ -57,11 +75,12 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
   var stepData=s.getAttribute("data-steps"),steps=stepData?JSON.parse(stepData):null,stepIdx=0,tweening=0;
   var nodeStepData=s.getAttribute("data-node-steps"),nodeMap=nodeStepData?JSON.parse(nodeStepData):{};
   var autoDefault=parseInt(s.getAttribute("data-autoplay-default"))||2500,autoplayId=null;
-  var autoLoop=s.getAttribute("data-autoplay-loop")==="1";
-  function stopAutoplay(){if(autoplayId){clearTimeout(autoplayId);autoplayId=null;s.removeAttribute("data-autoplay")}}
+  var autoLoop=s.getAttribute("data-loop")==="1";
+  function setPressed(act,v){var b=s.querySelector('.ctrl-btn[data-action="'+act+'"]');if(b)b.setAttribute("aria-pressed",v?"true":"false")}
+  function stopAutoplay(){if(autoplayId){clearTimeout(autoplayId);autoplayId=null;s.removeAttribute("data-autoplay");setPressed("autoplay-toggle",false)}}
   function startAutoplay(){
     if(!steps||autoplayId)return;
-    s.setAttribute("data-autoplay","1");
+    s.setAttribute("data-autoplay","1");setPressed("autoplay-toggle",true);
     function tick(){
       if(stepIdx>=steps.length-1){if(autoLoop){applyStep(0)}else{stopAutoplay();return}}
       else{applyStep(stepIdx+1)}
@@ -72,8 +91,9 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
     autoplayId=setTimeout(tick,d);
   }
   function toggleAutoplay(){if(autoplayId)stopAutoplay();else startAutoplay()}
-  var tweenGen=0;
+  var tweenGen=0,reduceMotion=matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   function tweenCam(tz,ttx,tty,dur){
+    if(reduceMotion){z=tz;tx=ttx;ty=tty;A();return}
     tweenGen++;var gen=tweenGen;
     var z0=z,x0=tx,y0=ty,t0=performance.now();tweening=1;
     function f(){if(gen!==tweenGen)return;
@@ -95,9 +115,12 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
       var p=s.querySelector('[data-id="'+st.pulse[k]+'"]');
       if(p){p.classList.remove("is-pulsing");void p.offsetWidth;p.classList.add("is-pulsing")}
     }
-    var cap=s.querySelector(".step-caption"),cnt=s.querySelector(".step-counter");
-    if(cap)cap.textContent=st.caption||"";
-    if(cnt)cnt.textContent=(i+1)+" / "+steps.length;
+    var cap=s.querySelector(".step-caption"),cnt=s.querySelector(".step-counter"),bg=s.querySelector(".caption-bg");
+    if(cap){while(cap.firstChild)cap.removeChild(cap.firstChild);
+      var L=st.lines||[st.caption||""],cxA=cap.getAttribute("x"),lh=cap.getAttribute("data-line-h");
+      for(var k=0;k<L.length;k++){var ts=document.createElementNS("http://www.w3.org/2000/svg","tspan");ts.setAttribute("x",cxA);if(k)ts.setAttribute("dy",lh);ts.textContent=L[k];cap.appendChild(ts)}}
+    if(bg&&st.barW){bg.setAttribute("width",st.barW);bg.setAttribute("x",parseFloat(cap.getAttribute("data-cx"))-st.barW/2)}
+    if(cnt){cnt.textContent=(i+1)+" / "+steps.length;cnt.setAttribute("aria-label","Step "+(i+1)+" of "+steps.length)}
     if(st.camera)tweenCam(st.camera.z,st.camera.tx,st.camera.ty,st.duration||600);
     s.setAttribute("data-step",i);
   }
@@ -110,10 +133,12 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
     else if(k==="step-prev"&&steps&&!tweening){stopAutoplay();applyStep(Math.max(0,stepIdx-1))}
     else if(k==="step-restart"&&steps){stopAutoplay();applyStep(0)}
     else if(k==="autoplay-toggle"){toggleAutoplay()}
+    else if(k==="loop-toggle"){autoLoop=!autoLoop;s.setAttribute("data-loop",autoLoop?"1":"0");setPressed("loop-toggle",autoLoop)}
+    else if(k==="chrome-toggle"){s.setAttribute("data-chrome",s.getAttribute("data-chrome")==="0"?"1":"0")}
   }
   var KMAP={"+":"zoom-in","=":"zoom-in","-":"zoom-out","_":"zoom-out","0":"auto-fit","f":"fullscreen","F":"fullscreen",
             "ArrowRight":"step-next","ArrowLeft":"step-prev","n":"step-next","p":"step-prev"," ":"autoplay-toggle",
-            "Home":"step-restart","r":"step-restart","R":"step-restart"};
+            "Home":"step-restart","r":"step-restart","R":"step-restart","l":"loop-toggle","c":"chrome-toggle","C":"chrome-toggle"};
   function btnAt(e){return e.target&&e.target.closest&&e.target.closest(".ctrl-btn")}
   s.addEventListener("keydown",function(e){
     var b=btnAt(e);if(b&&(e.key===" "||e.key==="Enter")){e.preventDefault();act(b.getAttribute("data-action"));return}
@@ -131,5 +156,5 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
   if(steps)applyStep(0);
 }
 var svgs=document.querySelectorAll("svg[data-controls]");
-for(var i=0;i<svgs.length;i++)I(svgs[i]);
+for(var i=0;i<svgs.length;i++){if(svgs[i].getAttribute("data-init")==="1")continue;svgs[i].setAttribute("data-init","1");I(svgs[i])}
 })();`;

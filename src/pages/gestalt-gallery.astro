@@ -4,10 +4,12 @@ import Base from '../layouts/Base.astro';
 
 const OUTPUT_DIR = './tests/gestalt/output';
 const files = readdirSync(OUTPUT_DIR).filter(f => f.endsWith('.svg')).sort();
-const svgs = files.map(f => ({
-  name: f.replace('.svg', ''),
-  svg: readFileSync(`${OUTPUT_DIR}/${f}`, 'utf8'),
-}));
+const svgs = files.map(f => {
+  const svg = readFileSync(`${OUTPUT_DIR}/${f}`, 'utf8');
+  const m = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+  const ar = m ? (parseFloat(m[1]) / parseFloat(m[2])).toFixed(4) : '1.7778';
+  return { name: f.replace('.svg', ''), svg, ar };
+});
 ---
 
 <Base title="Gestalt P1 — projection testbench">
@@ -23,10 +25,10 @@ const svgs = files.map(f => ({
       bounds (cyan), the declared margin box (purple dashed) and the content
       bbox centred inside it.
     </p>
-    {svgs.map(({name, svg}) => (
+    {svgs.map(({name, svg, ar}) => (
       <section style="margin-bottom: 2.5rem;">
         <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">{name}</h2>
-        <div class="diagram-frame" set:html={svg}></div>
+        <div class="diagram-frame" style={`--ar: ${ar}`} set:html={svg}></div>
       </section>
     ))}
   </main>
@@ -40,12 +42,18 @@ const svgs = files.map(f => ({
     padding: 0;
     display: block;
     line-height: 0;
+    /* The bordered frame always matches the SVG's viewBox aspect so no
+       letterboxing happens inside the border and the controls (anchored to
+       the SVG element edges) land flush with the container. `--ar` is set
+       inline per-fixture; width clamps to the smaller of the column or what
+       fits under 70vh at this aspect. */
+    aspect-ratio: var(--ar);
+    width: min(100%, calc(70vh * var(--ar)));
   }
   .diagram-frame :global(svg) {
     display: block;
     width: 100%;
-    height: auto;
-    max-height: 70vh;
+    height: 100%;
   }
   /* Overlay the projection bounds for diagnostics. */
   .diagram-frame :global(svg)::after {

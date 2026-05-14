@@ -26,6 +26,28 @@
     .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: none; }
     .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-play { display: none; }
     .gestalt-root[data-autoplay="1"] .ctrl-btn[data-action="autoplay-toggle"] .icon-pause { display: block; }
+    .ctrl-btn[data-action="loop-toggle"] { opacity: 0.5; }
+    .gestalt-root[data-loop="1"] .ctrl-btn[data-action="loop-toggle"] { opacity: 1; }
+    .gestalt-root[data-chrome="0"] .controls-bar,
+    .gestalt-root[data-chrome="0"] .caption-bar,
+    .gestalt-root[data-chrome="0"] .step-counter { opacity: 0; pointer-events: none; transition: opacity 180ms ease-out; }
+    .gestalt-root[data-chrome="1"] .controls-bar,
+    .gestalt-root[data-chrome="1"] .caption-bar,
+    .gestalt-root[data-chrome="1"] .step-counter { transition: opacity 180ms ease-out; }
+    .gestalt-root:fullscreen { width: 100vw; height: 100vh; background: var(--bg); }
+    .gestalt-root::backdrop { background: var(--bg); }
+    /* A11y: visible focus ring for keyboard navigation. */
+    .gestalt-root:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .gestalt-root:focus:not(:focus-visible) { outline: none; }
+    .ctrl-btn:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .ctrl-btn:focus:not(:focus-visible) { outline: none; }
+    /* A11y: respect prefers-reduced-motion — animations and step transitions
+       collapse to instant updates so users sensitive to motion can still
+       follow the sequence without vestibular discomfort. */
+    @media (prefers-reduced-motion: reduce) {
+      .g-node, .g-edge, .controls-bar, .caption-bar, .step-counter,
+      .g-node.is-pulsing { transition: none !important; animation: none !important; }
+    }
   </style>
     
   <filter id="shadow-subtle" x="-20%" y="-20%" width="140%" height="140%">
@@ -112,6 +134,7 @@
       
     </g>
   </g>
+  
   
   
   

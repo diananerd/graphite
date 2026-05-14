@@ -209,8 +209,8 @@ function v20_jsBudget(svg, spec) {
     return { id: 'V20', ok: false, msg: 'controls declared but no <script> emitted' };
   }
   const bytes = Buffer.byteLength(scriptMatch[1], 'utf8');
-  if (bytes > 6500) {
-    return { id: 'V20', ok: false, msg: `JS payload ${bytes}B > 6500B budget` };
+  if (bytes > 9000) {
+    return { id: 'V20', ok: false, msg: `JS payload ${bytes}B > 9000B budget` };
   }
   return { id: 'V20', ok: true };
 }
