@@ -25,24 +25,29 @@ export function computeCamera(spec, projection) {
   const focal = (spec.nodes ?? []).filter((n) => ids.has(n.id));
   if (focal.length === 0) return null;
 
-  // In sequence layouts each "node" is a header; its lifeline extends far
-  // below. The camera should frame the lifeline column, not just the header.
-  const lifelineById = {};
-  for (const l of spec._lifelines ?? []) lifelineById[l.id] = l;
-
   // Focal nodes' bbox in projected canvas coords. Nodes carry virtual (x,y);
   // the projection's tx/ty shifts them into canvas space.
   let x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
   for (const n of focal) {
     const cx = n.x + projection.tx;
     const cy = n.y + projection.ty;
-    const ll = lifelineById[n.id];
-    const topY = ll ? ll.yTop + projection.ty : cy - n.h / 2;
-    const botY = ll ? ll.yBot + projection.ty : cy + n.h / 2;
     x1 = Math.min(x1, cx - n.w / 2);
-    y1 = Math.min(y1, Math.min(cy - n.h / 2, topY));
+    y1 = Math.min(y1, cy - n.h / 2);
     x2 = Math.max(x2, cx + n.w / 2);
-    y2 = Math.max(y2, botY);
+    y2 = Math.max(y2, cy + n.h / 2);
+  }
+
+  // Sequence-diagram messages: when an edge sits at a fixed `_seqY` and at
+  // least one endpoint is focal, the camera should include that message
+  // (so framing on "App" reveals every message App participates in). The
+  // dashed lifelines themselves are decorative context and intentionally
+  // excluded from the framing.
+  for (const e of spec.edges ?? []) {
+    if (e._seqY === undefined) continue;
+    if (!ids.has(e.from) && !ids.has(e.to)) continue;
+    const fy = e._seqY + projection.ty;
+    y1 = Math.min(y1, fy - 10);
+    y2 = Math.max(y2, fy + 10);
   }
 
   const padding = spec.viewPadding ?? DEFAULT_VIEW_PADDING;
