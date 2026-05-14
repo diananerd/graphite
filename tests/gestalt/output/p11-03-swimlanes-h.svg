@@ -207,13 +207,14 @@ function clamp(v){return Math.max(rng[0],Math.min(rng[1],v))}
   var stepData=s.getAttribute("data-steps"),steps=stepData?JSON.parse(stepData):null,stepIdx=0,tweening=0;
   var nodeStepData=s.getAttribute("data-node-steps"),nodeMap=nodeStepData?JSON.parse(nodeStepData):{};
   var autoDefault=parseInt(s.getAttribute("data-autoplay-default"))||2500,autoplayId=null;
+  var autoLoop=s.getAttribute("data-autoplay-loop")==="1";
   function stopAutoplay(){if(autoplayId){clearTimeout(autoplayId);autoplayId=null;s.removeAttribute("data-autoplay")}}
   function startAutoplay(){
     if(!steps||autoplayId)return;
     s.setAttribute("data-autoplay","1");
     function tick(){
-      if(stepIdx>=steps.length-1){stopAutoplay();return}
-      applyStep(stepIdx+1);
+      if(stepIdx>=steps.length-1){if(autoLoop){applyStep(0)}else{stopAutoplay();return}}
+      else{applyStep(stepIdx+1)}
       var dur=(steps[stepIdx].autoDuration||autoDefault);
       autoplayId=setTimeout(tick,dur);
     }

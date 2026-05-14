@@ -1,0 +1,33 @@
+{
+  "name": "p12-07-autoplay-loop",
+  "title": "Autoplay loop — event loop cycles forever once played",
+  "ratio": "1:1",
+  "margin": 64,
+  "autoplayDuration": 1800,
+  "autoplayLoop": true,
+  "nodes": [
+    { "id": "timers", "shape": "circle", "label": "timers",       "role": "primary"   },
+    { "id": "pcb",    "shape": "circle", "label": "pending cb",   "role": "secondary" },
+    { "id": "idle",   "shape": "circle", "label": "idle",         "role": "info"      },
+    { "id": "poll",   "shape": "circle", "label": "poll",         "role": "warning"   },
+    { "id": "check",  "shape": "circle", "label": "check",        "role": "data"      },
+    { "id": "close",  "shape": "circle", "label": "close",        "role": "external"  }
+  ],
+  "edges": [
+    { "from": "timers", "to": "pcb" },
+    { "from": "pcb",    "to": "idle" },
+    { "from": "idle",   "to": "poll" },
+    { "from": "poll",   "to": "check" },
+    { "from": "check",  "to": "close" },
+    { "from": "close",  "to": "timers" }
+  ],
+  "steps": [
+    { "id": "all",     "caption": "Node.js event loop — 6 phases",  "show": "*", "dim": ["pcb","idle","poll","check","close"], "camera": "*" },
+    { "id": "timers",  "caption": "Phase 1 — timers fire",          "undim": ["timers"], "dim": ["close"], "activate": ["timers"], "deactivate": ["close"], "camera": ["timers"] },
+    { "id": "pcb",     "caption": "Phase 2 — pending callbacks",    "undim": ["pcb"], "dim": ["timers"], "activate": ["pcb"], "deactivate": ["timers"], "camera": ["pcb"] },
+    { "id": "idle",    "caption": "Phase 3 — idle / prepare",       "undim": ["idle"], "dim": ["pcb"], "activate": ["idle"], "deactivate": ["pcb"], "camera": ["idle"] },
+    { "id": "poll",    "caption": "Phase 4 — poll for I/O",         "undim": ["poll"], "dim": ["idle"], "activate": ["poll"], "deactivate": ["idle"], "camera": ["poll"] },
+    { "id": "check",   "caption": "Phase 5 — setImmediate callbacks","undim": ["check"], "dim": ["poll"], "activate": ["check"], "deactivate": ["poll"], "camera": ["check"] },
+    { "id": "close",   "caption": "Phase 6 — close callbacks",      "undim": ["close"], "dim": ["check"], "activate": ["close"], "deactivate": ["check"], "camera": ["close"] }
+  ]
+}

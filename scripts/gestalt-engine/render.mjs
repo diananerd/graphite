@@ -574,6 +574,7 @@ export function renderSVG(placed, proj, opts = {}) {
     : '';
   const autoplayDefault = placed.autoplayDuration ?? 2500;
   const autoplayAttr = stepPlan ? ` data-autoplay-default="${autoplayDefault}"` : '';
+  const loopAttr = stepPlan && placed.autoplayLoop ? ` data-autoplay-loop="1"` : '';
   const role = controls ? 'application' : 'img';
   const scriptBlock = controls ? `<script><![CDATA[${CONTROLS_SCRIPT}]]></script>` : '';
   const controlBar = controls ? emitControlBar(proj, !!stepPlan) : '';
@@ -599,7 +600,7 @@ export function renderSVG(placed, proj, opts = {}) {
      class="gestalt-root"
      data-margin="${proj.margin}"
      data-layout="${escapeXml(placed._layout ?? '?')}"
-     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}${stepsAttr}${nodeMapAttr}${autoplayAttr}
+     data-content-bbox="${proj.contentBBox.x},${proj.contentBBox.y},${proj.contentBBox.w},${proj.contentBBox.h}"${controlsAttr}${zoomAttr}${camAttr}${stepsAttr}${nodeMapAttr}${autoplayAttr}${loopAttr}
      aria-label="${escapeXml(placed.title ?? 'diagram')}"
      tabindex="${controls ? 0 : -1}">
   <title>${escapeXml(placed.title ?? 'diagram')}</title>
